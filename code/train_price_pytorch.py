@@ -28,13 +28,22 @@ FEATURE_COLS = [
     "Price Change 1 Day Percent",
 ]
 
+MACRO_FEATURE_COLS = [
+    "inflation_rate",
+    "cpi_index",
+    "bi_rate",
+    "exchange_rate_usd_idr",
+    "ihsg_close",
+    "ihsg_return_1d",
+]
+
 
 @dataclass
 class TrainConfig:
     bank_name: str
     forecast_days: int = 30
     data_dir: Path = Path("data")
-    output_root: Path = Path("results_revised")
+    output_root: Path = Path("results")
     time_steps: int = 60
     epochs: int = 50
     batch_size: int = 32
@@ -42,6 +51,9 @@ class TrainConfig:
     dropout: float = 0.3
     learning_rate: float = 1e-3
     optimize: bool = False
+    use_macro: bool = False
+    tune_epochs: int = 8
+    tune_candidates: int = 6
     run_shap: bool = False
     shap_background_size: int = 64
     shap_eval_size: int = 32
@@ -98,13 +110,15 @@ def create_sequences(
     return np.asarray(x_seq, dtype=np.float32), np.asarray(y_seq, dtype=np.float32)
 
 
-def load_data(config: TrainConfig) -> tuple[pd.DataFrame, StandardScaler, StandardScaler]:
+def load_data(
+    config: TrainConfig, feature_cols: list[str]
+) -> tuple[pd.DataFrame, StandardScaler, StandardScaler]:
     csv_path = config.data_dir / f"{config.bank_name}.csv"
     if not csv_path.exists():
         raise FileNotFoundError(f"CSV not found: {csv_path}")
 
     df = pd.read_csv(csv_path)
-    missing_cols = [col for col in FEATURE_COLS + [TARGET_COL, "Date"] if col not in df.columns]
+    missing_cols = [col for col in feature_cols + [TARGET_COL, "Date"] if col not in df.columns]
     if missing_cols:
         raise ValueError(f"Missing columns in dataset: {missing_cols}")
 
@@ -112,10 +126,10 @@ def load_data(config: TrainConfig) -> tuple[pd.DataFrame, StandardScaler, Standa
     df = df.set_index("Date").sort_index()
     df = df.ffill().dropna()
 
-    selected = df[FEATURE_COLS + [TARGET_COL]].copy()
+    selected = df[feature_cols + [TARGET_COL]].copy()
     feature_scaler = StandardScaler()
     target_scaler = StandardScaler()
-    selected[FEATURE_COLS] = feature_scaler.fit_transform(selected[FEATURE_COLS].values)
+    selected[feature_cols] = feature_scaler.fit_transform(selected[feature_cols].values)
     selected[TARGET_COL] = target_scaler.fit_transform(selected[[TARGET_COL]]).flatten()
     return selected, feature_scaler, target_scaler
 
@@ -124,12 +138,13 @@ def build_dataloaders(
     train_set: pd.DataFrame,
     val_set: pd.DataFrame,
     test_set: pd.DataFrame,
+    feature_cols: list[str],
     time_steps: int,
     batch_size: int,
 ) -> tuple[DataLoader, DataLoader, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-    x_train, y_train = create_sequences(train_set, FEATURE_COLS, TARGET_COL, time_steps)
-    x_val, y_val = create_sequences(val_set, FEATURE_COLS, TARGET_COL, time_steps)
-    x_test, y_test = create_sequences(test_set, FEATURE_COLS, TARGET_COL, time_steps)
+    x_train, y_train = create_sequences(train_set, feature_cols, TARGET_COL, time_steps)
+    x_val, y_val = create_sequences(val_set, feature_cols, TARGET_COL, time_steps)
+    x_test, y_test = create_sequences(test_set, feature_cols, TARGET_COL, time_steps)
 
     train_ds = TensorDataset(torch.from_numpy(x_train), torch.from_numpy(y_train))
     val_ds = TensorDataset(torch.from_numpy(x_val), torch.from_numpy(y_val))
@@ -319,6 +334,7 @@ def run_shap_kernel_explainer(
 def tune_hyperparams(
     train_set: pd.DataFrame,
     val_set: pd.DataFrame,
+    feature_cols: list[str],
     base_config: TrainConfig,
     device: torch.device,
 ) -> TrainConfig:
@@ -329,7 +345,7 @@ def tune_hyperparams(
         "batch_size": [16, 32, 64],
         "dropout": [0.2, 0.3, 0.4],
     }
-    candidates = 6
+    candidates = max(1, int(base_config.tune_candidates))
     best_val = float("inf")
     best_cfg = copy.deepcopy(base_config)
 
@@ -339,12 +355,12 @@ def tune_hyperparams(
         trial.learning_rate = random.choice(search_space["learning_rate"])
         trial.batch_size = random.choice(search_space["batch_size"])
         trial.dropout = random.choice(search_space["dropout"])
-        trial.epochs = 8
+        trial.epochs = max(1, int(base_config.tune_epochs))
 
         train_loader, val_loader, *_ = build_dataloaders(
-            train_set, val_set, val_set, trial.time_steps, trial.batch_size
+            train_set, val_set, val_set, feature_cols, trial.time_steps, trial.batch_size
         )
-        model = PriceLSTM(len(FEATURE_COLS), trial.hidden_size, trial.dropout).to(device)
+        model = PriceLSTM(len(feature_cols), trial.hidden_size, trial.dropout).to(device)
         model, history = train_model(model, train_loader, val_loader, trial, device)
         trial_best_val = min(h["val_loss"] for h in history)
         print(
@@ -363,8 +379,13 @@ def tune_hyperparams(
 def parse_args() -> TrainConfig:
     parser = argparse.ArgumentParser(description="Refactored PyTorch pipeline for bank closing-price prediction.")
     parser.add_argument("--bank", type=str, help="Bank symbol, e.g. BBCA")
+    parser.add_argument("--data-dir", type=str, default="data")
+    parser.add_argument("--output-root", type=str, default="results")
     parser.add_argument("--forecast-days", type=int, default=30)
     parser.add_argument("--optimize", action="store_true")
+    parser.add_argument("--use-macro", action="store_true")
+    parser.add_argument("--tune-epochs", type=int, default=8)
+    parser.add_argument("--tune-candidates", type=int, default=6)
     parser.add_argument("--epochs", type=int, default=50)
     parser.add_argument("--time-steps", type=int, default=60)
     parser.add_argument("--batch-size", type=int, default=32)
@@ -380,6 +401,8 @@ def parse_args() -> TrainConfig:
     bank_name = args.bank.strip().upper() if args.bank else input("Enter bank name (e.g., BBCA): ").strip().upper()
     return TrainConfig(
         bank_name=bank_name,
+        data_dir=Path(args.data_dir),
+        output_root=Path(args.output_root),
         forecast_days=args.forecast_days,
         epochs=args.epochs,
         time_steps=args.time_steps,
@@ -388,6 +411,9 @@ def parse_args() -> TrainConfig:
         dropout=args.dropout,
         learning_rate=args.learning_rate,
         optimize=args.optimize,
+        use_macro=args.use_macro,
+        tune_epochs=args.tune_epochs,
+        tune_candidates=args.tune_candidates,
         run_shap=args.run_shap,
         shap_background_size=args.shap_background_size,
         shap_eval_size=args.shap_eval_size,
@@ -399,32 +425,35 @@ def main() -> None:
     config = parse_args()
     set_seed(config.seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    feature_cols = FEATURE_COLS + MACRO_FEATURE_COLS if config.use_macro else FEATURE_COLS
     print(f"Device: {device}")
     print(f"Bank: {config.bank_name} | Forecast days: {config.forecast_days}")
+    print(f"Data dir: {config.data_dir} | Use macro: {config.use_macro}")
+    print(f"Feature count: {len(feature_cols)}")
 
     output_dir = config.output_root / config.bank_name
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    selected_data, feature_scaler, target_scaler = load_data(config)
+    selected_data, feature_scaler, target_scaler = load_data(config, feature_cols)
     train_set = split_dataset_by_date(selected_data, "2014-01-02", "2020-01-02")
     val_set = split_dataset_by_date(selected_data, "2020-01-02", "2022-01-02")
     test_set = split_dataset_by_date(selected_data, "2022-01-02", "2024-12-31")
     print(f"Split sizes | train={len(train_set)} val={len(val_set)} test={len(test_set)}")
 
     if config.optimize:
-        config = tune_hyperparams(train_set, val_set, config, device)
+        config = tune_hyperparams(train_set, val_set, feature_cols, config, device)
         print(
             f"Using tuned params | hidden={config.hidden_size} lr={config.learning_rate} "
             f"bs={config.batch_size} dropout={config.dropout}"
         )
 
     train_loader, val_loader, x_train, y_train, x_test, y_test = build_dataloaders(
-        train_set, val_set, test_set, config.time_steps, config.batch_size
+        train_set, val_set, test_set, feature_cols, config.time_steps, config.batch_size
     )
     if len(x_train) == 0 or len(x_test) == 0:
         raise ValueError("Insufficient sequence samples. Reduce --time-steps or verify date ranges in data.")
 
-    model = PriceLSTM(len(FEATURE_COLS), config.hidden_size, config.dropout).to(device)
+    model = PriceLSTM(len(feature_cols), config.hidden_size, config.dropout).to(device)
     model, history = train_model(model, train_loader, val_loader, config, device)
     metrics, y_true, y_pred = evaluate_test(model, x_test, y_test, target_scaler, device)
     print(
@@ -450,7 +479,7 @@ def main() -> None:
             model=model,
             x_train=x_train,
             x_test=x_test,
-            feature_cols=FEATURE_COLS,
+            feature_cols=feature_cols,
             time_steps=config.time_steps,
             device=device,
             background_size=config.shap_background_size,
@@ -470,7 +499,7 @@ def main() -> None:
         "metrics": metrics,
         "n_train_sequences": int(len(x_train)),
         "n_test_sequences": int(len(x_test)),
-        "feature_columns": FEATURE_COLS,
+        "feature_columns": feature_cols,
         "target_column": TARGET_COL,
     }
     if shap_importance is not None:
