@@ -1,1 +1,0 @@
-print("Template Code Paper")

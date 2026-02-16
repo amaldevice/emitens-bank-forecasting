@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "mcp-tools": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:/Users/Braincore/Documents/GitHub/mcp-tools",
+        "run",
+        "python",
+        "server.py"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:/Users/Braincore/Desktop",
+        "C:/Users/Braincore/Downloads",
+        "C:/Users/Braincore/Documents/GitHub"
+      ]
+    }
+  }
+}
