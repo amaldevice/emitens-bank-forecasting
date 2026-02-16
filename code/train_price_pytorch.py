@@ -50,6 +50,7 @@ class TrainConfig:
     hidden_size: int = 32
     dropout: float = 0.3
     learning_rate: float = 1e-3
+    model_type: str = "lstm"
     optimize: bool = False
     use_macro: bool = False
     tune_epochs: int = 8
@@ -62,17 +63,22 @@ class TrainConfig:
 
 
 class PriceLSTM(nn.Module):
-    def __init__(self, n_features: int, hidden_size: int, dropout: float) -> None:
+    def __init__(
+        self, n_features: int, hidden_size: int, dropout: float, bidirectional: bool = False
+    ) -> None:
         super().__init__()
+        self.bidirectional = bidirectional
         self.lstm = nn.LSTM(
             input_size=n_features,
             hidden_size=hidden_size,
             num_layers=1,
             batch_first=True,
+            bidirectional=bidirectional,
         )
+        lstm_out = hidden_size * (2 if bidirectional else 1)
         self.head = nn.Sequential(
             nn.Dropout(dropout),
-            nn.Linear(hidden_size, 16),
+            nn.Linear(lstm_out, 16),
             nn.ReLU(),
             nn.Dropout(0.2),
             nn.Linear(16, 1),
@@ -89,6 +95,9 @@ def set_seed(seed: int) -> None:
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
+    # Reduce run-to-run nondeterminism for multi-seed experiments.
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 
 def split_dataset_by_date(df: pd.DataFrame, start_date: str, end_date: str) -> pd.DataFrame:
@@ -360,7 +369,12 @@ def tune_hyperparams(
         train_loader, val_loader, *_ = build_dataloaders(
             train_set, val_set, val_set, feature_cols, trial.time_steps, trial.batch_size
         )
-        model = PriceLSTM(len(feature_cols), trial.hidden_size, trial.dropout).to(device)
+        model = PriceLSTM(
+            len(feature_cols),
+            trial.hidden_size,
+            trial.dropout,
+            bidirectional=(base_config.model_type == "bilstm"),
+        ).to(device)
         model, history = train_model(model, train_loader, val_loader, trial, device)
         trial_best_val = min(h["val_loss"] for h in history)
         print(
@@ -392,10 +406,12 @@ def parse_args() -> TrainConfig:
     parser.add_argument("--hidden-size", type=int, default=32)
     parser.add_argument("--dropout", type=float, default=0.3)
     parser.add_argument("--learning-rate", type=float, default=1e-3)
+    parser.add_argument("--model-type", choices=["lstm", "bilstm"], default="lstm")
     parser.add_argument("--run-shap", action="store_true")
     parser.add_argument("--shap-background-size", type=int, default=64)
     parser.add_argument("--shap-eval-size", type=int, default=32)
     parser.add_argument("--shap-nsamples", type=int, default=100)
+    parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
     bank_name = args.bank.strip().upper() if args.bank else input("Enter bank name (e.g., BBCA): ").strip().upper()
@@ -410,6 +426,7 @@ def parse_args() -> TrainConfig:
         hidden_size=args.hidden_size,
         dropout=args.dropout,
         learning_rate=args.learning_rate,
+        model_type=args.model_type,
         optimize=args.optimize,
         use_macro=args.use_macro,
         tune_epochs=args.tune_epochs,
@@ -418,6 +435,7 @@ def parse_args() -> TrainConfig:
         shap_background_size=args.shap_background_size,
         shap_eval_size=args.shap_eval_size,
         shap_nsamples=args.shap_nsamples,
+        seed=args.seed,
     )
 
 
@@ -429,6 +447,7 @@ def main() -> None:
     print(f"Device: {device}")
     print(f"Bank: {config.bank_name} | Forecast days: {config.forecast_days}")
     print(f"Data dir: {config.data_dir} | Use macro: {config.use_macro}")
+    print(f"Model type: {config.model_type}")
     print(f"Feature count: {len(feature_cols)}")
 
     output_dir = config.output_root / config.bank_name
@@ -453,7 +472,12 @@ def main() -> None:
     if len(x_train) == 0 or len(x_test) == 0:
         raise ValueError("Insufficient sequence samples. Reduce --time-steps or verify date ranges in data.")
 
-    model = PriceLSTM(len(feature_cols), config.hidden_size, config.dropout).to(device)
+    model = PriceLSTM(
+        len(feature_cols),
+        config.hidden_size,
+        config.dropout,
+        bidirectional=(config.model_type == "bilstm"),
+    ).to(device)
     model, history = train_model(model, train_loader, val_loader, config, device)
     metrics, y_true, y_pred = evaluate_test(model, x_test, y_test, target_scaler, device)
     print(
