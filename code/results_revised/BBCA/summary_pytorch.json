@@ -1,0 +1,48 @@
+{
+  "config": {
+    "bank_name": "BBCA",
+    "forecast_days": 1,
+    "data_dir": "data",
+    "output_root": "results_revised",
+    "time_steps": 60,
+    "epochs": 1,
+    "batch_size": 32,
+    "hidden_size": 32,
+    "dropout": 0.3,
+    "learning_rate": 0.001,
+    "optimize": false,
+    "run_shap": true,
+    "shap_background_size": 4,
+    "shap_eval_size": 2,
+    "shap_nsamples": 10,
+    "seed": 42
+  },
+  "metrics": {
+    "mse": 10079996.0,
+    "rmse": 3174.9009433366577,
+    "mae": 3059.251953125,
+    "mape": 33.16600799560547
+  },
+  "n_train_sequences": 1395,
+  "n_test_sequences": 662,
+  "feature_columns": [
+    "Ask Price",
+    "Bid Price",
+    "High Price",
+    "Low Price",
+    "Moving Average 20 Day",
+    "Price to Sales Ratio",
+    "Price to Book Ratio",
+    "Price Earnings Ratio",
+    "Dividend Indicated Yld - Gross",
+    "Price Change 1 Day Percent"
+  ],
+  "target_column": "Closing Price",
+  "shap": {
+    "method": "kernel_explainer",
+    "background_size": 4,
+    "eval_size": 2,
+    "nsamples": 10,
+    "top_feature": "Price Earnings Ratio"
+  }
+}
