@@ -1,20 +1,34 @@
 \section{Proposed Methodology}
 
 \subsection{Overall Framework}
-% Pipeline diagram description
+The pipeline consists of five stages: data loading and scaling, sequence generation, model training, out-of-sample forecasting, and interpretability analysis. We evaluate multiple design factors using controlled ablation to isolate contribution from architecture, macro features, and optimization.
 
 \subsection{Machine Learning Models}
-\subsubsection{Random Forest Regression}
-% Model description
+\subsubsection{LSTM and BiLSTM}
+We use a one-layer recurrent encoder followed by a fully connected prediction head. Two architecture variants are compared:
+\begin{itemize}
+    \item LSTM: unidirectional temporal encoder.
+    \item BiLSTM: bidirectional temporal encoder with doubled hidden-state output dimension.
+\end{itemize}
 
-\subsubsection{Extreme Gradient Boosting (XGBoost)}
-% Model description
+\subsubsection{Planned Tree-Based Baselines}
+To strengthen state-of-the-art comparison, we include XGBoost and LightGBM baselines under matched feature regimes (price-only and price+macro). Together with LSTM and BiLSTM, this forms a four-model benchmark suite.
 
-\subsection{Genetic Algorithm for Hyperparameter Optimization}
-% Encoding
-% Fitness function
-% GA operators
+\subsection{Genetic Algorithm Hyperparameter Optimization}
+Hyperparameter tuning is formulated as a GA-driven search process with validation loss as the fitness objective. Candidate configurations are evolved across generations using selection, crossover, and mutation to balance exploration and exploitation. The optimization block is applied consistently across comparable model settings under a fixed budget for fair evaluation.
+
+\subsection{Statistical Validation}
+Beyond average error reporting, we apply:
+\begin{itemize}
+    \item Wilcoxon signed-rank test on seed-level paired RMSE,
+    \item Diebold-Mariano test on aligned forecast residuals.
+\end{itemize}
+These tests assess whether gains over baseline are statistically significant.
 
 \subsection{Explainable AI using SHAP}
-% SHAP methodology
-% Interpretation strategy
+We apply SHAP KernelExplainer on selected train/test subsets to estimate feature attribution. Analysis is reported in two forms:
+\begin{itemize}
+    \item Global explanation: mean absolute SHAP importance by feature.
+    \item Local explanation: selected instances under volatile periods.
+\end{itemize}
+This supports economically meaningful interpretation of model behavior.

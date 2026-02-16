@@ -1,12 +1,41 @@
 \section{Results and Discussion}
 
-\subsection{Performance Comparison}
-% RF vs XGB
-% With and without GA
+\subsection{Performance Comparison Across Configurations}
+Table~\ref{tab:main_results} will summarize per-bank performance across ablation cases using mean$\pm$std over seeds. Initial analysis should highlight: (i) whether macro features improve accuracy, (ii) whether BiLSTM consistently outperforms LSTM, and (iii) whether optimization yields robust gains.
 
-\subsection{Computational Cost Analysis}
-% Training time comparison
+\begin{table}[t]
+\centering
+\caption{Placeholder for main multi-seed performance table (RMSE, MAE, MAPE, MSE).}
+\label{tab:main_results}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Item & Description \\
+\midrule
+Rows & Bank $\times$ case \\
+Values & Mean and std across seeds \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Statistical Significance Analysis}
+Table~\ref{tab:stats_results} will report Wilcoxon and Diebold-Mariano statistics for best-case vs baseline comparisons per bank. This section should distinguish between numerical improvement and statistically significant improvement.
+
+\begin{table}[t]
+\centering
+\caption{Placeholder for significance tests (best case vs baseline).}
+\label{tab:stats_results}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Item & Description \\
+\midrule
+Tests & Wilcoxon, Diebold-Mariano \\
+Outputs & Test statistic, p-value, improvement (\%) \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Explainability Analysis}
-% SHAP global importance
-% SHAP local explanation
+Global SHAP plots will identify dominant features under each regime. Local SHAP examples should be selected from volatile market intervals to explain prediction behavior under stress. Discussion will emphasize financial interpretation rather than only ranking statistics.
+
+\subsection{Discussion and Threats to Validity}
+Key validity points include data horizon selection, sensitivity to split boundaries, and potential overfitting risk under repeated tuning. Future iterations should include walk-forward validation and external baseline models (XGBoost/LightGBM) under matched budgets.

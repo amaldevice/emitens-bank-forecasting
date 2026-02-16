@@ -1,0 +1,23 @@
+[mcp_servers."mcp-tools"]
+command = "uv"
+args = [
+  "--directory",
+  "C:/Users/Braincore/Documents/GitHub/mcp-tools",
+  "run",
+  "python",
+  "server.py",
+]
+
+[mcp_servers."sequential-thinking"]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+
+[mcp_servers."filesystem"]
+command = "npx"
+args = [
+  "-y",
+  "@modelcontextprotocol/server-filesystem",
+  "C:/Users/Braincore/Desktop",
+  "C:/Users/Braincore/Downloads",
+  "C:/Users/Braincore/Documents/GitHub",
+]

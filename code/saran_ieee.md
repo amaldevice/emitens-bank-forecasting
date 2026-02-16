@@ -88,3 +88,22 @@ Kamu sudah memiliki script XAI, sekarang pertegas narasinya:
 ---
 
 **Catatan Jujur:** Proyekmu saat ini sudah mencapai 60-70% kelayakan. Tambahan di sisi **Macro Data** dan **Ablation Study** akan menjadi pendorong utama agar paper ini dianggap memiliki kontribusi ilmiah yang solid di mata reviewer IEEE.
+
+---
+
+## Reminder Implementasi (Disepakati)
+
+Tambahan ini sebagai pengingat praktis agar eksperimen tetap ilmiah tetapi tidak "meledak" kombinasi:
+
+- **Baseline SOTA minimum yang wajib ditambah**: `XGBoost` dan `LightGBM`.
+- **Jumlah kombinasi baseline cukup 4 case inti**:
+  - `xgb_data`
+  - `xgb_macro`
+  - `lgbm_data`
+  - `lgbm_macro`
+- **Tuning adil antar model**: gunakan budget yang sama untuk tiap model (contoh: 50 trial per model).
+- **Replikasi konsisten**: pakai seed yang sama dengan studi LSTM/BiLSTM (contoh: 5 seed) agar uji statistik fair.
+- **Evaluasi statistik**: lanjutkan Wilcoxon + Diebold-Mariano pada baseline terbaik vs model usulan.
+- **Konsistensi narasi paper**: jika implementasi optimasi masih random search, jangan klaim sebagai FastGA sebelum FastGA benar-benar diimplementasikan.
+
+Target praktis: tambah 4 baseline di atas + multi-seed + uji statistik sudah cukup kuat sebagai pembanding tanpa menambah kompleksitas berlebihan.

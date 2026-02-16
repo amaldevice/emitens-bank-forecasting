@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+from tqdm.auto import tqdm
 
 
 DEFAULT_BANKS = ["BBCA", "BBNI", "BBRI", "BBTN", "BDMN", "BMRI", "BNGA"]
@@ -32,6 +33,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--time-steps", type=int, default=60)
     parser.add_argument("--tune-epochs", type=int, default=8)
     parser.add_argument("--tune-candidates", type=int, default=6)
+    parser.add_argument("--run-shap", action="store_true")
+    parser.add_argument("--shap-background-size", type=int, default=4)
+    parser.add_argument("--shap-eval-size", type=int, default=2)
+    parser.add_argument("--shap-nsamples", type=int, default=10)
     parser.add_argument("--output-root", type=Path, default=Path("results_study"))
     return parser.parse_args()
 
@@ -55,9 +60,12 @@ def main() -> None:
     root.mkdir(parents=True, exist_ok=True)
     rows: list[dict[str, object]] = []
 
+    total_runs = len(banks) * len(cases) * len(seeds)
+    progress = tqdm(total=total_runs, desc="Study runs", unit="run")
     for bank in banks:
         for case in cases:
             for seed in seeds:
+                progress.set_postfix_str(f"{bank} | {case} | seed={seed}")
                 case_dir = root / bank / case / f"seed_{seed}"
                 cmd = [
                     py,
@@ -79,6 +87,16 @@ def main() -> None:
                     "--output-root",
                     str(case_dir),
                 ] + CASE_ARGS[case]
+                if args.run_shap:
+                    cmd += [
+                        "--run-shap",
+                        "--shap-background-size",
+                        str(args.shap_background_size),
+                        "--shap-eval-size",
+                        str(args.shap_eval_size),
+                        "--shap-nsamples",
+                        str(args.shap_nsamples),
+                    ]
 
                 print(f"\n=== bank={bank} case={case} seed={seed} ===")
                 run_cmd(cmd)
@@ -103,6 +121,8 @@ def main() -> None:
                         "test_predictions_path": str(test_pred_path),
                     }
                 )
+                progress.update(1)
+    progress.close()
 
     df = pd.DataFrame(rows)
     out_csv = root / "study_runs.csv"

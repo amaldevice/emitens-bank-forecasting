@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+from tqdm.auto import tqdm
 
 
 def parse_args() -> argparse.Namespace:
@@ -17,6 +18,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--time-steps", type=int, default=60)
     parser.add_argument("--tune-epochs", type=int, default=8)
     parser.add_argument("--tune-candidates", type=int, default=6)
+    parser.add_argument("--run-shap", action="store_true")
+    parser.add_argument("--shap-background-size", type=int, default=4)
+    parser.add_argument("--shap-eval-size", type=int, default=2)
+    parser.add_argument("--shap-nsamples", type=int, default=10)
     parser.add_argument("--base-output", type=Path, default=Path("results_ablation"))
     parser.add_argument(
         "--mode",
@@ -76,6 +81,16 @@ def main() -> None:
         "--tune-candidates",
         str(args.tune_candidates),
     ]
+    if args.run_shap:
+        base += [
+            "--run-shap",
+            "--shap-background-size",
+            str(args.shap_background_size),
+            "--shap-eval-size",
+            str(args.shap_eval_size),
+            "--shap-nsamples",
+            str(args.shap_nsamples),
+        ]
 
     if args.mode == "model_macro":
         cases = [
@@ -104,12 +119,15 @@ def main() -> None:
         ]
 
     rows = []
-    for case_name, extra in cases:
+    progress = tqdm(cases, desc=f"Ablation {bank}", unit="case")
+    for case_name, extra in progress:
+        progress.set_postfix_str(case_name)
         case_output = root / case_name
         cmd = base + ["--output-root", str(case_output)] + extra
         summary_path = case_output / bank / "summary_pytorch.json"
         row = run_case(case_name, cmd, summary_path)
         rows.append(row)
+    progress.close()
 
     result = pd.DataFrame(rows).sort_values("rmse")
     csv_path = root / "ablation_summary.csv"

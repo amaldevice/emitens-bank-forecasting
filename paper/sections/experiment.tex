@@ -1,11 +1,22 @@
 \section{Experimental Setup}
 
 \subsection{Evaluation Metrics}
-% RMSE, MAE, MAPE, R2
-% Training time
-% Inference time
+Primary metrics are MSE, RMSE, MAE, and MAPE on the test partition. We also report seed-wise variability (mean and standard deviation) to characterize stability.
+
+\subsection{Ablation Matrix}
+The main ablation factors are:
+\begin{itemize}
+    \item Model family: LSTM, BiLSTM, XGBoost, and LightGBM
+    \item Features: price-only vs price+macro
+    \item Optimization: GA off vs GA on
+\end{itemize}
+This yields a scalable matrix for controlled comparison across deep sequence and tree-based learners.
+
+\subsection{Multi-Seed Protocol}
+Each configuration is executed with five seeds (42, 52, 62, 72, 82). The complete run table stores configuration metadata, metrics, and file paths for downstream significance analysis.
 
 \subsection{Implementation Details}
-% Hardware
-% Software
-% Libraries
+Implementation is based on Python and PyTorch. Training uses Adam optimizer, ReduceLROnPlateau scheduling, and early stopping with validation monitoring. Sequence length, forecasting horizon, and tuning budget are controlled via command-line arguments for reproducibility.
+
+\subsection{Cross-Model Fairness Protocol}
+To maintain fairness, each model family uses comparable data splits, identical seed sets, and matched optimization budgets. This avoids overstating gains from unequal search effort.

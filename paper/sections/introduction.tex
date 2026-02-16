@@ -1,5 +1,16 @@
 \section{Introduction}
-% Background
-% Problem statement
-% Motivation
-% Contributions
+Forecasting bank stock prices remains challenging due to non-stationarity, regime shifts, and sensitivity to macroeconomic conditions. In emerging markets such as Indonesia, banking-sector prices are influenced not only by internal price dynamics but also by external drivers including interest rates, inflation, exchange rates, and broad market movements.
+
+Recent work in financial time series forecasting has adopted deep learning models, especially recurrent networks, to capture temporal dependencies. However, many studies still suffer from limited ablation depth, weak statistical validation, and insufficient explainability. These gaps reduce confidence in whether reported improvements generalize across assets and random seeds.
+
+This study develops a reproducible pipeline for Indonesian banking stocks that combines sequence modeling, macroeconomic regressors, repeated-seed evaluation, and formal significance testing. The objective is to provide a strong foundational benchmark that can be extended to more advanced architectures.
+
+The main contributions are as follows:
+\begin{itemize}
+    \item A structured ablation design over model type (LSTM vs BiLSTM), feature regime (price-only vs price+macro), and optimization mode (off vs on).
+    \item A multi-bank, multi-seed protocol for robust performance estimation and variance analysis.
+    \item Statistical validation using Wilcoxon signed-rank and Diebold-Mariano tests to assess significance of forecasting improvements.
+    \item Explainability analysis using SHAP to connect model behavior with financially interpretable drivers.
+\end{itemize}
+
+The remainder of this paper is organized as follows. Section II reviews related literature. Section III describes the dataset and preprocessing. Section IV presents the proposed methodology. Section V details the experimental setup. Section VI discusses the results and significance tests. Section VII concludes and outlines future directions.

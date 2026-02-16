@@ -1,13 +1,29 @@
 \section{Dataset and Preprocessing}
 
 \subsection{Dataset Description}
-% Kaggle dataset description
-% Origin from Zenodo paper
+This study focuses on seven Indonesian banking stocks: BBCA, BBNI, BBRI, BBTN, BDMN, BMRI, and BNGA. Daily market data include price and valuation-related variables, while macroeconomic variables include inflation-related indicators, policy rate, exchange rate, and market index features.
+
+The target variable is the daily closing price. The analysis period follows a chronological split to avoid data leakage.
 
 \subsection{Feature Selection}
-% Input features
-% Target variable (SoC)
+The baseline feature set (price-only regime) includes market micro and technical variables available in the bank-level dataset. The macro-augmented regime extends this set with external variables:
+\begin{itemize}
+    \item inflation rate and CPI-derived indicators,
+    \item BI policy rate,
+    \item USD/IDR exchange rate,
+    \item IHSG index level and return proxy.
+\end{itemize}
+
+The final feature schema is fixed per regime before model training.
 
 \subsection{Data Preprocessing}
-% Normalization
-% Train-test split
+We apply chronological sorting, forward-fill for missing observations, and standard scaling for both features and target during model training. Sequence windows are then constructed with a fixed lookback length.
+
+Time split protocol:
+\begin{itemize}
+    \item Training: 2014-01-02 to 2019-12-31
+    \item Validation: 2020-01-02 to 2021-12-31
+    \item Testing: 2022-01-02 to 2024-12-30
+\end{itemize}
+
+This split reflects strict temporal validation and supports fair out-of-sample evaluation.

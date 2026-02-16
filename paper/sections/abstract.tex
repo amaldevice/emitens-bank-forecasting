@@ -1,7 +1,7 @@
 \begin{abstract}
-% To be filled
+This paper studies daily closing-price forecasting for major Indonesian banking stocks using a multi-model pipeline with macroeconomic regressors and explainability analysis. The proposed workflow compares four model families (LSTM, BiLSTM, XGBoost, and LightGBM) under two feature settings (price-only and price+macro), with and without genetic algorithm (GA)-based hyperparameter optimization. To improve experimental rigor, we run repeated multi-seed evaluations across multiple banks and report distributional performance using RMSE, MAE, MAPE, and MSE. We further apply statistical significance testing (Wilcoxon signed-rank and Diebold-Mariano) to verify whether observed gains are robust rather than stochastic artifacts. Explainable AI analysis is conducted using SHAP to identify dominant drivers in both local and global perspectives. Initial results indicate that macroeconomic features and GA-based tuning can improve predictive accuracy in selected banks, while gains remain model- and regime-dependent. This paper provides a reproducible baseline for subsequent computational finance studies on Indonesian equities.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Battery state-of-charge, machine learning, genetic algorithm, explainable AI, SHAP
+stock forecasting, LSTM, BiLSTM, XGBoost, LightGBM, genetic algorithm, explainable AI, SHAP, Diebold-Mariano test
 \end{IEEEkeywords}
