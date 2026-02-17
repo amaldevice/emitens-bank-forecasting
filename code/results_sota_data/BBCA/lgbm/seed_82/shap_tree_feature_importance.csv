@@ -1,0 +1,601 @@
+feature,importance,model
+t00_Moving Average 20 Day,0.2160024970200894,lgbm
+t01_Bid Price,0.14589150757935634,lgbm
+t59_Bid Price,0.10730216947598566,lgbm
+t59_Ask Price,0.10384473994218256,lgbm
+t49_Moving Average 20 Day,0.05758478327090129,lgbm
+t01_Moving Average 20 Day,0.03811784517223713,lgbm
+t38_Low Price,0.03614522765627115,lgbm
+t59_High Price,0.03096492856570715,lgbm
+t55_Low Price,0.030090250762230927,lgbm
+t57_Price to Sales Ratio,0.025374167741516317,lgbm
+t58_Low Price,0.021686227928584916,lgbm
+t59_Low Price,0.02154631303619127,lgbm
+t05_Moving Average 20 Day,0.016652940485842885,lgbm
+t58_Ask Price,0.016594594996465768,lgbm
+t58_High Price,0.012681571521632544,lgbm
+t59_Price to Sales Ratio,0.012652783111125722,lgbm
+t17_High Price,0.011889553858663983,lgbm
+t57_High Price,0.011113378566002847,lgbm
+t16_High Price,0.010917313468576918,lgbm
+t27_Ask Price,0.010461210220077408,lgbm
+t32_Ask Price,0.009991617930558838,lgbm
+t34_Moving Average 20 Day,0.009196583334693649,lgbm
+t46_Low Price,0.009034922025077451,lgbm
+t48_High Price,0.008762848298443813,lgbm
+t45_Bid Price,0.007730717211991761,lgbm
+t52_Bid Price,0.007656789118461645,lgbm
+t34_Ask Price,0.006774068622012176,lgbm
+t26_Low Price,0.0065920879866031065,lgbm
+t49_High Price,0.006243058025666471,lgbm
+t26_Ask Price,0.0060107793030093285,lgbm
+t38_Moving Average 20 Day,0.005391235277117625,lgbm
+t48_Ask Price,0.0053420510657435395,lgbm
+t35_Moving Average 20 Day,0.005238092840640439,lgbm
+t47_Low Price,0.005142048571511827,lgbm
+t30_Dividend Indicated Yld - Gross,0.004711330854295404,lgbm
+t15_Moving Average 20 Day,0.004683561597834501,lgbm
+t27_Bid Price,0.004536265402927784,lgbm
+t50_Moving Average 20 Day,0.004261233111019924,lgbm
+t15_Low Price,0.004215911169112009,lgbm
+t57_Ask Price,0.003803947299126839,lgbm
+t13_Bid Price,0.003722409827397399,lgbm
+t53_Moving Average 20 Day,0.0036088399232672504,lgbm
+t33_Low Price,0.0035385037941364095,lgbm
+t28_Ask Price,0.003521652915999971,lgbm
+t04_High Price,0.003477474106511705,lgbm
+t56_Moving Average 20 Day,0.0032936338810831884,lgbm
+t50_Price to Sales Ratio,0.003167717250302842,lgbm
+t56_Ask Price,0.0030100498880582987,lgbm
+t20_Ask Price,0.0029756862183108954,lgbm
+t57_Bid Price,0.0028416384564031567,lgbm
+t39_Low Price,0.002818095195567669,lgbm
+t18_Bid Price,0.002786532061909086,lgbm
+t40_Ask Price,0.0025987383106655377,lgbm
+t49_Price to Sales Ratio,0.002592926825377201,lgbm
+t21_Low Price,0.0025604920336934982,lgbm
+t12_Price to Sales Ratio,0.0024264631276374573,lgbm
+t13_Low Price,0.002425204830830177,lgbm
+t48_Price Earnings Ratio,0.0022164671755528467,lgbm
+t58_Bid Price,0.0021853488095289497,lgbm
+t55_Bid Price,0.0021110683082365108,lgbm
+t59_Price Earnings Ratio,0.002024465284471306,lgbm
+t40_Price to Sales Ratio,0.001997038909636823,lgbm
+t23_Dividend Indicated Yld - Gross,0.001995760711980197,lgbm
+t04_Moving Average 20 Day,0.0019463160175988608,lgbm
+t14_Moving Average 20 Day,0.0018172739035653472,lgbm
+t02_Price to Sales Ratio,0.0017245561256158705,lgbm
+t54_Ask Price,0.0015936535293251109,lgbm
+t59_Moving Average 20 Day,0.001565419960058502,lgbm
+t51_Low Price,0.0015530754561166738,lgbm
+t12_Moving Average 20 Day,0.0015023721291083337,lgbm
+t42_Price to Sales Ratio,0.0014643916883179569,lgbm
+t51_High Price,0.0013999253323038641,lgbm
+t30_Moving Average 20 Day,0.0013183180322811523,lgbm
+t50_High Price,0.001240815982440046,lgbm
+t10_Low Price,0.0012269744864214231,lgbm
+t00_Ask Price,0.0012142926487632225,lgbm
+t57_Price Earnings Ratio,0.0011570047423563835,lgbm
+t47_High Price,0.0010691603749510737,lgbm
+t13_Moving Average 20 Day,0.0010267417497201606,lgbm
+t52_High Price,0.000995959150686333,lgbm
+t29_Moving Average 20 Day,0.000985446520968202,lgbm
+t29_Dividend Indicated Yld - Gross,0.0009710791125024558,lgbm
+t32_Moving Average 20 Day,0.0009610611234468377,lgbm
+t53_Ask Price,0.0009522722076521247,lgbm
+t54_High Price,0.0009481774588121656,lgbm
+t33_Moving Average 20 Day,0.0008871603520963773,lgbm
+t53_Price to Sales Ratio,0.0008782022575284293,lgbm
+t39_High Price,0.0007865540008035701,lgbm
+t17_Moving Average 20 Day,0.0007628994821978305,lgbm
+t43_Moving Average 20 Day,0.0007619185320486362,lgbm
+t33_Ask Price,0.0007459948457176412,lgbm
+t19_High Price,0.0007193529455733912,lgbm
+t27_High Price,0.000717728316909476,lgbm
+t45_Ask Price,0.0007164747178161911,lgbm
+t51_Ask Price,0.0007102974764304988,lgbm
+t03_Low Price,0.0007063398457744141,lgbm
+t22_High Price,0.0006673191059392346,lgbm
+t40_Price Earnings Ratio,0.0006632843106201596,lgbm
+t11_Low Price,0.0006593718595204269,lgbm
+t12_Low Price,0.0006464649565053646,lgbm
+t09_Dividend Indicated Yld - Gross,0.000622234610264062,lgbm
+t29_Price Earnings Ratio,0.0006153250462575809,lgbm
+t39_Moving Average 20 Day,0.000606583035002158,lgbm
+t53_Price Earnings Ratio,0.0005998553594487396,lgbm
+t22_Dividend Indicated Yld - Gross,0.0005773579344297889,lgbm
+t52_Price Earnings Ratio,0.0005189084695182527,lgbm
+t03_Dividend Indicated Yld - Gross,0.0004885437071701519,lgbm
+t42_Bid Price,0.00048533988410865466,lgbm
+t13_Ask Price,0.0004800823352264571,lgbm
+t00_Bid Price,0.0004561161902837923,lgbm
+t29_Price to Sales Ratio,0.00045569653274790597,lgbm
+t16_Moving Average 20 Day,0.0004537503160528352,lgbm
+t24_Dividend Indicated Yld - Gross,0.0004473078762460248,lgbm
+t40_Dividend Indicated Yld - Gross,0.00044263628634906604,lgbm
+t59_Dividend Indicated Yld - Gross,0.00043325208139200486,lgbm
+t56_Low Price,0.0004252012590063791,lgbm
+t41_Dividend Indicated Yld - Gross,0.00041239207513759583,lgbm
+t01_Ask Price,0.0003583189654065801,lgbm
+t52_Price to Book Ratio,0.0003512601800230231,lgbm
+t12_Ask Price,0.0003501324690750055,lgbm
+t01_High Price,0.00034923034408967994,lgbm
+t43_High Price,0.0003474585861432299,lgbm
+t45_Price to Book Ratio,0.0003304816892548276,lgbm
+t41_High Price,0.0003287925728815366,lgbm
+t49_Price Earnings Ratio,0.0003282943539436499,lgbm
+t35_Low Price,0.0003171691634040485,lgbm
+t46_Moving Average 20 Day,0.0003071363960124448,lgbm
+t23_Low Price,0.0003011826946452469,lgbm
+t31_Price Earnings Ratio,0.0002947201870569846,lgbm
+t36_Ask Price,0.0002922905129418341,lgbm
+t21_Price to Sales Ratio,0.0002889429954516859,lgbm
+t42_Price to Book Ratio,0.0002815152929627341,lgbm
+t05_Price to Book Ratio,0.00027820066344352206,lgbm
+t16_Low Price,0.00027273027911267123,lgbm
+t54_Low Price,0.0002710189045818293,lgbm
+t59_Price Change 1 Day Percent,0.0002562936760455169,lgbm
+t18_Dividend Indicated Yld - Gross,0.0002478301014140712,lgbm
+t17_Price Change 1 Day Percent,0.00024708245873353193,lgbm
+t27_Moving Average 20 Day,0.00024297517353811314,lgbm
+t52_Price to Sales Ratio,0.00023670612186931365,lgbm
+t18_Ask Price,0.0002295608989333326,lgbm
+t41_Bid Price,0.00022933740629505652,lgbm
+t07_Low Price,0.0002270247989184012,lgbm
+t50_Low Price,0.00022546983713486255,lgbm
+t49_Ask Price,0.0002186204841327817,lgbm
+t21_Price to Book Ratio,0.00021782136679246748,lgbm
+t47_Price to Sales Ratio,0.00021703829039427117,lgbm
+t51_Bid Price,0.00021213876231467485,lgbm
+t10_High Price,0.00021113705817635698,lgbm
+t55_Price to Sales Ratio,0.00021025436732918586,lgbm
+t09_Low Price,0.000210249555012671,lgbm
+t59_Price to Book Ratio,0.0001995031470462459,lgbm
+t43_Dividend Indicated Yld - Gross,0.00019323379248545965,lgbm
+t38_Price to Book Ratio,0.0001912903576642099,lgbm
+t16_Dividend Indicated Yld - Gross,0.00018906390708813795,lgbm
+t02_Bid Price,0.0001885319853567595,lgbm
+t00_Price to Sales Ratio,0.00018304083682258267,lgbm
+t04_Price Earnings Ratio,0.00018212091670035012,lgbm
+t27_Low Price,0.00017840143624025213,lgbm
+t32_Price Change 1 Day Percent,0.00017494455063089517,lgbm
+t18_High Price,0.00017363267059497252,lgbm
+t22_Price to Book Ratio,0.00017027862532064617,lgbm
+t53_Low Price,0.00016458581292031475,lgbm
+t00_Low Price,0.00016392865503027558,lgbm
+t52_Price Change 1 Day Percent,0.00016287852778865925,lgbm
+t28_Moving Average 20 Day,0.00016181319297068605,lgbm
+t03_Price Change 1 Day Percent,0.00015735822682416242,lgbm
+t29_Low Price,0.00015259896394309458,lgbm
+t58_Dividend Indicated Yld - Gross,0.00015025715112998886,lgbm
+t44_Low Price,0.0001495781642718209,lgbm
+t37_Price to Sales Ratio,0.00014911154335610761,lgbm
+t38_Bid Price,0.00014854568537310867,lgbm
+t48_Price to Sales Ratio,0.00014750227801598912,lgbm
+t02_Price to Book Ratio,0.0001442062731080188,lgbm
+t01_Low Price,0.000141619493842235,lgbm
+t34_Dividend Indicated Yld - Gross,0.00014135780165983486,lgbm
+t46_Price to Book Ratio,0.00013997094547006764,lgbm
+t43_Low Price,0.00013994935049076016,lgbm
+t33_Price to Book Ratio,0.00013813956349920093,lgbm
+t56_Price to Book Ratio,0.00013743132745308923,lgbm
+t52_Low Price,0.0001374036524052419,lgbm
+t40_Moving Average 20 Day,0.00013676908650118788,lgbm
+t50_Price to Book Ratio,0.0001366988114672844,lgbm
+t57_Dividend Indicated Yld - Gross,0.00013456861245147558,lgbm
+t15_Dividend Indicated Yld - Gross,0.0001335178306372819,lgbm
+t21_Ask Price,0.00013303689678505402,lgbm
+t42_Price Change 1 Day Percent,0.00013242599360414073,lgbm
+t58_Price to Book Ratio,0.00013239573486286405,lgbm
+t02_Price Change 1 Day Percent,0.00012842498994331515,lgbm
+t37_Bid Price,0.00012376408808567203,lgbm
+t26_Moving Average 20 Day,0.00012334469971495972,lgbm
+t55_High Price,0.00012204589833345984,lgbm
+t46_Price Earnings Ratio,0.00012072294200261507,lgbm
+t02_Price Earnings Ratio,0.00012027537846716743,lgbm
+t42_Low Price,0.00011979487654368575,lgbm
+t05_Price to Sales Ratio,0.00011827545686454296,lgbm
+t08_Dividend Indicated Yld - Gross,0.000116832888342115,lgbm
+t46_Price to Sales Ratio,0.00011635397473420716,lgbm
+t33_Dividend Indicated Yld - Gross,0.00011462488832877914,lgbm
+t45_High Price,0.00011371564142008154,lgbm
+t41_Moving Average 20 Day,0.00011307711691765835,lgbm
+t28_High Price,0.00011268307898037934,lgbm
+t24_Price to Book Ratio,0.00011045754342016763,lgbm
+t32_Bid Price,0.00011038262345952865,lgbm
+t20_Bid Price,0.00011029298964381759,lgbm
+t31_Low Price,0.00010826138692382937,lgbm
+t58_Price to Sales Ratio,0.0001076267709784416,lgbm
+t00_High Price,0.00010738919938424723,lgbm
+t35_High Price,0.00010574178977450517,lgbm
+t38_Dividend Indicated Yld - Gross,0.00010254178239928083,lgbm
+t22_Price Change 1 Day Percent,0.00010247357319703136,lgbm
+t02_Moving Average 20 Day,0.00010223639102351363,lgbm
+t31_Price Change 1 Day Percent,0.00010020250991687305,lgbm
+t25_Moving Average 20 Day,9.882659691564487e-05,lgbm
+t48_Bid Price,9.798702567538457e-05,lgbm
+t06_Price Change 1 Day Percent,9.790268473513066e-05,lgbm
+t08_High Price,9.788696805959401e-05,lgbm
+t30_Low Price,9.700047382907614e-05,lgbm
+t32_Low Price,9.577996320934954e-05,lgbm
+t38_Price Earnings Ratio,9.529210574895965e-05,lgbm
+t47_Price Earnings Ratio,9.466040582207094e-05,lgbm
+t39_Dividend Indicated Yld - Gross,9.075234688870872e-05,lgbm
+t22_Price to Sales Ratio,8.995769355997484e-05,lgbm
+t33_High Price,8.92673774071917e-05,lgbm
+t02_Ask Price,8.629013398855905e-05,lgbm
+t02_Low Price,8.461779228231994e-05,lgbm
+t25_Price to Book Ratio,8.364340947567257e-05,lgbm
+t23_Price Earnings Ratio,8.336146621406127e-05,lgbm
+t42_Dividend Indicated Yld - Gross,8.323101926115261e-05,lgbm
+t20_Price Change 1 Day Percent,8.307674451517109e-05,lgbm
+t19_Price to Book Ratio,8.249929247897566e-05,lgbm
+t00_Price Change 1 Day Percent,8.108964723112129e-05,lgbm
+t30_High Price,7.963181665180914e-05,lgbm
+t10_Price Change 1 Day Percent,7.913430182738816e-05,lgbm
+t51_Price to Book Ratio,7.622489103052322e-05,lgbm
+t13_Price to Book Ratio,7.622412980792914e-05,lgbm
+t12_Price Change 1 Day Percent,7.614925185691788e-05,lgbm
+t04_Price Change 1 Day Percent,7.613875423123733e-05,lgbm
+t17_Low Price,7.426126705474804e-05,lgbm
+t23_Price to Book Ratio,7.361041703253339e-05,lgbm
+t51_Moving Average 20 Day,7.349912860799743e-05,lgbm
+t03_Price to Sales Ratio,7.305115551310766e-05,lgbm
+t37_Ask Price,7.296805837525656e-05,lgbm
+t23_Price Change 1 Day Percent,7.263253718786566e-05,lgbm
+t32_Price to Sales Ratio,7.058521168755024e-05,lgbm
+t27_Price Change 1 Day Percent,7.04984398988274e-05,lgbm
+t56_High Price,7.04339913824397e-05,lgbm
+t23_Moving Average 20 Day,6.948251710254977e-05,lgbm
+t11_Price Change 1 Day Percent,6.878712810428612e-05,lgbm
+t37_Low Price,6.859019289291e-05,lgbm
+t36_Price Change 1 Day Percent,6.752808887787114e-05,lgbm
+t28_Bid Price,6.722879318260333e-05,lgbm
+t56_Bid Price,6.683482617436253e-05,lgbm
+t14_Price Change 1 Day Percent,6.669041702155276e-05,lgbm
+t09_High Price,6.610722277377762e-05,lgbm
+t53_High Price,6.455271721169714e-05,lgbm
+t15_Price to Sales Ratio,6.444788485882722e-05,lgbm
+t50_Price Change 1 Day Percent,6.437498431569642e-05,lgbm
+t14_Dividend Indicated Yld - Gross,6.362595845507452e-05,lgbm
+t28_Price Earnings Ratio,6.308709868912054e-05,lgbm
+t40_High Price,6.2748423749969e-05,lgbm
+t46_Price Change 1 Day Percent,6.256345127869405e-05,lgbm
+t07_Price Change 1 Day Percent,6.202912165086714e-05,lgbm
+t54_Price Earnings Ratio,6.176989945826286e-05,lgbm
+t26_Price to Sales Ratio,6.1671439474208e-05,lgbm
+t20_High Price,6.0629658167081306e-05,lgbm
+t27_Price Earnings Ratio,6.044379499956393e-05,lgbm
+t36_Low Price,5.985113984350971e-05,lgbm
+t21_Bid Price,5.940827568320539e-05,lgbm
+t43_Price Change 1 Day Percent,5.91060421216977e-05,lgbm
+t29_Price Change 1 Day Percent,5.8181374862206865e-05,lgbm
+t31_Price to Sales Ratio,5.805108418356904e-05,lgbm
+t45_Price Change 1 Day Percent,5.7980774182341394e-05,lgbm
+t21_High Price,5.7936449573541144e-05,lgbm
+t44_Price to Book Ratio,5.6448488480908296e-05,lgbm
+t49_Price Change 1 Day Percent,5.526608099052213e-05,lgbm
+t12_High Price,5.499907803262648e-05,lgbm
+t10_Moving Average 20 Day,5.3302321061610985e-05,lgbm
+t31_Price to Book Ratio,5.2629859591836154e-05,lgbm
+t20_Low Price,5.2595922522917995e-05,lgbm
+t09_Price to Sales Ratio,5.2252973804117185e-05,lgbm
+t06_Dividend Indicated Yld - Gross,5.138922178563625e-05,lgbm
+t35_Price Change 1 Day Percent,5.01280200907033e-05,lgbm
+t09_Moving Average 20 Day,4.9432672640784336e-05,lgbm
+t55_Dividend Indicated Yld - Gross,4.853848556570719e-05,lgbm
+t41_Price Change 1 Day Percent,4.824032939928601e-05,lgbm
+t08_Price to Sales Ratio,4.73387396053346e-05,lgbm
+t20_Price to Book Ratio,4.728855955831783e-05,lgbm
+t46_Ask Price,4.723551754622152e-05,lgbm
+t26_Price Change 1 Day Percent,4.5919957298817005e-05,lgbm
+t14_Price Earnings Ratio,4.553537551452848e-05,lgbm
+t18_Price Change 1 Day Percent,4.5288470397661447e-05,lgbm
+t15_Price Change 1 Day Percent,4.471385672281857e-05,lgbm
+t21_Price Change 1 Day Percent,4.4473357960897624e-05,lgbm
+t57_Price Change 1 Day Percent,4.4408245437613686e-05,lgbm
+t29_Price to Book Ratio,4.42369444133098e-05,lgbm
+t25_Price Change 1 Day Percent,4.386946153010802e-05,lgbm
+t25_Dividend Indicated Yld - Gross,4.335744415425628e-05,lgbm
+t28_Price to Book Ratio,4.21350741052486e-05,lgbm
+t51_Price to Sales Ratio,4.174121275972526e-05,lgbm
+t27_Price to Sales Ratio,4.0537985518423286e-05,lgbm
+t30_Bid Price,3.974742537549011e-05,lgbm
+t46_Dividend Indicated Yld - Gross,3.969202975572691e-05,lgbm
+t58_Price Change 1 Day Percent,3.9270562979560555e-05,lgbm
+t44_Price Change 1 Day Percent,3.889466034838761e-05,lgbm
+t38_Price Change 1 Day Percent,3.8758598108951496e-05,lgbm
+t06_High Price,3.86076136108427e-05,lgbm
+t31_High Price,3.8496732232503986e-05,lgbm
+t02_Dividend Indicated Yld - Gross,3.843267148213383e-05,lgbm
+t47_Price to Book Ratio,3.7541124992201314e-05,lgbm
+t55_Price Change 1 Day Percent,3.749112450189527e-05,lgbm
+t18_Price to Book Ratio,3.741193541484059e-05,lgbm
+t13_Price Change 1 Day Percent,3.7255305180785016e-05,lgbm
+t53_Price Change 1 Day Percent,3.7227708703670545e-05,lgbm
+t25_Price Earnings Ratio,3.691748502163472e-05,lgbm
+t11_Ask Price,3.669128133961626e-05,lgbm
+t51_Price Earnings Ratio,3.5919847493696924e-05,lgbm
+t12_Price to Book Ratio,3.581223897626095e-05,lgbm
+t01_Price Change 1 Day Percent,3.563365778360152e-05,lgbm
+t13_Dividend Indicated Yld - Gross,3.5533264932667066e-05,lgbm
+t11_Price to Sales Ratio,3.5484697518950965e-05,lgbm
+t05_Low Price,3.5339689028067283e-05,lgbm
+t40_Price Change 1 Day Percent,3.516231780005026e-05,lgbm
+t19_Dividend Indicated Yld - Gross,3.510086398445286e-05,lgbm
+t24_Price Change 1 Day Percent,3.4901283213934906e-05,lgbm
+t45_Price Earnings Ratio,3.42545692197347e-05,lgbm
+t21_Price Earnings Ratio,3.344767654699697e-05,lgbm
+t10_Bid Price,3.330654567947279e-05,lgbm
+t31_Dividend Indicated Yld - Gross,3.322792384264236e-05,lgbm
+t01_Price Earnings Ratio,3.284410068309756e-05,lgbm
+t35_Price to Book Ratio,3.23224477254005e-05,lgbm
+t13_Price to Sales Ratio,3.215107950087524e-05,lgbm
+t00_Price Earnings Ratio,3.180819166262125e-05,lgbm
+t05_Dividend Indicated Yld - Gross,3.179381329340157e-05,lgbm
+t41_Price to Book Ratio,3.1613841441288706e-05,lgbm
+t00_Dividend Indicated Yld - Gross,3.142102315134352e-05,lgbm
+t00_Price to Book Ratio,3.129311458842497e-05,lgbm
+t46_Bid Price,3.12102302342024e-05,lgbm
+t11_High Price,3.1172900019853396e-05,lgbm
+t28_Dividend Indicated Yld - Gross,3.0410292487450975e-05,lgbm
+t06_Low Price,3.0391683489156962e-05,lgbm
+t34_Price to Book Ratio,3.0371671054305877e-05,lgbm
+t41_Price Earnings Ratio,3.031088741508669e-05,lgbm
+t28_Price to Sales Ratio,2.9845553291728084e-05,lgbm
+t11_Dividend Indicated Yld - Gross,2.9782076259138883e-05,lgbm
+t43_Price to Book Ratio,2.9775822039333832e-05,lgbm
+t54_Price Change 1 Day Percent,2.9709091669972787e-05,lgbm
+t28_Price Change 1 Day Percent,2.922192932997636e-05,lgbm
+t47_Price Change 1 Day Percent,2.9027947025300084e-05,lgbm
+t57_Low Price,2.8751864915808177e-05,lgbm
+t51_Dividend Indicated Yld - Gross,2.8455912633446182e-05,lgbm
+t35_Dividend Indicated Yld - Gross,2.8039196565610784e-05,lgbm
+t42_Price Earnings Ratio,2.7792065581211446e-05,lgbm
+t23_High Price,2.7485497597692307e-05,lgbm
+t40_Low Price,2.741048991758438e-05,lgbm
+t56_Price Change 1 Day Percent,2.7280535061260214e-05,lgbm
+t48_Price Change 1 Day Percent,2.7211154706464847e-05,lgbm
+t17_Dividend Indicated Yld - Gross,2.7187630542700412e-05,lgbm
+t01_Price to Book Ratio,2.68646019263148e-05,lgbm
+t14_High Price,2.60636192846113e-05,lgbm
+t42_Ask Price,2.5980225864110125e-05,lgbm
+t06_Ask Price,2.5533051925480213e-05,lgbm
+t20_Price to Sales Ratio,2.5313438626181532e-05,lgbm
+t08_Price Change 1 Day Percent,2.5258355463375973e-05,lgbm
+t32_High Price,2.525727118064452e-05,lgbm
+t47_Bid Price,2.478272709109283e-05,lgbm
+t58_Price Earnings Ratio,2.462160421128265e-05,lgbm
+t16_Price Change 1 Day Percent,2.4102220386537013e-05,lgbm
+t52_Ask Price,2.399137025053941e-05,lgbm
+t44_Moving Average 20 Day,2.3965403911773296e-05,lgbm
+t37_Price to Book Ratio,2.3812381862906596e-05,lgbm
+t25_Price to Sales Ratio,2.369490581542794e-05,lgbm
+t32_Price Earnings Ratio,2.3634316916724554e-05,lgbm
+t30_Ask Price,2.3391593535430663e-05,lgbm
+t39_Price to Book Ratio,2.3055372892481804e-05,lgbm
+t14_Price to Sales Ratio,2.3018059088198854e-05,lgbm
+t08_Ask Price,2.2803856909957795e-05,lgbm
+t18_Price to Sales Ratio,2.270379471022817e-05,lgbm
+t07_Ask Price,2.253346028345431e-05,lgbm
+t02_High Price,2.1937489208927698e-05,lgbm
+t08_Low Price,2.167817040597728e-05,lgbm
+t30_Price Change 1 Day Percent,2.1310864634856592e-05,lgbm
+t24_Price to Sales Ratio,2.0982884635548802e-05,lgbm
+t22_Low Price,2.089473882788192e-05,lgbm
+t24_Price Earnings Ratio,2.039877011028223e-05,lgbm
+t19_Price Change 1 Day Percent,2.0257292904943656e-05,lgbm
+t34_Price Change 1 Day Percent,2.0075871949903536e-05,lgbm
+t49_Price to Book Ratio,2.004302269433965e-05,lgbm
+t11_Moving Average 20 Day,1.9670976774223882e-05,lgbm
+t15_Ask Price,1.9583919116658056e-05,lgbm
+t04_Price to Sales Ratio,1.954047250685812e-05,lgbm
+t09_Ask Price,1.9196045689297076e-05,lgbm
+t22_Price Earnings Ratio,1.899466084513276e-05,lgbm
+t14_Price to Book Ratio,1.8653169370385717e-05,lgbm
+t09_Price Change 1 Day Percent,1.8624376970182327e-05,lgbm
+t33_Price Change 1 Day Percent,1.8503862798359063e-05,lgbm
+t55_Ask Price,1.8183731188354156e-05,lgbm
+t52_Dividend Indicated Yld - Gross,1.761571424769645e-05,lgbm
+t20_Dividend Indicated Yld - Gross,1.7243742864898255e-05,lgbm
+t44_Price Earnings Ratio,1.7079459710352962e-05,lgbm
+t03_Price to Book Ratio,1.671550075679366e-05,lgbm
+t04_Low Price,1.6495796944004364e-05,lgbm
+t10_Dividend Indicated Yld - Gross,1.635727486245261e-05,lgbm
+t44_High Price,1.6180373616014785e-05,lgbm
+t50_Dividend Indicated Yld - Gross,1.6101097272669548e-05,lgbm
+t34_Price to Sales Ratio,1.5907280561660037e-05,lgbm
+t31_Bid Price,1.5826226684376193e-05,lgbm
+t18_Price Earnings Ratio,1.57008992707185e-05,lgbm
+t16_Price Earnings Ratio,1.5595693946968772e-05,lgbm
+t32_Dividend Indicated Yld - Gross,1.538445301507061e-05,lgbm
+t15_Bid Price,1.5376861509462835e-05,lgbm
+t05_Price Earnings Ratio,1.5293598069986128e-05,lgbm
+t37_Price Earnings Ratio,1.5125964942614458e-05,lgbm
+t23_Price to Sales Ratio,1.5038235443585122e-05,lgbm
+t45_Dividend Indicated Yld - Gross,1.4954006395291854e-05,lgbm
+t09_Price Earnings Ratio,1.4923732106504539e-05,lgbm
+t06_Price to Book Ratio,1.4847753236529463e-05,lgbm
+t37_Price Change 1 Day Percent,1.483716194566336e-05,lgbm
+t48_Price to Book Ratio,1.465723216402117e-05,lgbm
+t36_Price to Book Ratio,1.4530717114398548e-05,lgbm
+t49_Low Price,1.4342326514800026e-05,lgbm
+t03_Price Earnings Ratio,1.4289495440992163e-05,lgbm
+t32_Price to Book Ratio,1.4227568100600983e-05,lgbm
+t10_Price to Sales Ratio,1.4179984372532713e-05,lgbm
+t38_Price to Sales Ratio,1.4157475920022323e-05,lgbm
+t04_Bid Price,1.3588758409454808e-05,lgbm
+t47_Ask Price,1.3524621233594931e-05,lgbm
+t05_High Price,1.307183505563688e-05,lgbm
+t51_Price Change 1 Day Percent,1.2937392653601133e-05,lgbm
+t11_Price to Book Ratio,1.2690483858622801e-05,lgbm
+t49_Dividend Indicated Yld - Gross,1.243448194834718e-05,lgbm
+t10_Price Earnings Ratio,1.1987476637402145e-05,lgbm
+t30_Price Earnings Ratio,1.1811430098565123e-05,lgbm
+t53_Price to Book Ratio,1.1788506458372314e-05,lgbm
+t03_Ask Price,1.1786369548114735e-05,lgbm
+t36_High Price,1.1589874822788165e-05,lgbm
+t17_Ask Price,1.1567331871277664e-05,lgbm
+t44_Bid Price,1.1380826202637185e-05,lgbm
+t19_Price to Sales Ratio,1.135693112677576e-05,lgbm
+t06_Moving Average 20 Day,1.1008273279404702e-05,lgbm
+t14_Ask Price,1.0993043010245427e-05,lgbm
+t40_Price to Book Ratio,1.0922031728343331e-05,lgbm
+t50_Price Earnings Ratio,1.0772851088810782e-05,lgbm
+t36_Moving Average 20 Day,1.0751179314276229e-05,lgbm
+t54_Price to Sales Ratio,1.072085446047851e-05,lgbm
+t55_Price to Book Ratio,1.0704391532534716e-05,lgbm
+t11_Price Earnings Ratio,1.0456660867614206e-05,lgbm
+t35_Price to Sales Ratio,1.0428236833567574e-05,lgbm
+t36_Dividend Indicated Yld - Gross,1.027255065358648e-05,lgbm
+t11_Bid Price,1.0266191590666422e-05,lgbm
+t25_Ask Price,1.0088452414413696e-05,lgbm
+t33_Price Earnings Ratio,1.0075366929787414e-05,lgbm
+t25_Low Price,1.004148216021011e-05,lgbm
+t12_Dividend Indicated Yld - Gross,9.906362830410519e-06,lgbm
+t39_Ask Price,9.760739612529546e-06,lgbm
+t06_Price to Sales Ratio,9.741270518355177e-06,lgbm
+t16_Price to Book Ratio,9.726330351280048e-06,lgbm
+t20_Price Earnings Ratio,9.68923550886264e-06,lgbm
+t35_Ask Price,9.630596721684232e-06,lgbm
+t05_Price Change 1 Day Percent,9.615130785155592e-06,lgbm
+t43_Price Earnings Ratio,9.563329889422945e-06,lgbm
+t10_Price to Book Ratio,9.545321607919513e-06,lgbm
+t55_Moving Average 20 Day,9.530235155052635e-06,lgbm
+t39_Price Change 1 Day Percent,9.52350874567916e-06,lgbm
+t50_Bid Price,9.45615831556725e-06,lgbm
+t33_Price to Sales Ratio,9.440950796823524e-06,lgbm
+t22_Ask Price,9.295817471688784e-06,lgbm
+t39_Price to Sales Ratio,9.293873480601899e-06,lgbm
+t37_Dividend Indicated Yld - Gross,8.87984578290348e-06,lgbm
+t22_Bid Price,8.803768612021572e-06,lgbm
+t56_Dividend Indicated Yld - Gross,8.58576204553197e-06,lgbm
+t48_Moving Average 20 Day,8.430392877208108e-06,lgbm
+t37_High Price,8.369156126406075e-06,lgbm
+t42_High Price,8.355904945965689e-06,lgbm
+t07_Price Earnings Ratio,8.330867836987341e-06,lgbm
+t07_High Price,8.252362259665514e-06,lgbm
+t34_High Price,7.824310728968728e-06,lgbm
+t08_Price to Book Ratio,7.761486763848764e-06,lgbm
+t18_Low Price,7.597801927153173e-06,lgbm
+t30_Price to Sales Ratio,7.5872319670500575e-06,lgbm
+t50_Ask Price,7.545086990517525e-06,lgbm
+t41_Low Price,7.413329949965637e-06,lgbm
+t52_Moving Average 20 Day,7.298948542585802e-06,lgbm
+t16_Bid Price,7.147399939086321e-06,lgbm
+t56_Price to Sales Ratio,7.138597785235373e-06,lgbm
+t04_Ask Price,7.071534377058835e-06,lgbm
+t12_Price Earnings Ratio,7.065325894136989e-06,lgbm
+t47_Dividend Indicated Yld - Gross,6.94738395571494e-06,lgbm
+t36_Bid Price,6.86554024981386e-06,lgbm
+t41_Ask Price,6.851937583407037e-06,lgbm
+t05_Bid Price,6.682557019441537e-06,lgbm
+t36_Price to Sales Ratio,6.6141580115117514e-06,lgbm
+t18_Moving Average 20 Day,6.547902102872092e-06,lgbm
+t23_Ask Price,6.457489767603848e-06,lgbm
+t24_Moving Average 20 Day,6.369394273787936e-06,lgbm
+t53_Dividend Indicated Yld - Gross,6.347111475631438e-06,lgbm
+t06_Bid Price,6.2888975616413005e-06,lgbm
+t45_Low Price,6.276761950004345e-06,lgbm
+t26_Bid Price,6.207237998507122e-06,lgbm
+t36_Price Earnings Ratio,6.1976018836581555e-06,lgbm
+t44_Dividend Indicated Yld - Gross,6.059030756149046e-06,lgbm
+t31_Ask Price,5.989366404072765e-06,lgbm
+t26_Price to Book Ratio,5.8225433417672e-06,lgbm
+t34_Low Price,5.783868924016346e-06,lgbm
+t24_Low Price,5.772094079065004e-06,lgbm
+t14_Low Price,5.755686486883639e-06,lgbm
+t30_Price to Book Ratio,5.689350324314548e-06,lgbm
+t48_Dividend Indicated Yld - Gross,5.687271508704247e-06,lgbm
+t14_Bid Price,5.589600254663648e-06,lgbm
+t57_Price to Book Ratio,5.4660517360295e-06,lgbm
+t03_High Price,5.4599947016619854e-06,lgbm
+t48_Low Price,5.3321721812186e-06,lgbm
+t04_Price to Book Ratio,5.058469559683989e-06,lgbm
+t27_Dividend Indicated Yld - Gross,5.042520659366413e-06,lgbm
+t07_Price to Book Ratio,4.9717846099302336e-06,lgbm
+t34_Price Earnings Ratio,4.947082829303919e-06,lgbm
+t39_Price Earnings Ratio,4.753378846168952e-06,lgbm
+t24_High Price,4.752248868171798e-06,lgbm
+t17_Price Earnings Ratio,4.711242505489885e-06,lgbm
+t55_Price Earnings Ratio,4.698727985744569e-06,lgbm
+t08_Price Earnings Ratio,4.688999123832647e-06,lgbm
+t54_Dividend Indicated Yld - Gross,4.66536647917027e-06,lgbm
+t08_Bid Price,4.6170991644814274e-06,lgbm
+t09_Price to Book Ratio,4.566262400862289e-06,lgbm
+t54_Bid Price,4.557009614613268e-06,lgbm
+t35_Price Earnings Ratio,4.5463397058945095e-06,lgbm
+t41_Price to Sales Ratio,4.386033086536929e-06,lgbm
+t07_Price to Sales Ratio,4.2377870151085425e-06,lgbm
+t27_Price to Book Ratio,4.115099976850434e-06,lgbm
+t04_Dividend Indicated Yld - Gross,3.7822355506681984e-06,lgbm
+t16_Price to Sales Ratio,3.7439888103160936e-06,lgbm
+t26_Dividend Indicated Yld - Gross,3.7431666886756365e-06,lgbm
+t26_Price Earnings Ratio,3.5832723756541037e-06,lgbm
+t42_Moving Average 20 Day,3.4829390695396793e-06,lgbm
+t46_High Price,3.4128147440227465e-06,lgbm
+t29_Bid Price,3.3810298260456105e-06,lgbm
+t57_Moving Average 20 Day,3.350009753858873e-06,lgbm
+t25_Bid Price,3.2778351476713866e-06,lgbm
+t39_Bid Price,3.1846804213542955e-06,lgbm
+t01_Dividend Indicated Yld - Gross,3.08071000205619e-06,lgbm
+t38_Ask Price,3.0601003345778013e-06,lgbm
+t10_Ask Price,3.0029927123231466e-06,lgbm
+t33_Bid Price,2.9487489138546864e-06,lgbm
+t07_Bid Price,2.946515741944673e-06,lgbm
+t13_High Price,2.903626717606878e-06,lgbm
+t56_Price Earnings Ratio,2.74687735209188e-06,lgbm
+t43_Price to Sales Ratio,2.531721457308799e-06,lgbm
+t07_Dividend Indicated Yld - Gross,2.4922055709278625e-06,lgbm
+t05_Ask Price,2.4338244433826583e-06,lgbm
+t17_Price to Book Ratio,2.3382690606999293e-06,lgbm
+t24_Ask Price,2.3221183124438416e-06,lgbm
+t07_Moving Average 20 Day,2.2921153239082974e-06,lgbm
+t35_Bid Price,2.267971195545233e-06,lgbm
+t43_Bid Price,2.229813466289617e-06,lgbm
+t15_High Price,2.1571700036093746e-06,lgbm
+t45_Price to Sales Ratio,2.021038934236817e-06,lgbm
+t26_High Price,1.95065789285194e-06,lgbm
+t34_Bid Price,1.933129225854702e-06,lgbm
+t25_High Price,1.8875840356535157e-06,lgbm
+t15_Price to Book Ratio,1.8756362930970881e-06,lgbm
+t28_Low Price,1.8543483386535977e-06,lgbm
+t44_Ask Price,1.8325373374352407e-06,lgbm
+t44_Price to Sales Ratio,1.7852857337456468e-06,lgbm
+t49_Bid Price,1.7153152718814696e-06,lgbm
+t38_High Price,1.683943586835416e-06,lgbm
+t01_Price to Sales Ratio,1.6670250379121515e-06,lgbm
+t43_Ask Price,1.5800426796125541e-06,lgbm
+t54_Price to Book Ratio,1.494534077493371e-06,lgbm
+t17_Bid Price,1.4604984792205309e-06,lgbm
+t09_Bid Price,1.452488340626246e-06,lgbm
+t08_Moving Average 20 Day,1.4102902207583223e-06,lgbm
+t19_Bid Price,1.4053679596216964e-06,lgbm
+t16_Ask Price,1.3209738917993566e-06,lgbm
+t17_Price to Sales Ratio,1.2921148086884493e-06,lgbm
+t45_Moving Average 20 Day,1.2763593315628703e-06,lgbm
+t40_Bid Price,1.2169538055090583e-06,lgbm
+t13_Price Earnings Ratio,1.1270525627765137e-06,lgbm
+t03_Moving Average 20 Day,1.022610484930076e-06,lgbm
+t21_Moving Average 20 Day,1.0121592275779935e-06,lgbm
+t47_Moving Average 20 Day,1.001841682384368e-06,lgbm
+t03_Bid Price,9.861023694660777e-07,lgbm
+t19_Ask Price,9.55864104716522e-07,lgbm
+t19_Low Price,9.48262359155697e-07,lgbm
+t19_Price Earnings Ratio,8.868860505184633e-07,lgbm
+t15_Price Earnings Ratio,8.695815789344513e-07,lgbm
+t53_Bid Price,8.610653661400202e-07,lgbm
+t06_Price Earnings Ratio,7.468806176178273e-07,lgbm
+t29_High Price,6.923421467924488e-07,lgbm
+t21_Dividend Indicated Yld - Gross,6.553582131162928e-07,lgbm
+t58_Moving Average 20 Day,6.493551888679919e-07,lgbm
+t29_Ask Price,6.094421272817097e-07,lgbm
+t54_Moving Average 20 Day,5.339407892471376e-07,lgbm
+t23_Bid Price,4.5563158782734573e-07,lgbm
+t12_Bid Price,4.5276416173624886e-07,lgbm
+t31_Moving Average 20 Day,3.815258527068893e-07,lgbm
+t37_Moving Average 20 Day,2.879996113721401e-07,lgbm
+t20_Moving Average 20 Day,5.563512184019526e-08,lgbm
+t24_Bid Price,5.557867646613788e-08,lgbm
+t22_Moving Average 20 Day,0.0,lgbm
+t19_Moving Average 20 Day,0.0,lgbm

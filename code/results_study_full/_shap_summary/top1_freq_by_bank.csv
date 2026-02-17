@@ -1,0 +1,89 @@
+bank,feature,size
+BBCA,Bid Price,7
+BBCA,Low Price,6
+BBCA,Price to Book Ratio,6
+BBCA,Moving Average 20 Day,5
+BBCA,Ask Price,3
+BBCA,Price Change 1 Day Percent,3
+BBCA,Price Earnings Ratio,3
+BBCA,Dividend Indicated Yld - Gross,2
+BBCA,Price to Sales Ratio,2
+BBCA,High Price,1
+BBCA,bi_rate,1
+BBCA,inflation_rate,1
+BBNI,Bid Price,8
+BBNI,Low Price,5
+BBNI,High Price,4
+BBNI,Moving Average 20 Day,4
+BBNI,Price to Book Ratio,4
+BBNI,Ask Price,3
+BBNI,Price to Sales Ratio,3
+BBNI,Price Change 1 Day Percent,2
+BBNI,Price Earnings Ratio,2
+BBNI,cpi_index,2
+BBNI,exchange_rate_usd_idr,2
+BBNI,Dividend Indicated Yld - Gross,1
+BBRI,Price Change 1 Day Percent,8
+BBRI,Low Price,6
+BBRI,Bid Price,5
+BBRI,Price Earnings Ratio,5
+BBRI,Price to Book Ratio,5
+BBRI,Price to Sales Ratio,3
+BBRI,Ask Price,2
+BBRI,High Price,2
+BBRI,Dividend Indicated Yld - Gross,1
+BBRI,Moving Average 20 Day,1
+BBRI,cpi_index,1
+BBRI,ihsg_close,1
+BBTN,High Price,6
+BBTN,Price Change 1 Day Percent,6
+BBTN,Bid Price,5
+BBTN,Low Price,5
+BBTN,Price to Sales Ratio,4
+BBTN,cpi_index,3
+BBTN,Dividend Indicated Yld - Gross,2
+BBTN,Moving Average 20 Day,2
+BBTN,Price to Book Ratio,2
+BBTN,bi_rate,2
+BBTN,Ask Price,1
+BBTN,Price Earnings Ratio,1
+BBTN,exchange_rate_usd_idr,1
+BDMN,Price to Sales Ratio,7
+BDMN,Low Price,5
+BDMN,Price Earnings Ratio,5
+BDMN,High Price,4
+BDMN,Moving Average 20 Day,4
+BDMN,Bid Price,3
+BDMN,Price Change 1 Day Percent,3
+BDMN,Dividend Indicated Yld - Gross,2
+BDMN,Price to Book Ratio,2
+BDMN,exchange_rate_usd_idr,2
+BDMN,Ask Price,1
+BDMN,cpi_index,1
+BDMN,inflation_rate,1
+BMRI,High Price,6
+BMRI,Price to Sales Ratio,6
+BMRI,Price to Book Ratio,5
+BMRI,Dividend Indicated Yld - Gross,4
+BMRI,Ask Price,3
+BMRI,Bid Price,3
+BMRI,Low Price,3
+BMRI,Moving Average 20 Day,3
+BMRI,Price Change 1 Day Percent,2
+BMRI,cpi_index,2
+BMRI,Price Earnings Ratio,1
+BMRI,bi_rate,1
+BMRI,ihsg_close,1
+BNGA,Low Price,9
+BNGA,Moving Average 20 Day,6
+BNGA,Ask Price,4
+BNGA,Price Change 1 Day Percent,4
+BNGA,Price Earnings Ratio,3
+BNGA,Price to Sales Ratio,3
+BNGA,ihsg_close,3
+BNGA,Dividend Indicated Yld - Gross,2
+BNGA,High Price,2
+BNGA,Price to Book Ratio,1
+BNGA,bi_rate,1
+BNGA,cpi_index,1
+BNGA,exchange_rate_usd_idr,1

@@ -56,6 +56,9 @@ class TrainConfig:
     tune_epochs: int = 8
     tune_candidates: int = 6
     run_shap: bool = False
+    shap_only: bool = False
+    save_model: bool = False
+    model_path: Path | None = None
     shap_background_size: int = 64
     shap_eval_size: int = 32
     shap_nsamples: int = 100
@@ -408,6 +411,9 @@ def parse_args() -> TrainConfig:
     parser.add_argument("--learning-rate", type=float, default=1e-3)
     parser.add_argument("--model-type", choices=["lstm", "bilstm"], default="lstm")
     parser.add_argument("--run-shap", action="store_true")
+    parser.add_argument("--shap-only", action="store_true")
+    parser.add_argument("--save-model", action="store_true")
+    parser.add_argument("--model-path", type=str, default=None)
     parser.add_argument("--shap-background-size", type=int, default=64)
     parser.add_argument("--shap-eval-size", type=int, default=32)
     parser.add_argument("--shap-nsamples", type=int, default=100)
@@ -432,6 +438,9 @@ def parse_args() -> TrainConfig:
         tune_epochs=args.tune_epochs,
         tune_candidates=args.tune_candidates,
         run_shap=args.run_shap,
+        shap_only=args.shap_only,
+        save_model=args.save_model,
+        model_path=Path(args.model_path) if args.model_path else None,
         shap_background_size=args.shap_background_size,
         shap_eval_size=args.shap_eval_size,
         shap_nsamples=args.shap_nsamples,
@@ -441,6 +450,11 @@ def parse_args() -> TrainConfig:
 
 def main() -> None:
     config = parse_args()
+    if config.shap_only and not config.run_shap:
+        raise ValueError("`--shap-only` requires `--run-shap`.")
+    if config.shap_only and config.optimize:
+        raise ValueError("`--shap-only` cannot be combined with `--optimize`.")
+
     set_seed(config.seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     feature_cols = FEATURE_COLS + MACRO_FEATURE_COLS if config.use_macro else FEATURE_COLS
@@ -459,7 +473,7 @@ def main() -> None:
     test_set = split_dataset_by_date(selected_data, "2022-01-02", "2024-12-31")
     print(f"Split sizes | train={len(train_set)} val={len(val_set)} test={len(test_set)}")
 
-    if config.optimize:
+    if config.optimize and not config.shap_only:
         config = tune_hyperparams(train_set, val_set, feature_cols, config, device)
         print(
             f"Using tuned params | hidden={config.hidden_size} lr={config.learning_rate} "
@@ -478,7 +492,36 @@ def main() -> None:
         config.dropout,
         bidirectional=(config.model_type == "bilstm"),
     ).to(device)
-    model, history = train_model(model, train_loader, val_loader, config, device)
+    history: list[dict[str, float]] = []
+    model_file = config.model_path if config.model_path is not None else output_dir / "model.pt"
+
+    if config.shap_only:
+        if not model_file.exists():
+            raise FileNotFoundError(f"Model checkpoint not found: {model_file}")
+        payload = torch.load(model_file, map_location=device)
+        state_dict = payload["state_dict"] if isinstance(payload, dict) and "state_dict" in payload else payload
+        model.load_state_dict(state_dict)
+        model.eval()
+        print(f"Loaded model checkpoint: {model_file}")
+    else:
+        model, history = train_model(model, train_loader, val_loader, config, device)
+        if config.save_model:
+            torch.save(
+                {
+                    "state_dict": model.state_dict(),
+                    "model_type": config.model_type,
+                    "hidden_size": config.hidden_size,
+                    "dropout": config.dropout,
+                    "time_steps": config.time_steps,
+                    "use_macro": config.use_macro,
+                    "feature_columns": feature_cols,
+                    "bank_name": config.bank_name,
+                    "seed": config.seed,
+                },
+                model_file,
+            )
+            print(f"Saved model checkpoint: {model_file}")
+
     metrics, y_true, y_pred = evaluate_test(model, x_test, y_test, target_scaler, device)
     print(
         f"Test metrics | MSE={metrics['mse']:.4f} RMSE={metrics['rmse']:.4f} "
@@ -495,7 +538,8 @@ def main() -> None:
     pd.DataFrame({"date": future_dates, "forecast_price": forecasts}).to_csv(
         output_dir / "forecast_pytorch.csv", index=False
     )
-    pd.DataFrame(history).to_csv(output_dir / "training_history_pytorch.csv", index=False)
+    if history:
+        pd.DataFrame(history).to_csv(output_dir / "training_history_pytorch.csv", index=False)
 
     shap_importance = None
     if config.run_shap:
@@ -518,6 +562,7 @@ def main() -> None:
     config_dict = asdict(config)
     config_dict["data_dir"] = str(config_dict["data_dir"])
     config_dict["output_root"] = str(config_dict["output_root"])
+    config_dict["model_path"] = str(config_dict["model_path"]) if config_dict["model_path"] is not None else None
     summary = {
         "config": config_dict,
         "metrics": metrics,
@@ -540,8 +585,11 @@ def main() -> None:
     print(f"Saved outputs to: {output_dir}")
     print(" - test_predictions_pytorch.csv")
     print(" - forecast_pytorch.csv")
-    print(" - training_history_pytorch.csv")
+    if history:
+        print(" - training_history_pytorch.csv")
     print(" - summary_pytorch.json")
+    if config.save_model and not config.shap_only:
+        print(" - model.pt")
     if shap_importance is not None:
         print(" - shap_kernel_feature_importance.csv")
 

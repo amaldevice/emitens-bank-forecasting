@@ -34,6 +34,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--tune-epochs", type=int, default=8)
     parser.add_argument("--tune-candidates", type=int, default=6)
     parser.add_argument("--run-shap", action="store_true")
+    parser.add_argument("--shap-only", action="store_true")
+    parser.add_argument("--save-model", action="store_true")
+    parser.add_argument("--model-path", type=str, default=None)
     parser.add_argument("--shap-background-size", type=int, default=4)
     parser.add_argument("--shap-eval-size", type=int, default=2)
     parser.add_argument("--shap-nsamples", type=int, default=10)
@@ -87,6 +90,12 @@ def main() -> None:
                     "--output-root",
                     str(case_dir),
                 ] + CASE_ARGS[case]
+                if args.shap_only:
+                    cmd += ["--shap-only"]
+                if args.save_model:
+                    cmd += ["--save-model"]
+                if args.model_path:
+                    cmd += ["--model-path", args.model_path]
                 if args.run_shap:
                     cmd += [
                         "--run-shap",

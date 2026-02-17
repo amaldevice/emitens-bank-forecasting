@@ -6,7 +6,7 @@ This study focuses on seven Indonesian banking stocks: BBCA, BBNI, BBRI, BBTN, B
 The target variable is the daily closing price. The analysis period follows a chronological split to avoid data leakage.
 
 \subsection{Feature Selection}
-The baseline feature set (price-only regime) includes market micro and technical variables available in the bank-level dataset. The macro-augmented regime extends this set with external variables:
+The baseline feature set (\texttt{Without\_Macro}) includes market micro and technical variables available in the bank-level dataset. The macro-augmented regime (\texttt{With\_Macro}) extends this set with external variables:
 \begin{itemize}
     \item inflation rate and CPI-derived indicators,
     \item BI policy rate,
@@ -15,6 +15,9 @@ The baseline feature set (price-only regime) includes market micro and technical
 \end{itemize}
 
 The final feature schema is fixed per regime before model training.
+
+\subsection{XAI-Oriented Feature Schema}
+To support consistent SHAP analysis across all experiments, feature names are kept identical across banks and seeds, and the same temporal windowing process is used in every run. The \texttt{Without\_Macro} regime uses 10 market/valuation features, while \texttt{With\_Macro} adds 6 external variables (total 16 features). This fixed schema allows direct aggregation of feature attribution statistics across the full ablation matrix.
 
 \subsection{Data Preprocessing}
 We apply chronological sorting, forward-fill for missing observations, and standard scaling for both features and target during model training. Sequence windows are then constructed with a fixed lookback length.

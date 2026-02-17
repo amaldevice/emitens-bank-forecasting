@@ -1,0 +1,63 @@
+{
+  "config": {
+    "bank_name": "BBCA",
+    "use_macro": false,
+    "data_dir": "data",
+    "output_root": "results_sota_data",
+    "time_steps": 60,
+    "trials": 50,
+    "seeds": [
+      42,
+      52,
+      62,
+      72,
+      82
+    ],
+    "train_start": "2014-01-02",
+    "val_start": "2020-01-02",
+    "test_start": "2022-01-02",
+    "test_end": "2024-12-31",
+    "run_shap": true,
+    "shap_eval_size": 256
+  },
+  "model": "xgb",
+  "seed": 72,
+  "metrics": {
+    "mse": 6326824.5,
+    "rmse": 2515.317971947086,
+    "mae": 2353.81396484375,
+    "mape": 25.252910614013672
+  },
+  "best_params": {
+    "n_estimators": 750,
+    "learning_rate": 0.1,
+    "max_depth": 8,
+    "min_child_weight": 8.0,
+    "subsample": 0.7,
+    "colsample_bytree": 0.7,
+    "reg_alpha": 0.0,
+    "reg_lambda": 5.0,
+    "gamma": 0.0
+  },
+  "feature_columns": [
+    "Ask Price",
+    "Bid Price",
+    "High Price",
+    "Low Price",
+    "Moving Average 20 Day",
+    "Price to Sales Ratio",
+    "Price to Book Ratio",
+    "Price Earnings Ratio",
+    "Dividend Indicated Yld - Gross",
+    "Price Change 1 Day Percent"
+  ],
+  "target_column": "Closing Price",
+  "n_train_sequences": 1395,
+  "n_val_sequences": 429,
+  "n_test_sequences": 662,
+  "shap": {
+    "method": "tree_explainer",
+    "eval_size": 256,
+    "top_feature": "t14_Price to Sales Ratio"
+  }
+}

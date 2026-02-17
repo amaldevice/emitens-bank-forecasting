@@ -1,0 +1,21 @@
+@startuml
+title Forecasting Pipeline
+
+top to bottom direction
+skinparam defaultTextAlignment center
+
+rectangle "Load + Prep + Seq + Split" as A
+rectangle "Feature\nWithout Macro / With Macro" as B
+rectangle "Model\nLSTM / BiLSTM" as C
+rectangle "Multi-seed Train" as D
+rectangle "Test + Save" as E
+rectangle "Metrics + Stats\n(Wilcoxon, DM)" as F
+rectangle "SHAP (opt)" as G
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+@enduml

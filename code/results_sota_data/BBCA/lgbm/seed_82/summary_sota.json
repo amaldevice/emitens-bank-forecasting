@@ -1,0 +1,63 @@
+{
+  "config": {
+    "bank_name": "BBCA",
+    "use_macro": false,
+    "data_dir": "data",
+    "output_root": "results_sota_data",
+    "time_steps": 60,
+    "trials": 50,
+    "seeds": [
+      42,
+      52,
+      62,
+      72,
+      82
+    ],
+    "train_start": "2014-01-02",
+    "val_start": "2020-01-02",
+    "test_start": "2022-01-02",
+    "test_end": "2024-12-31",
+    "run_shap": true,
+    "shap_eval_size": 256
+  },
+  "model": "lgbm",
+  "seed": 82,
+  "metrics": {
+    "mse": 6375550.406594994,
+    "rmse": 2524.985228985507,
+    "mae": 2363.665713666666,
+    "mape": 25.361334520267913
+  },
+  "best_params": {
+    "n_estimators": 1131,
+    "learning_rate": 0.02,
+    "num_leaves": 63,
+    "max_depth": 12,
+    "min_child_samples": 10,
+    "subsample": 1.0,
+    "colsample_bytree": 0.9,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0
+  },
+  "feature_columns": [
+    "Ask Price",
+    "Bid Price",
+    "High Price",
+    "Low Price",
+    "Moving Average 20 Day",
+    "Price to Sales Ratio",
+    "Price to Book Ratio",
+    "Price Earnings Ratio",
+    "Dividend Indicated Yld - Gross",
+    "Price Change 1 Day Percent"
+  ],
+  "target_column": "Closing Price",
+  "n_train_sequences": 1395,
+  "n_val_sequences": 429,
+  "n_test_sequences": 662,
+  "shap": {
+    "method": "tree_explainer",
+    "eval_size": 256,
+    "top_feature": "t00_Moving Average 20 Day"
+  }
+}

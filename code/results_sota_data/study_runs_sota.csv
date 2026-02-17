@@ -1,0 +1,11 @@
+bank,mode,model,seed,mae,rmse,mape,mse,summary_path,predictions_path
+BBCA,data,xgb,42,2443.4228515625,2599.7850872716385,26.250734329223633,6758882.5,results_sota_data\BBCA\xgb\seed_42\summary_sota.json,results_sota_data\BBCA\xgb\seed_42\test_predictions_sota.csv
+BBCA,data,lgbm,42,2337.8734046997743,2500.415501006551,25.07497862126345,6252077.677673842,results_sota_data\BBCA\lgbm\seed_42\summary_sota.json,results_sota_data\BBCA\lgbm\seed_42\test_predictions_sota.csv
+BBCA,data,xgb,52,2382.08984375,2543.292944196559,25.56354331970215,6468339.0,results_sota_data\BBCA\xgb\seed_52\summary_sota.json,results_sota_data\BBCA\xgb\seed_52\test_predictions_sota.csv
+BBCA,data,lgbm,52,2445.8478892976627,2602.697397071637,26.275847024363113,6774033.740723475,results_sota_data\BBCA\lgbm\seed_52\summary_sota.json,results_sota_data\BBCA\lgbm\seed_52\test_predictions_sota.csv
+BBCA,data,xgb,62,2490.224365234375,2645.843060349574,26.766067504882812,7000485.5,results_sota_data\BBCA\xgb\seed_62\summary_sota.json,results_sota_data\BBCA\xgb\seed_62\test_predictions_sota.csv
+BBCA,data,lgbm,62,2417.1938135579903,2575.9211175402143,25.955986831898265,6635369.603789627,results_sota_data\BBCA\lgbm\seed_62\summary_sota.json,results_sota_data\BBCA\lgbm\seed_62\test_predictions_sota.csv
+BBCA,data,xgb,72,2353.81396484375,2515.317971947086,25.252910614013672,6326824.5,results_sota_data\BBCA\xgb\seed_72\summary_sota.json,results_sota_data\BBCA\xgb\seed_72\test_predictions_sota.csv
+BBCA,data,lgbm,72,2355.329746314246,2515.417515340021,25.273992794001625,6327325.276479365,results_sota_data\BBCA\lgbm\seed_72\summary_sota.json,results_sota_data\BBCA\lgbm\seed_72\test_predictions_sota.csv
+BBCA,data,xgb,82,2392.4716796875,2548.479644807861,25.693862915039062,6494748.5,results_sota_data\BBCA\xgb\seed_82\summary_sota.json,results_sota_data\BBCA\xgb\seed_82\test_predictions_sota.csv
+BBCA,data,lgbm,82,2363.665713666666,2524.985228985507,25.361334520267913,6375550.406594994,results_sota_data\BBCA\lgbm\seed_82\summary_sota.json,results_sota_data\BBCA\lgbm\seed_82\test_predictions_sota.csv

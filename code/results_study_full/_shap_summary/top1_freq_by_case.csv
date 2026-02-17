@@ -1,0 +1,89 @@
+case,feature,size
+bilstm_data,Bid Price,6
+bilstm_data,High Price,5
+bilstm_data,Low Price,5
+bilstm_data,Moving Average 20 Day,5
+bilstm_data,Dividend Indicated Yld - Gross,4
+bilstm_data,Price to Book Ratio,4
+bilstm_data,Price Change 1 Day Percent,3
+bilstm_data,Ask Price,2
+bilstm_data,Price to Sales Ratio,1
+bilstm_data_ga,Low Price,8
+bilstm_data_ga,Price to Sales Ratio,7
+bilstm_data_ga,Moving Average 20 Day,5
+bilstm_data_ga,Bid Price,4
+bilstm_data_ga,High Price,3
+bilstm_data_ga,Price Earnings Ratio,3
+bilstm_data_ga,Dividend Indicated Yld - Gross,2
+bilstm_data_ga,Price Change 1 Day Percent,2
+bilstm_data_ga,Price to Book Ratio,1
+bilstm_macro,Price Change 1 Day Percent,7
+bilstm_macro,Ask Price,5
+bilstm_macro,Bid Price,4
+bilstm_macro,Dividend Indicated Yld - Gross,3
+bilstm_macro,Low Price,3
+bilstm_macro,Price to Sales Ratio,3
+bilstm_macro,exchange_rate_usd_idr,3
+bilstm_macro,Moving Average 20 Day,2
+bilstm_macro,cpi_index,2
+bilstm_macro,Price Earnings Ratio,1
+bilstm_macro,Price to Book Ratio,1
+bilstm_macro,bi_rate,1
+bilstm_macro_ga,Low Price,5
+bilstm_macro_ga,Price Change 1 Day Percent,5
+bilstm_macro_ga,Price to Sales Ratio,5
+bilstm_macro_ga,Ask Price,4
+bilstm_macro_ga,Bid Price,3
+bilstm_macro_ga,High Price,3
+bilstm_macro_ga,cpi_index,3
+bilstm_macro_ga,Price Earnings Ratio,2
+bilstm_macro_ga,Price to Book Ratio,2
+bilstm_macro_ga,ihsg_close,2
+bilstm_macro_ga,exchange_rate_usd_idr,1
+lstm_data,Low Price,6
+lstm_data,Price to Book Ratio,6
+lstm_data,Bid Price,5
+lstm_data,Price to Sales Ratio,5
+lstm_data,Price Earnings Ratio,4
+lstm_data,High Price,3
+lstm_data,Moving Average 20 Day,2
+lstm_data,Price Change 1 Day Percent,2
+lstm_data,Ask Price,1
+lstm_data,Dividend Indicated Yld - Gross,1
+lstm_data_ga,Bid Price,7
+lstm_data_ga,High Price,5
+lstm_data_ga,Moving Average 20 Day,5
+lstm_data_ga,Price to Book Ratio,5
+lstm_data_ga,Price Earnings Ratio,3
+lstm_data_ga,Ask Price,2
+lstm_data_ga,Dividend Indicated Yld - Gross,2
+lstm_data_ga,Low Price,2
+lstm_data_ga,Price Change 1 Day Percent,2
+lstm_data_ga,Price to Sales Ratio,2
+lstm_macro,Price Change 1 Day Percent,4
+lstm_macro,Price to Book Ratio,4
+lstm_macro,Ask Price,3
+lstm_macro,High Price,3
+lstm_macro,Low Price,3
+lstm_macro,Moving Average 20 Day,3
+lstm_macro,Price Earnings Ratio,3
+lstm_macro,cpi_index,3
+lstm_macro,Dividend Indicated Yld - Gross,2
+lstm_macro,Price to Sales Ratio,2
+lstm_macro,ihsg_close,2
+lstm_macro,Bid Price,1
+lstm_macro,bi_rate,1
+lstm_macro,exchange_rate_usd_idr,1
+lstm_macro_ga,Low Price,7
+lstm_macro_ga,Price Earnings Ratio,4
+lstm_macro_ga,High Price,3
+lstm_macro_ga,Moving Average 20 Day,3
+lstm_macro_ga,Price Change 1 Day Percent,3
+lstm_macro_ga,Price to Sales Ratio,3
+lstm_macro_ga,bi_rate,3
+lstm_macro_ga,Price to Book Ratio,2
+lstm_macro_ga,cpi_index,2
+lstm_macro_ga,inflation_rate,2
+lstm_macro_ga,Bid Price,1
+lstm_macro_ga,exchange_rate_usd_idr,1
+lstm_macro_ga,ihsg_close,1

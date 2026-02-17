@@ -1,0 +1,5 @@
+feature,importance,rank,bank,case,seed,is_macro_case,is_ga_case,importance_cap99
+High Price,15056668323858.213,1,BBNI,lstm_data_ga,42,False,True,0.019354074136936066
+Moving Average 20 Day,13434852802268.738,1,BBNI,bilstm_data,82,False,False,0.019354074136936066
+Price to Book Ratio,13434852802268.732,2,BBNI,bilstm_data,82,False,False,0.019354074136936066
+Low Price,9172014809306.465,1,BBCA,bilstm_macro_ga,42,True,True,0.019354074136936066

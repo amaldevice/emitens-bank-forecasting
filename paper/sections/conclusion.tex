@@ -1,6 +1,6 @@
 \section{Conclusion}
-This paper presents a reproducible framework for forecasting Indonesian bank stock prices using LSTM-family models, macroeconomic features, multi-seed evaluation, statistical significance testing, and SHAP-based explainability. The framework is designed as a foundational benchmark for computational finance research in the Indonesian market.
+This paper presents a reproducible framework for forecasting Indonesian bank stock prices using LSTM-family models, macroeconomic features, multi-seed evaluation, and statistical significance testing.
 
-The current evidence indicates that architecture choice, macroeconomic context, and optimization strategy each contribute differently across banks, motivating bank-specific model selection rather than one-size-fits-all deployment.
+Empirical results show that BiLSTM-based settings are generally stronger than LSTM across the evaluated banks, with best-case RMSE gains over the \texttt{lstm\_data} baseline reaching up to 35.66\%. Diebold-Mariano tests confirm significant forecast-error reduction in six banks, while Wilcoxon results are less conclusive due to limited seed count. The evidence also indicates that macro features and optimization are not uniformly beneficial, motivating bank-specific model selection rather than one-size-fits-all deployment.
 
-Immediate future work includes: (i) expanding and stress-testing the four-model suite (LSTM, BiLSTM, XGBoost, LightGBM) with matched GA budgets, (ii) extending validation to walk-forward protocols, and (iii) adding architecture upgrades such as attention-based variants.
+Immediate future work includes: (i) extending validation to walk-forward protocols, (ii) increasing seed count for stronger nonparametric testing power, and (iii) stress-testing recurrent models under additional market regimes.

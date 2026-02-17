@@ -1,0 +1,61 @@
+{
+  "config": {
+    "bank_name": "BBTN",
+    "forecast_days": 30,
+    "data_dir": "data_with_macro",
+    "output_root": "C:\\Users\\Braincore\\Documents\\GitHub\\SIML_Juni_2026_UMS_Surakarta_2\\code\\results_study_full\\BBTN\\bilstm_macro\\seed_52",
+    "time_steps": 60,
+    "epochs": 50,
+    "batch_size": 32,
+    "hidden_size": 32,
+    "dropout": 0.3,
+    "learning_rate": 0.001,
+    "model_type": "bilstm",
+    "optimize": false,
+    "use_macro": true,
+    "tune_epochs": 8,
+    "tune_candidates": 6,
+    "run_shap": true,
+    "shap_only": true,
+    "save_model": false,
+    "model_path": "C:\\Users\\Braincore\\Documents\\GitHub\\SIML_Juni_2026_UMS_Surakarta_2\\code\\results_study_full\\BBTN\\bilstm_macro\\seed_52\\BBTN\\model.pt",
+    "shap_background_size": 8,
+    "shap_eval_size": 4,
+    "shap_nsamples": 20,
+    "seed": 52
+  },
+  "metrics": {
+    "mse": 5304.755859375,
+    "rmse": 72.83375494490862,
+    "mae": 55.48846435546875,
+    "mape": 4.020759582519531
+  },
+  "n_train_sequences": 1395,
+  "n_test_sequences": 662,
+  "feature_columns": [
+    "Ask Price",
+    "Bid Price",
+    "High Price",
+    "Low Price",
+    "Moving Average 20 Day",
+    "Price to Sales Ratio",
+    "Price to Book Ratio",
+    "Price Earnings Ratio",
+    "Dividend Indicated Yld - Gross",
+    "Price Change 1 Day Percent",
+    "inflation_rate",
+    "cpi_index",
+    "bi_rate",
+    "exchange_rate_usd_idr",
+    "ihsg_close",
+    "ihsg_return_1d"
+  ],
+  "target_column": "Closing Price",
+  "shap": {
+    "method": "kernel_explainer",
+    "background_size": 8,
+    "eval_size": 4,
+    "nsamples": 20,
+    "top_feature": "Low Price"
+  }
+}

@@ -1,0 +1,961 @@
+feature,importance,model
+t04_Bid Price,0.13744833,xgb
+t14_Price to Sales Ratio,0.1281537,xgb
+t59_Ask Price,0.0984864,xgb
+t59_Bid Price,0.06448915,xgb
+t49_Moving Average 20 Day,0.059840035,xgb
+t59_Low Price,0.04498824,xgb
+t00_Moving Average 20 Day,0.027462287,xgb
+t59_High Price,0.0274019,xgb
+t55_Bid Price,0.027194956,xgb
+t58_Ask Price,0.026510201,xgb
+t01_Moving Average 20 Day,0.02582334,xgb
+t00_Bid Price,0.022169216,xgb
+t13_Ask Price,0.021833856,xgb
+t55_Low Price,0.013054639,xgb
+t16_Low Price,0.012477295,xgb
+t58_High Price,0.011237264,xgb
+t06_Low Price,0.010689684,xgb
+t04_bi_rate,0.0102678165,xgb
+t04_Ask Price,0.010252612,xgb
+t55_Ask Price,0.009973441,xgb
+t35_Ask Price,0.008769746,xgb
+t16_High Price,0.008669235,xgb
+t29_High Price,0.008609894,xgb
+t27_Ask Price,0.008524317,xgb
+t19_Ask Price,0.008372229,xgb
+t38_Low Price,0.008098951,xgb
+t53_Ask Price,0.008097851,xgb
+t52_Low Price,0.007816066,xgb
+t17_Low Price,0.0076551554,xgb
+t05_bi_rate,0.007118763,xgb
+t25_High Price,0.006965154,xgb
+t59_Price Earnings Ratio,0.0065664784,xgb
+t16_Ask Price,0.006398801,xgb
+t26_High Price,0.0060012396,xgb
+t56_Moving Average 20 Day,0.0051737665,xgb
+t34_Moving Average 20 Day,0.005170368,xgb
+t54_High Price,0.005125811,xgb
+t11_Low Price,0.0047726016,xgb
+t03_bi_rate,0.0047211265,xgb
+t59_Price to Sales Ratio,0.004405016,xgb
+t09_Ask Price,0.004397289,xgb
+t29_Dividend Indicated Yld - Gross,0.004275455,xgb
+t54_Low Price,0.004105165,xgb
+t32_Low Price,0.003944737,xgb
+t59_ihsg_close,0.0039206566,xgb
+t58_Bid Price,0.0038788605,xgb
+t26_Bid Price,0.0038750896,xgb
+t36_Bid Price,0.0036757907,xgb
+t50_Ask Price,0.00363671,xgb
+t49_inflation_rate,0.0035748351,xgb
+t53_Low Price,0.0034372935,xgb
+t27_Bid Price,0.0031821448,xgb
+t27_High Price,0.0031711673,xgb
+t13_Moving Average 20 Day,0.0029682529,xgb
+t11_Bid Price,0.0029473482,xgb
+t46_Low Price,0.0026762495,xgb
+t35_Moving Average 20 Day,0.0026404655,xgb
+t57_High Price,0.0026170393,xgb
+t51_Low Price,0.002595224,xgb
+t47_Low Price,0.002591586,xgb
+t36_Moving Average 20 Day,0.0025081432,xgb
+t02_Price to Sales Ratio,0.0024990004,xgb
+t02_Ask Price,0.0023952574,xgb
+t24_Low Price,0.002385167,xgb
+t30_Dividend Indicated Yld - Gross,0.002382959,xgb
+t23_Moving Average 20 Day,0.002271732,xgb
+t16_bi_rate,0.00224843,xgb
+t11_High Price,0.002226996,xgb
+t03_Low Price,0.002167128,xgb
+t25_Low Price,0.0021480408,xgb
+t06_High Price,0.0021152145,xgb
+t39_Low Price,0.0020494435,xgb
+t23_Dividend Indicated Yld - Gross,0.001973842,xgb
+t24_Moving Average 20 Day,0.0019317274,xgb
+t15_Dividend Indicated Yld - Gross,0.0019134464,xgb
+t31_High Price,0.0018225883,xgb
+t31_Low Price,0.0018203831,xgb
+t13_Low Price,0.0017684954,xgb
+t40_Price to Sales Ratio,0.0016936185,xgb
+t57_Bid Price,0.0016537011,xgb
+t09_Price to Sales Ratio,0.0016374796,xgb
+t25_bi_rate,0.0016291989,xgb
+t53_Bid Price,0.0015383137,xgb
+t22_Ask Price,0.0015025714,xgb
+t30_Moving Average 20 Day,0.0014912868,xgb
+t40_Low Price,0.0014868042,xgb
+t22_bi_rate,0.0013098246,xgb
+t43_ihsg_close,0.001298087,xgb
+t47_Price to Sales Ratio,0.0012715042,xgb
+t14_Low Price,0.00124193,xgb
+t37_Price to Sales Ratio,0.0012379318,xgb
+t37_bi_rate,0.0012243623,xgb
+t43_High Price,0.0011587883,xgb
+t16_Moving Average 20 Day,0.001158174,xgb
+t29_Moving Average 20 Day,0.0011403569,xgb
+t18_bi_rate,0.0011212713,xgb
+t13_Bid Price,0.0011178086,xgb
+t01_Low Price,0.0011176296,xgb
+t08_Low Price,0.0011160909,xgb
+t50_High Price,0.0010904332,xgb
+t40_ihsg_close,0.0010765076,xgb
+t38_Bid Price,0.001052122,xgb
+t58_Low Price,0.001021489,xgb
+t50_Low Price,0.0010094492,xgb
+t12_Low Price,0.0009920193,xgb
+t50_Price Earnings Ratio,0.0009862942,xgb
+t49_Low Price,0.0009548402,xgb
+t40_Price Earnings Ratio,0.00094390323,xgb
+t48_Price to Sales Ratio,0.0009428075,xgb
+t04_Price to Book Ratio,0.0009130059,xgb
+t00_High Price,0.0008928782,xgb
+t49_Bid Price,0.00085754355,xgb
+t46_bi_rate,0.0008509653,xgb
+t49_Price Earnings Ratio,0.0008367258,xgb
+t49_Ask Price,0.0008235563,xgb
+t18_Moving Average 20 Day,0.0007857672,xgb
+t37_High Price,0.00075400865,xgb
+t50_Bid Price,0.0007310947,xgb
+t51_Ask Price,0.0007223381,xgb
+t17_Moving Average 20 Day,0.0007212204,xgb
+t52_High Price,0.0007142171,xgb
+t51_Price to Sales Ratio,0.0007096933,xgb
+t06_cpi_index,0.0006760998,xgb
+t31_Ask Price,0.0006724125,xgb
+t46_Price to Sales Ratio,0.0006594914,xgb
+t56_Low Price,0.0006554566,xgb
+t53_Price Earnings Ratio,0.0006504104,xgb
+t56_Price Earnings Ratio,0.00063179684,xgb
+t39_Bid Price,0.0006257072,xgb
+t15_Moving Average 20 Day,0.0006221729,xgb
+t34_Bid Price,0.00061427365,xgb
+t59_Price Change 1 Day Percent,0.0005950559,xgb
+t31_Bid Price,0.0005891364,xgb
+t33_Moving Average 20 Day,0.0005880991,xgb
+t13_ihsg_close,0.00056915527,xgb
+t07_cpi_index,0.0005669062,xgb
+t56_Ask Price,0.00055926456,xgb
+t30_Price to Sales Ratio,0.0005545588,xgb
+t34_ihsg_close,0.0005495115,xgb
+t59_ihsg_return_1d,0.000547445,xgb
+t02_Moving Average 20 Day,0.00054276077,xgb
+t09_High Price,0.00051357405,xgb
+t07_ihsg_return_1d,0.0004926393,xgb
+t48_High Price,0.0004517946,xgb
+t02_ihsg_close,0.00043383532,xgb
+t22_Price to Book Ratio,0.0004305476,xgb
+t46_Dividend Indicated Yld - Gross,0.00040878492,xgb
+t26_Low Price,0.00039745306,xgb
+t45_Ask Price,0.00038474225,xgb
+t10_Dividend Indicated Yld - Gross,0.00038306805,xgb
+t01_Ask Price,0.00038006454,xgb
+t02_Price Change 1 Day Percent,0.00037124212,xgb
+t54_ihsg_close,0.00036929862,xgb
+t12_Price Change 1 Day Percent,0.00036769095,xgb
+t00_Price to Sales Ratio,0.00036695183,xgb
+t04_inflation_rate,0.0003592948,xgb
+t01_Price Earnings Ratio,0.00035605908,xgb
+t38_Price to Book Ratio,0.0003478752,xgb
+t08_High Price,0.0003416424,xgb
+t28_ihsg_close,0.0003398281,xgb
+t21_Price to Sales Ratio,0.00033964045,xgb
+t48_Ask Price,0.00033390225,xgb
+t52_Price to Book Ratio,0.00032400803,xgb
+t03_Price to Sales Ratio,0.00031981352,xgb
+t03_Price to Book Ratio,0.00031889882,xgb
+t17_Price Change 1 Day Percent,0.0003162331,xgb
+t39_Moving Average 20 Day,0.00029721024,xgb
+t32_Price to Sales Ratio,0.00029291137,xgb
+t47_High Price,0.0002887108,xgb
+t49_ihsg_close,0.00028824902,xgb
+t52_Price Change 1 Day Percent,0.00028808432,xgb
+t09_Dividend Indicated Yld - Gross,0.00028554528,xgb
+t13_Price Change 1 Day Percent,0.00028491995,xgb
+t47_Dividend Indicated Yld - Gross,0.00028422204,xgb
+t02_Price Earnings Ratio,0.00028126247,xgb
+t22_Moving Average 20 Day,0.00027642993,xgb
+t18_ihsg_close,0.00027288008,xgb
+t51_ihsg_close,0.00027215815,xgb
+t42_Price to Sales Ratio,0.0002718048,xgb
+t07_Ask Price,0.00026899116,xgb
+t56_High Price,0.00026672197,xgb
+t30_ihsg_close,0.00026462192,xgb
+t39_ihsg_close,0.00026161145,xgb
+t05_ihsg_close,0.0002546885,xgb
+t36_Ask Price,0.0002524011,xgb
+t21_Price to Book Ratio,0.00024568487,xgb
+t01_High Price,0.00024415881,xgb
+t14_Moving Average 20 Day,0.00024375123,xgb
+t02_Bid Price,0.00024167169,xgb
+t54_Ask Price,0.00024136428,xgb
+t46_Price to Book Ratio,0.00023967033,xgb
+t16_ihsg_return_1d,0.00023136272,xgb
+t06_Price to Sales Ratio,0.00023020728,xgb
+t34_Dividend Indicated Yld - Gross,0.00022914256,xgb
+t53_Price Change 1 Day Percent,0.00022637738,xgb
+t56_ihsg_close,0.00022611428,xgb
+t02_ihsg_return_1d,0.0002257808,xgb
+t42_Bid Price,0.00022303314,xgb
+t04_Price to Sales Ratio,0.00022016706,xgb
+t54_ihsg_return_1d,0.00021619633,xgb
+t36_ihsg_close,0.0002158212,xgb
+t49_Price Change 1 Day Percent,0.00021568606,xgb
+t46_ihsg_close,0.00021565078,xgb
+t58_Dividend Indicated Yld - Gross,0.00021472824,xgb
+t41_bi_rate,0.0002122196,xgb
+t57_ihsg_close,0.00021128205,xgb
+t25_ihsg_return_1d,0.00021070875,xgb
+t58_Price to Sales Ratio,0.00021045558,xgb
+t23_Price Change 1 Day Percent,0.00020852973,xgb
+t50_Price to Sales Ratio,0.00020746364,xgb
+t43_Dividend Indicated Yld - Gross,0.0002055172,xgb
+t29_ihsg_return_1d,0.0002006644,xgb
+t21_Ask Price,0.00020039889,xgb
+t01_cpi_index,0.00019974528,xgb
+t33_Price to Sales Ratio,0.00019575265,xgb
+t53_ihsg_return_1d,0.0001929185,xgb
+t39_Price to Book Ratio,0.00019247564,xgb
+t57_Dividend Indicated Yld - Gross,0.0001889084,xgb
+t12_Dividend Indicated Yld - Gross,0.0001859938,xgb
+t10_Moving Average 20 Day,0.00018359706,xgb
+t58_ihsg_close,0.00018216894,xgb
+t27_Price to Book Ratio,0.00017863615,xgb
+t48_ihsg_close,0.00017818318,xgb
+t12_ihsg_return_1d,0.00017581538,xgb
+t11_Price Change 1 Day Percent,0.00017524815,xgb
+t09_cpi_index,0.00017404679,xgb
+t37_Ask Price,0.00017348195,xgb
+t56_Price Change 1 Day Percent,0.0001716432,xgb
+t51_ihsg_return_1d,0.00017026841,xgb
+t41_Price Change 1 Day Percent,0.00016980963,xgb
+t20_bi_rate,0.0001670468,xgb
+t00_Ask Price,0.00016687268,xgb
+t00_ihsg_close,0.00016380592,xgb
+t45_Price to Book Ratio,0.00016301601,xgb
+t18_ihsg_return_1d,0.00016284922,xgb
+t15_Price to Sales Ratio,0.00016237004,xgb
+t40_Bid Price,0.00016140599,xgb
+t37_ihsg_return_1d,0.00016090789,xgb
+t38_ihsg_close,0.00015945984,xgb
+t17_ihsg_return_1d,0.00015813061,xgb
+t06_Dividend Indicated Yld - Gross,0.00015654016,xgb
+t58_Price Change 1 Day Percent,0.00015587323,xgb
+t06_ihsg_close,0.00015575836,xgb
+t44_ihsg_return_1d,0.00015522251,xgb
+t41_ihsg_close,0.00015498357,xgb
+t05_ihsg_return_1d,0.00015494398,xgb
+t35_ihsg_return_1d,0.00015329375,xgb
+t54_Price Earnings Ratio,0.00015255244,xgb
+t57_Low Price,0.00015208258,xgb
+t36_ihsg_return_1d,0.00015027482,xgb
+t24_Price Change 1 Day Percent,0.00015019857,xgb
+t19_Price Change 1 Day Percent,0.00014998419,xgb
+t59_Moving Average 20 Day,0.00014928127,xgb
+t37_Price Earnings Ratio,0.00014869546,xgb
+t04_ihsg_close,0.000148458,xgb
+t06_Price Change 1 Day Percent,0.00014768429,xgb
+t43_Price to Sales Ratio,0.00014427205,xgb
+t42_High Price,0.00014365162,xgb
+t28_ihsg_return_1d,0.00014348824,xgb
+t07_ihsg_close,0.00014339949,xgb
+t40_Price to Book Ratio,0.0001419845,xgb
+t54_Price Change 1 Day Percent,0.00014196018,xgb
+t31_Price to Sales Ratio,0.000141668,xgb
+t57_ihsg_return_1d,0.0001410455,xgb
+t35_Price to Sales Ratio,0.0001397981,xgb
+t20_Price Earnings Ratio,0.00013963215,xgb
+t37_ihsg_close,0.00013953484,xgb
+t42_Price Change 1 Day Percent,0.00013934691,xgb
+t11_Price to Book Ratio,0.00013934584,xgb
+t16_Price Change 1 Day Percent,0.00013878352,xgb
+t24_ihsg_return_1d,0.00013717766,xgb
+t10_Price to Book Ratio,0.00013715455,xgb
+t43_Ask Price,0.00013703786,xgb
+t53_High Price,0.00013689268,xgb
+t29_Price to Sales Ratio,0.00013649584,xgb
+t13_Price Earnings Ratio,0.00013556988,xgb
+t27_Price Change 1 Day Percent,0.00013496219,xgb
+t03_ihsg_close,0.00013465482,xgb
+t04_Moving Average 20 Day,0.00013416004,xgb
+t52_ihsg_close,0.00013253959,xgb
+t03_Price Change 1 Day Percent,0.000132118,xgb
+t23_Price to Book Ratio,0.0001319453,xgb
+t04_Price Change 1 Day Percent,0.00013171286,xgb
+t13_ihsg_return_1d,0.00012904502,xgb
+t26_Price Change 1 Day Percent,0.00012869315,xgb
+t41_Dividend Indicated Yld - Gross,0.00012860526,xgb
+t31_Price Earnings Ratio,0.00012751136,xgb
+t09_Price to Book Ratio,0.00012737887,xgb
+t05_High Price,0.00012503935,xgb
+t07_Low Price,0.00012447895,xgb
+t14_Price Change 1 Day Percent,0.000121340636,xgb
+t05_Ask Price,0.00011991911,xgb
+t14_ihsg_return_1d,0.00011961472,xgb
+t43_Price Change 1 Day Percent,0.00011929937,xgb
+t08_Ask Price,0.000118704666,xgb
+t50_ihsg_close,0.00011818703,xgb
+t09_Low Price,0.00011811967,xgb
+t30_Price Change 1 Day Percent,0.00011758099,xgb
+t48_Price Change 1 Day Percent,0.00011749531,xgb
+t05_Price to Book Ratio,0.00011730377,xgb
+t08_ihsg_close,0.00011698789,xgb
+t46_Price Earnings Ratio,0.00011627441,xgb
+t03_Bid Price,0.00011522472,xgb
+t46_Price Change 1 Day Percent,0.00011500167,xgb
+t02_cpi_index,0.000114623086,xgb
+t34_Price Change 1 Day Percent,0.00011430396,xgb
+t56_ihsg_return_1d,0.00011404157,xgb
+t36_Low Price,0.000113981536,xgb
+t38_Price Change 1 Day Percent,0.0001136009,xgb
+t38_bi_rate,0.00011352887,xgb
+t11_Ask Price,0.00011322813,xgb
+t11_ihsg_close,0.000112837195,xgb
+t44_Price Change 1 Day Percent,0.000112186484,xgb
+t14_Dividend Indicated Yld - Gross,0.000110832785,xgb
+t22_Price Change 1 Day Percent,0.00011023242,xgb
+t46_ihsg_return_1d,0.000109400324,xgb
+t46_Ask Price,0.00010889587,xgb
+t53_Price to Sales Ratio,0.00010802658,xgb
+t55_ihsg_return_1d,0.00010770877,xgb
+t48_Dividend Indicated Yld - Gross,0.000107210064,xgb
+t14_cpi_index,0.000107185355,xgb
+t44_ihsg_close,0.00010690885,xgb
+t25_Price Change 1 Day Percent,0.0001062116,xgb
+t21_ihsg_close,0.00010524709,xgb
+t04_ihsg_return_1d,0.00010427106,xgb
+t33_Price to Book Ratio,0.00010424877,xgb
+t07_Price Change 1 Day Percent,0.00010397508,xgb
+t32_Price Change 1 Day Percent,0.000103906204,xgb
+t36_Price Change 1 Day Percent,0.000103775616,xgb
+t30_High Price,0.00010214685,xgb
+t03_Price Earnings Ratio,0.00010171717,xgb
+t47_ihsg_return_1d,0.00010159506,xgb
+t41_Moving Average 20 Day,0.000101079655,xgb
+t15_Price to Book Ratio,0.000100940466,xgb
+t45_Price Change 1 Day Percent,0.00010052112,xgb
+t43_ihsg_return_1d,0.000100225014,xgb
+t45_ihsg_return_1d,9.9936224e-05,xgb
+t37_Price to Book Ratio,9.951749e-05,xgb
+t08_Price Change 1 Day Percent,9.8787e-05,xgb
+t33_Price Change 1 Day Percent,9.8628814e-05,xgb
+t38_Price Earnings Ratio,9.839336e-05,xgb
+t05_cpi_index,9.788559e-05,xgb
+t01_Dividend Indicated Yld - Gross,9.679548e-05,xgb
+t50_Price Change 1 Day Percent,9.669525e-05,xgb
+t04_Price Earnings Ratio,9.627666e-05,xgb
+t15_Price Change 1 Day Percent,9.577617e-05,xgb
+t21_ihsg_return_1d,9.554708e-05,xgb
+t49_ihsg_return_1d,9.529236e-05,xgb
+t01_bi_rate,9.486482e-05,xgb
+t00_bi_rate,9.3823786e-05,xgb
+t19_ihsg_return_1d,9.294959e-05,xgb
+t51_Price Change 1 Day Percent,9.148214e-05,xgb
+t18_Price Change 1 Day Percent,9.0277295e-05,xgb
+t22_Price to Sales Ratio,8.946906e-05,xgb
+t22_ihsg_return_1d,8.902496e-05,xgb
+t01_Price Change 1 Day Percent,8.861812e-05,xgb
+t08_ihsg_return_1d,8.792649e-05,xgb
+t24_Price to Book Ratio,8.753104e-05,xgb
+t07_Moving Average 20 Day,8.711592e-05,xgb
+t29_Price Change 1 Day Percent,8.5876665e-05,xgb
+t11_ihsg_return_1d,8.557247e-05,xgb
+t12_High Price,8.510291e-05,xgb
+t55_High Price,8.499873e-05,xgb
+t20_Price to Book Ratio,8.359083e-05,xgb
+t17_ihsg_close,8.309669e-05,xgb
+t26_ihsg_return_1d,8.277957e-05,xgb
+t52_ihsg_return_1d,8.2694234e-05,xgb
+t25_ihsg_close,8.236288e-05,xgb
+t42_bi_rate,8.1436716e-05,xgb
+t33_ihsg_return_1d,7.9804355e-05,xgb
+t40_ihsg_return_1d,7.9670324e-05,xgb
+t36_Price Earnings Ratio,7.963819e-05,xgb
+t23_ihsg_return_1d,7.952418e-05,xgb
+t42_Low Price,7.899088e-05,xgb
+t34_Price to Book Ratio,7.8933124e-05,xgb
+t01_ihsg_return_1d,7.852083e-05,xgb
+t39_Price Change 1 Day Percent,7.807937e-05,xgb
+t58_ihsg_return_1d,7.768512e-05,xgb
+t19_Bid Price,7.728658e-05,xgb
+t39_ihsg_return_1d,7.7277014e-05,xgb
+t10_Low Price,7.720932e-05,xgb
+t10_Price Change 1 Day Percent,7.649829e-05,xgb
+t41_Ask Price,7.620032e-05,xgb
+t52_Dividend Indicated Yld - Gross,7.553032e-05,xgb
+t23_Price to Sales Ratio,7.4830205e-05,xgb
+t43_Bid Price,7.47928e-05,xgb
+t19_Price to Book Ratio,7.462732e-05,xgb
+t32_Bid Price,7.3574134e-05,xgb
+t21_Price Change 1 Day Percent,7.3527524e-05,xgb
+t00_ihsg_return_1d,7.344916e-05,xgb
+t40_Dividend Indicated Yld - Gross,7.2925584e-05,xgb
+t41_Price to Book Ratio,7.13946e-05,xgb
+t35_Dividend Indicated Yld - Gross,7.0151356e-05,xgb
+t22_ihsg_close,7.01096e-05,xgb
+t09_ihsg_close,7.0045484e-05,xgb
+t30_ihsg_return_1d,6.9452275e-05,xgb
+t19_Dividend Indicated Yld - Gross,6.8788075e-05,xgb
+t52_Ask Price,6.8584115e-05,xgb
+t25_Price to Book Ratio,6.8128735e-05,xgb
+t51_Bid Price,6.7897134e-05,xgb
+t48_Price Earnings Ratio,6.747902e-05,xgb
+t55_Price Change 1 Day Percent,6.741964e-05,xgb
+t44_Bid Price,6.733627e-05,xgb
+t49_High Price,6.7003246e-05,xgb
+t20_Price Change 1 Day Percent,6.674039e-05,xgb
+t00_Price Earnings Ratio,6.668194e-05,xgb
+t59_Dividend Indicated Yld - Gross,6.521263e-05,xgb
+t55_ihsg_close,6.401284e-05,xgb
+t06_Price Earnings Ratio,6.398022e-05,xgb
+t03_ihsg_return_1d,6.376472e-05,xgb
+t10_ihsg_return_1d,6.3381296e-05,xgb
+t33_ihsg_close,6.2426625e-05,xgb
+t47_Price Change 1 Day Percent,6.188724e-05,xgb
+t12_Moving Average 20 Day,6.0881855e-05,xgb
+t14_Price to Book Ratio,6.088163e-05,xgb
+t10_Bid Price,6.0836654e-05,xgb
+t37_Dividend Indicated Yld - Gross,6.0691957e-05,xgb
+t35_ihsg_close,6.0649432e-05,xgb
+t50_Price to Book Ratio,6.0623577e-05,xgb
+t36_Dividend Indicated Yld - Gross,6.051443e-05,xgb
+t41_ihsg_return_1d,6.029908e-05,xgb
+t50_ihsg_return_1d,6.01219e-05,xgb
+t16_ihsg_close,5.9461265e-05,xgb
+t14_Ask Price,5.9313836e-05,xgb
+t31_ihsg_return_1d,5.9205988e-05,xgb
+t55_Price Earnings Ratio,5.910362e-05,xgb
+t40_Price Change 1 Day Percent,5.857288e-05,xgb
+t06_ihsg_return_1d,5.835049e-05,xgb
+t08_Price to Book Ratio,5.7735797e-05,xgb
+t09_ihsg_return_1d,5.7653953e-05,xgb
+t18_Dividend Indicated Yld - Gross,5.6835066e-05,xgb
+t34_ihsg_return_1d,5.652386e-05,xgb
+t13_Price to Sales Ratio,5.6439454e-05,xgb
+t20_ihsg_return_1d,5.6342236e-05,xgb
+t31_Dividend Indicated Yld - Gross,5.6276505e-05,xgb
+t00_Price Change 1 Day Percent,5.614159e-05,xgb
+t27_ihsg_return_1d,5.5965258e-05,xgb
+t45_Price to Sales Ratio,5.4986944e-05,xgb
+t01_Price to Book Ratio,5.4798013e-05,xgb
+t42_Price to Book Ratio,5.4782602e-05,xgb
+t48_ihsg_return_1d,5.478024e-05,xgb
+t10_Price Earnings Ratio,5.4376404e-05,xgb
+t59_Price to Book Ratio,5.4182794e-05,xgb
+t17_Dividend Indicated Yld - Gross,5.3903772e-05,xgb
+t32_ihsg_close,5.3882137e-05,xgb
+t54_Price to Sales Ratio,5.3093074e-05,xgb
+t32_ihsg_return_1d,5.309248e-05,xgb
+t04_High Price,5.245875e-05,xgb
+t39_Price Earnings Ratio,5.22991e-05,xgb
+t43_Low Price,5.1700783e-05,xgb
+t14_Price Earnings Ratio,5.1594867e-05,xgb
+t15_ihsg_close,5.0641745e-05,xgb
+t28_Price Change 1 Day Percent,5.050365e-05,xgb
+t37_Price Change 1 Day Percent,5.0044815e-05,xgb
+t44_Dividend Indicated Yld - Gross,4.9851504e-05,xgb
+t24_Price to Sales Ratio,4.957696e-05,xgb
+t45_High Price,4.910708e-05,xgb
+t44_High Price,4.8730926e-05,xgb
+t17_Price to Book Ratio,4.8461436e-05,xgb
+t40_Moving Average 20 Day,4.8321774e-05,xgb
+t27_Moving Average 20 Day,4.831121e-05,xgb
+t49_Price to Book Ratio,4.8114478e-05,xgb
+t12_Bid Price,4.8096175e-05,xgb
+t35_Price Change 1 Day Percent,4.7695725e-05,xgb
+t26_ihsg_close,4.6965146e-05,xgb
+t39_Price to Sales Ratio,4.692016e-05,xgb
+t34_Price to Sales Ratio,4.5962865e-05,xgb
+t57_Price Change 1 Day Percent,4.5696306e-05,xgb
+t24_ihsg_close,4.5039364e-05,xgb
+t42_ihsg_close,4.5027213e-05,xgb
+t10_Ask Price,4.469493e-05,xgb
+t16_Dividend Indicated Yld - Gross,4.467527e-05,xgb
+t11_Price Earnings Ratio,4.4636196e-05,xgb
+t38_ihsg_return_1d,4.4606437e-05,xgb
+t08_Price Earnings Ratio,4.460338e-05,xgb
+t00_Price to Book Ratio,4.4126155e-05,xgb
+t53_Dividend Indicated Yld - Gross,4.242256e-05,xgb
+t42_ihsg_return_1d,4.2358548e-05,xgb
+t51_Price Earnings Ratio,4.2215474e-05,xgb
+t43_Price to Book Ratio,4.184821e-05,xgb
+t15_ihsg_return_1d,4.167931e-05,xgb
+t10_Price to Sales Ratio,4.084576e-05,xgb
+t54_Dividend Indicated Yld - Gross,4.0265895e-05,xgb
+t06_Moving Average 20 Day,4.013912e-05,xgb
+t56_Price to Sales Ratio,3.9900595e-05,xgb
+t30_Ask Price,3.9037343e-05,xgb
+t18_Price Earnings Ratio,3.8991882e-05,xgb
+t47_ihsg_close,3.8843038e-05,xgb
+t35_Price to Book Ratio,3.8683917e-05,xgb
+t31_Price Change 1 Day Percent,3.8600236e-05,xgb
+t09_Price Change 1 Day Percent,3.8496662e-05,xgb
+t11_cpi_index,3.8013717e-05,xgb
+t33_Bid Price,3.7506004e-05,xgb
+t57_Price to Sales Ratio,3.74866e-05,xgb
+t08_Bid Price,3.6547564e-05,xgb
+t23_ihsg_close,3.6290767e-05,xgb
+t28_Dividend Indicated Yld - Gross,3.555335e-05,xgb
+t32_High Price,3.5446978e-05,xgb
+t05_Moving Average 20 Day,3.528175e-05,xgb
+t42_Ask Price,3.374086e-05,xgb
+t14_ihsg_close,3.3259304e-05,xgb
+t55_Price to Book Ratio,3.303672e-05,xgb
+t19_Price Earnings Ratio,3.2848777e-05,xgb
+t45_ihsg_close,3.2775726e-05,xgb
+t02_Dividend Indicated Yld - Gross,3.252271e-05,xgb
+t11_Moving Average 20 Day,3.2482327e-05,xgb
+t29_Price to Book Ratio,3.2214983e-05,xgb
+t32_Price to Book Ratio,3.2198728e-05,xgb
+t42_Moving Average 20 Day,3.181756e-05,xgb
+t00_Dividend Indicated Yld - Gross,3.164083e-05,xgb
+t33_High Price,3.1516447e-05,xgb
+t12_ihsg_close,3.138523e-05,xgb
+t29_Price Earnings Ratio,3.118815e-05,xgb
+t54_Price to Book Ratio,3.0344292e-05,xgb
+t21_Low Price,2.9465129e-05,xgb
+t02_Price to Book Ratio,2.8819222e-05,xgb
+t01_ihsg_close,2.794e-05,xgb
+t53_Price to Book Ratio,2.7870396e-05,xgb
+t25_Dividend Indicated Yld - Gross,2.6822674e-05,xgb
+t41_Price Earnings Ratio,2.6477575e-05,xgb
+t05_Price Change 1 Day Percent,2.6289297e-05,xgb
+t31_Price to Book Ratio,2.6280519e-05,xgb
+t29_ihsg_close,2.6051755e-05,xgb
+t53_ihsg_close,2.5922156e-05,xgb
+t11_Dividend Indicated Yld - Gross,2.5832329e-05,xgb
+t08_Price to Sales Ratio,2.56781e-05,xgb
+t44_Ask Price,2.5637912e-05,xgb
+t41_Price to Sales Ratio,2.5500687e-05,xgb
+t12_Price Earnings Ratio,2.5322637e-05,xgb
+t51_High Price,2.5132573e-05,xgb
+t45_Low Price,2.478997e-05,xgb
+t07_Price to Sales Ratio,2.472956e-05,xgb
+t12_Price to Book Ratio,2.457207e-05,xgb
+t51_Price to Book Ratio,2.4435225e-05,xgb
+t39_Dividend Indicated Yld - Gross,2.425422e-05,xgb
+t28_Bid Price,2.4159868e-05,xgb
+t26_Dividend Indicated Yld - Gross,2.3619556e-05,xgb
+t44_Price to Book Ratio,2.3247025e-05,xgb
+t41_High Price,2.3086679e-05,xgb
+t20_ihsg_close,2.3016079e-05,xgb
+t27_ihsg_close,2.2940543e-05,xgb
+t48_Low Price,2.2923381e-05,xgb
+t51_Dividend Indicated Yld - Gross,2.2787768e-05,xgb
+t33_Dividend Indicated Yld - Gross,2.2523393e-05,xgb
+t19_ihsg_close,2.2391927e-05,xgb
+t44_Low Price,2.2208875e-05,xgb
+t50_Dividend Indicated Yld - Gross,2.2182865e-05,xgb
+t36_Price to Book Ratio,2.2138032e-05,xgb
+t55_Dividend Indicated Yld - Gross,2.1602273e-05,xgb
+t05_Dividend Indicated Yld - Gross,2.138965e-05,xgb
+t17_bi_rate,2.134334e-05,xgb
+t13_Price to Book Ratio,2.1216514e-05,xgb
+t17_Price to Sales Ratio,2.1157377e-05,xgb
+t16_Bid Price,2.1139898e-05,xgb
+t31_ihsg_close,2.0727397e-05,xgb
+t09_Moving Average 20 Day,2.0653939e-05,xgb
+t11_Price to Sales Ratio,2.0631089e-05,xgb
+t10_High Price,2.0478783e-05,xgb
+t03_Dividend Indicated Yld - Gross,2.030576e-05,xgb
+t47_Price to Book Ratio,1.9912419e-05,xgb
+t28_Price Earnings Ratio,1.9480252e-05,xgb
+t27_Dividend Indicated Yld - Gross,1.9290119e-05,xgb
+t05_exchange_rate_usd_idr,1.9273104e-05,xgb
+t27_Price Earnings Ratio,1.9227655e-05,xgb
+t21_Dividend Indicated Yld - Gross,1.9212357e-05,xgb
+t57_Price to Book Ratio,1.8730645e-05,xgb
+t07_Price Earnings Ratio,1.851021e-05,xgb
+t34_High Price,1.7148666e-05,xgb
+t36_Price to Sales Ratio,1.6518166e-05,xgb
+t52_Price to Sales Ratio,1.6502272e-05,xgb
+t08_Dividend Indicated Yld - Gross,1.6387477e-05,xgb
+t01_Price to Sales Ratio,1.6202337e-05,xgb
+t04_Dividend Indicated Yld - Gross,1.6104113e-05,xgb
+t25_Price Earnings Ratio,1.6042206e-05,xgb
+t07_Price to Book Ratio,1.5906773e-05,xgb
+t21_Bid Price,1.5261501e-05,xgb
+t11_bi_rate,1.5209853e-05,xgb
+t56_Dividend Indicated Yld - Gross,1.5178273e-05,xgb
+t38_Dividend Indicated Yld - Gross,1.4817639e-05,xgb
+t38_Price to Sales Ratio,1.4551549e-05,xgb
+t15_Price Earnings Ratio,1.4518508e-05,xgb
+t45_Dividend Indicated Yld - Gross,1.4220976e-05,xgb
+t13_Dividend Indicated Yld - Gross,1.353634e-05,xgb
+t08_Moving Average 20 Day,1.3520645e-05,xgb
+t06_Ask Price,1.3250566e-05,xgb
+t35_High Price,1.2847668e-05,xgb
+t37_Low Price,1.2439668e-05,xgb
+t56_Price to Book Ratio,1.2131451e-05,xgb
+t52_Price Earnings Ratio,1.1958378e-05,xgb
+t06_Price to Book Ratio,1.1559205e-05,xgb
+t33_Price Earnings Ratio,1.0833732e-05,xgb
+t16_Price Earnings Ratio,1.0670408e-05,xgb
+t02_Low Price,1.0570448e-05,xgb
+t15_High Price,1.0494908e-05,xgb
+t32_Dividend Indicated Yld - Gross,1.0491162e-05,xgb
+t50_bi_rate,1.0155444e-05,xgb
+t55_bi_rate,1.0142467e-05,xgb
+t18_High Price,9.6662225e-06,xgb
+t43_Price Earnings Ratio,9.627389e-06,xgb
+t33_Ask Price,9.6208005e-06,xgb
+t12_Price to Sales Ratio,9.528113e-06,xgb
+t48_Price to Book Ratio,9.4451e-06,xgb
+t18_Price to Sales Ratio,9.441988e-06,xgb
+t22_Price Earnings Ratio,9.384769e-06,xgb
+t46_High Price,9.226807e-06,xgb
+t05_Low Price,9.181907e-06,xgb
+t00_exchange_rate_usd_idr,8.979733e-06,xgb
+t37_Moving Average 20 Day,8.896441e-06,xgb
+t57_Price Earnings Ratio,8.815637e-06,xgb
+t41_Bid Price,8.774452e-06,xgb
+t42_Dividend Indicated Yld - Gross,8.661394e-06,xgb
+t16_Price to Sales Ratio,8.648957e-06,xgb
+t28_Price to Sales Ratio,8.421498e-06,xgb
+t16_Price to Book Ratio,8.379603e-06,xgb
+t20_Ask Price,8.209639e-06,xgb
+t33_Low Price,8.160243e-06,xgb
+t39_High Price,8.1348435e-06,xgb
+t22_Dividend Indicated Yld - Gross,8.001463e-06,xgb
+t07_Dividend Indicated Yld - Gross,7.899277e-06,xgb
+t02_High Price,7.856812e-06,xgb
+t26_Price to Book Ratio,7.804227e-06,xgb
+t29_Low Price,7.659334e-06,xgb
+t00_Low Price,7.636545e-06,xgb
+t48_Bid Price,7.348614e-06,xgb
+t49_Dividend Indicated Yld - Gross,7.302663e-06,xgb
+t58_Price to Book Ratio,7.2882817e-06,xgb
+t05_Price Earnings Ratio,7.1802233e-06,xgb
+t51_Moving Average 20 Day,7.0020956e-06,xgb
+t57_Moving Average 20 Day,6.849387e-06,xgb
+t38_Ask Price,6.732529e-06,xgb
+t15_bi_rate,6.6835178e-06,xgb
+t54_inflation_rate,6.4562923e-06,xgb
+t20_Dividend Indicated Yld - Gross,6.291408e-06,xgb
+t26_Price Earnings Ratio,6.2015333e-06,xgb
+t30_inflation_rate,6.0241655e-06,xgb
+t42_Price Earnings Ratio,5.7962225e-06,xgb
+t29_Bid Price,5.7372526e-06,xgb
+t36_High Price,5.580271e-06,xgb
+t44_Price Earnings Ratio,5.5740406e-06,xgb
+t47_Price Earnings Ratio,5.5037326e-06,xgb
+t44_Price to Sales Ratio,5.492634e-06,xgb
+t17_Price Earnings Ratio,5.4372967e-06,xgb
+t09_Price Earnings Ratio,5.4263423e-06,xgb
+t30_Price Earnings Ratio,5.216479e-06,xgb
+t02_bi_rate,5.1293678e-06,xgb
+t10_ihsg_close,4.94767e-06,xgb
+t15_Low Price,4.886778e-06,xgb
+t24_Dividend Indicated Yld - Gross,4.8550687e-06,xgb
+t28_High Price,4.655053e-06,xgb
+t57_Ask Price,4.4359613e-06,xgb
+t17_High Price,4.3264563e-06,xgb
+t52_bi_rate,4.0160303e-06,xgb
+t25_Moving Average 20 Day,3.943761e-06,xgb
+t18_Price to Book Ratio,3.178941e-06,xgb
+t35_Low Price,3.131473e-06,xgb
+t19_Price to Sales Ratio,3.1304771e-06,xgb
+t03_Ask Price,3.0714568e-06,xgb
+t34_Price Earnings Ratio,3.0528795e-06,xgb
+t39_bi_rate,3.0513866e-06,xgb
+t58_Price Earnings Ratio,2.9676253e-06,xgb
+t00_inflation_rate,2.9006665e-06,xgb
+t32_Price Earnings Ratio,2.7926033e-06,xgb
+t11_exchange_rate_usd_idr,2.7246676e-06,xgb
+t49_exchange_rate_usd_idr,2.683006e-06,xgb
+t59_bi_rate,2.4818187e-06,xgb
+t29_bi_rate,2.4797075e-06,xgb
+t35_Price Earnings Ratio,2.4534775e-06,xgb
+t07_High Price,2.4114343e-06,xgb
+t27_Price to Sales Ratio,2.3581324e-06,xgb
+t05_Price to Sales Ratio,2.2639904e-06,xgb
+t22_High Price,2.2073243e-06,xgb
+t21_Price Earnings Ratio,2.1568997e-06,xgb
+t15_Ask Price,2.1503076e-06,xgb
+t45_Moving Average 20 Day,2.1168714e-06,xgb
+t14_Bid Price,2.0785387e-06,xgb
+t39_Ask Price,1.9539705e-06,xgb
+t55_Price to Sales Ratio,1.9120705e-06,xgb
+t46_exchange_rate_usd_idr,1.8580228e-06,xgb
+t24_Ask Price,1.8145062e-06,xgb
+t47_Bid Price,1.7766581e-06,xgb
+t23_High Price,1.7466759e-06,xgb
+t48_bi_rate,1.7379999e-06,xgb
+t26_Ask Price,1.7317491e-06,xgb
+t26_Price to Sales Ratio,1.7301759e-06,xgb
+t18_inflation_rate,1.6885074e-06,xgb
+t38_High Price,1.6417945e-06,xgb
+t27_Low Price,1.571825e-06,xgb
+t24_Bid Price,1.5548111e-06,xgb
+t30_Price to Book Ratio,1.5058793e-06,xgb
+t15_Bid Price,1.378157e-06,xgb
+t25_Ask Price,1.3302099e-06,xgb
+t18_exchange_rate_usd_idr,1.2651482e-06,xgb
+t17_Bid Price,1.234079e-06,xgb
+t01_Bid Price,1.1761481e-06,xgb
+t09_exchange_rate_usd_idr,1.17186e-06,xgb
+t04_cpi_index,1.1303168e-06,xgb
+t32_Moving Average 20 Day,1.129158e-06,xgb
+t56_cpi_index,9.2286336e-07,xgb
+t58_Moving Average 20 Day,7.816364e-07,xgb
+t40_Ask Price,7.2573494e-07,xgb
+t23_Bid Price,6.7491874e-07,xgb
+t23_Price Earnings Ratio,5.485941e-07,xgb
+t28_Price to Book Ratio,5.2338163e-07,xgb
+t20_Price to Sales Ratio,5.1076466e-07,xgb
+t17_Ask Price,2.7259918e-07,xgb
+t22_Low Price,2.3596569e-07,xgb
+t20_Low Price,5.8794523e-08,xgb
+t56_exchange_rate_usd_idr,0.0,xgb
+t56_bi_rate,0.0,xgb
+t56_inflation_rate,0.0,xgb
+t56_Bid Price,0.0,xgb
+t06_exchange_rate_usd_idr,0.0,xgb
+t06_bi_rate,0.0,xgb
+t06_inflation_rate,0.0,xgb
+t06_Bid Price,0.0,xgb
+t07_exchange_rate_usd_idr,0.0,xgb
+t07_bi_rate,0.0,xgb
+t35_bi_rate,0.0,xgb
+t35_cpi_index,0.0,xgb
+t35_inflation_rate,0.0,xgb
+t29_cpi_index,0.0,xgb
+t29_inflation_rate,0.0,xgb
+t42_exchange_rate_usd_idr,0.0,xgb
+t42_cpi_index,0.0,xgb
+t42_inflation_rate,0.0,xgb
+t27_exchange_rate_usd_idr,0.0,xgb
+t27_bi_rate,0.0,xgb
+t27_cpi_index,0.0,xgb
+t27_inflation_rate,0.0,xgb
+t00_cpi_index,0.0,xgb
+t28_exchange_rate_usd_idr,0.0,xgb
+t28_bi_rate,0.0,xgb
+t28_cpi_index,0.0,xgb
+t28_inflation_rate,0.0,xgb
+t43_exchange_rate_usd_idr,0.0,xgb
+t43_bi_rate,0.0,xgb
+t38_cpi_index,0.0,xgb
+t38_inflation_rate,0.0,xgb
+t38_Moving Average 20 Day,0.0,xgb
+t33_exchange_rate_usd_idr,0.0,xgb
+t33_bi_rate,0.0,xgb
+t33_cpi_index,0.0,xgb
+t33_inflation_rate,0.0,xgb
+t34_exchange_rate_usd_idr,0.0,xgb
+t34_bi_rate,0.0,xgb
+t31_bi_rate,0.0,xgb
+t31_cpi_index,0.0,xgb
+t31_inflation_rate,0.0,xgb
+t43_cpi_index,0.0,xgb
+t43_inflation_rate,0.0,xgb
+t43_Moving Average 20 Day,0.0,xgb
+t26_exchange_rate_usd_idr,0.0,xgb
+t26_bi_rate,0.0,xgb
+t26_cpi_index,0.0,xgb
+t26_inflation_rate,0.0,xgb
+t26_Moving Average 20 Day,0.0,xgb
+t24_High Price,0.0,xgb
+t44_exchange_rate_usd_idr,0.0,xgb
+t44_bi_rate,0.0,xgb
+t44_cpi_index,0.0,xgb
+t44_inflation_rate,0.0,xgb
+t44_Moving Average 20 Day,0.0,xgb
+t25_exchange_rate_usd_idr,0.0,xgb
+t25_cpi_index,0.0,xgb
+t25_inflation_rate,0.0,xgb
+t25_Price to Sales Ratio,0.0,xgb
+t25_Bid Price,0.0,xgb
+t23_Ask Price,0.0,xgb
+t45_exchange_rate_usd_idr,0.0,xgb
+t45_bi_rate,0.0,xgb
+t45_cpi_index,0.0,xgb
+t45_inflation_rate,0.0,xgb
+t45_Price Earnings Ratio,0.0,xgb
+t45_Bid Price,0.0,xgb
+t24_exchange_rate_usd_idr,0.0,xgb
+t24_bi_rate,0.0,xgb
+t24_cpi_index,0.0,xgb
+t24_inflation_rate,0.0,xgb
+t24_Price Earnings Ratio,0.0,xgb
+t30_cpi_index,0.0,xgb
+t30_Low Price,0.0,xgb
+t30_Bid Price,0.0,xgb
+t31_exchange_rate_usd_idr,0.0,xgb
+t28_Moving Average 20 Day,0.0,xgb
+t28_Low Price,0.0,xgb
+t28_Ask Price,0.0,xgb
+t41_exchange_rate_usd_idr,0.0,xgb
+t41_cpi_index,0.0,xgb
+t41_inflation_rate,0.0,xgb
+t41_Low Price,0.0,xgb
+t29_exchange_rate_usd_idr,0.0,xgb
+t22_Bid Price,0.0,xgb
+t46_cpi_index,0.0,xgb
+t46_inflation_rate,0.0,xgb
+t46_Moving Average 20 Day,0.0,xgb
+t46_Bid Price,0.0,xgb
+t23_exchange_rate_usd_idr,0.0,xgb
+t23_bi_rate,0.0,xgb
+t23_cpi_index,0.0,xgb
+t23_inflation_rate,0.0,xgb
+t23_Low Price,0.0,xgb
+t21_inflation_rate,0.0,xgb
+t21_Moving Average 20 Day,0.0,xgb
+t21_High Price,0.0,xgb
+t47_exchange_rate_usd_idr,0.0,xgb
+t47_bi_rate,0.0,xgb
+t47_cpi_index,0.0,xgb
+t47_inflation_rate,0.0,xgb
+t47_Moving Average 20 Day,0.0,xgb
+t47_Ask Price,0.0,xgb
+t22_exchange_rate_usd_idr,0.0,xgb
+t22_cpi_index,0.0,xgb
+t22_inflation_rate,0.0,xgb
+t20_Moving Average 20 Day,0.0,xgb
+t20_High Price,0.0,xgb
+t20_Bid Price,0.0,xgb
+t48_exchange_rate_usd_idr,0.0,xgb
+t48_cpi_index,0.0,xgb
+t48_inflation_rate,0.0,xgb
+t48_Moving Average 20 Day,0.0,xgb
+t21_exchange_rate_usd_idr,0.0,xgb
+t21_bi_rate,0.0,xgb
+t21_cpi_index,0.0,xgb
+t19_bi_rate,0.0,xgb
+t19_cpi_index,0.0,xgb
+t19_inflation_rate,0.0,xgb
+t19_Moving Average 20 Day,0.0,xgb
+t19_Low Price,0.0,xgb
+t19_High Price,0.0,xgb
+t49_bi_rate,0.0,xgb
+t49_cpi_index,0.0,xgb
+t49_Price to Sales Ratio,0.0,xgb
+t20_exchange_rate_usd_idr,0.0,xgb
+t20_cpi_index,0.0,xgb
+t20_inflation_rate,0.0,xgb
+t59_inflation_rate,0.0,xgb
+t50_exchange_rate_usd_idr,0.0,xgb
+t50_cpi_index,0.0,xgb
+t50_inflation_rate,0.0,xgb
+t50_Moving Average 20 Day,0.0,xgb
+t59_cpi_index,0.0,xgb
+t18_cpi_index,0.0,xgb
+t59_exchange_rate_usd_idr,0.0,xgb
+t18_Low Price,0.0,xgb
+t18_Bid Price,0.0,xgb
+t18_Ask Price,0.0,xgb
+t19_exchange_rate_usd_idr,0.0,xgb
+t51_exchange_rate_usd_idr,0.0,xgb
+t51_bi_rate,0.0,xgb
+t51_cpi_index,0.0,xgb
+t51_inflation_rate,0.0,xgb
+t16_exchange_rate_usd_idr,0.0,xgb
+t16_cpi_index,0.0,xgb
+t16_inflation_rate,0.0,xgb
+t17_exchange_rate_usd_idr,0.0,xgb
+t39_inflation_rate,0.0,xgb
+t32_exchange_rate_usd_idr,0.0,xgb
+t32_bi_rate,0.0,xgb
+t32_cpi_index,0.0,xgb
+t32_inflation_rate,0.0,xgb
+t29_Ask Price,0.0,xgb
+t40_exchange_rate_usd_idr,0.0,xgb
+t40_bi_rate,0.0,xgb
+t40_cpi_index,0.0,xgb
+t40_inflation_rate,0.0,xgb
+t40_High Price,0.0,xgb
+t36_inflation_rate,0.0,xgb
+t30_exchange_rate_usd_idr,0.0,xgb
+t30_bi_rate,0.0,xgb
+t17_cpi_index,0.0,xgb
+t17_inflation_rate,0.0,xgb
+t36_cpi_index,0.0,xgb
+t14_inflation_rate,0.0,xgb
+t14_High Price,0.0,xgb
+t52_exchange_rate_usd_idr,0.0,xgb
+t52_cpi_index,0.0,xgb
+t52_inflation_rate,0.0,xgb
+t52_Moving Average 20 Day,0.0,xgb
+t52_Bid Price,0.0,xgb
+t15_exchange_rate_usd_idr,0.0,xgb
+t15_cpi_index,0.0,xgb
+t15_inflation_rate,0.0,xgb
+t36_bi_rate,0.0,xgb
+t12_cpi_index,0.0,xgb
+t12_inflation_rate,0.0,xgb
+t12_Ask Price,0.0,xgb
+t53_exchange_rate_usd_idr,0.0,xgb
+t53_bi_rate,0.0,xgb
+t53_cpi_index,0.0,xgb
+t53_inflation_rate,0.0,xgb
+t53_Moving Average 20 Day,0.0,xgb
+t13_exchange_rate_usd_idr,0.0,xgb
+t13_bi_rate,0.0,xgb
+t13_cpi_index,0.0,xgb
+t13_inflation_rate,0.0,xgb
+t13_High Price,0.0,xgb
+t14_exchange_rate_usd_idr,0.0,xgb
+t14_bi_rate,0.0,xgb
+t09_Bid Price,0.0,xgb
+t54_exchange_rate_usd_idr,0.0,xgb
+t54_bi_rate,0.0,xgb
+t54_cpi_index,0.0,xgb
+t54_Moving Average 20 Day,0.0,xgb
+t54_Bid Price,0.0,xgb
+t10_exchange_rate_usd_idr,0.0,xgb
+t10_bi_rate,0.0,xgb
+t10_cpi_index,0.0,xgb
+t10_inflation_rate,0.0,xgb
+t11_inflation_rate,0.0,xgb
+t12_exchange_rate_usd_idr,0.0,xgb
+t12_bi_rate,0.0,xgb
+t07_Bid Price,0.0,xgb
+t55_exchange_rate_usd_idr,0.0,xgb
+t55_cpi_index,0.0,xgb
+t55_inflation_rate,0.0,xgb
+t55_Moving Average 20 Day,0.0,xgb
+t08_exchange_rate_usd_idr,0.0,xgb
+t08_bi_rate,0.0,xgb
+t08_cpi_index,0.0,xgb
+t08_inflation_rate,0.0,xgb
+t36_exchange_rate_usd_idr,0.0,xgb
+t09_bi_rate,0.0,xgb
+t09_inflation_rate,0.0,xgb
+t05_Bid Price,0.0,xgb
+t57_exchange_rate_usd_idr,0.0,xgb
+t57_bi_rate,0.0,xgb
+t57_cpi_index,0.0,xgb
+t57_inflation_rate,0.0,xgb
+t04_exchange_rate_usd_idr,0.0,xgb
+t03_Moving Average 20 Day,0.0,xgb
+t03_High Price,0.0,xgb
+t58_inflation_rate,0.0,xgb
+t35_Bid Price,0.0,xgb
+t58_bi_rate,0.0,xgb
+t58_cpi_index,0.0,xgb
+t34_Low Price,0.0,xgb
+t34_Ask Price,0.0,xgb
+t37_exchange_rate_usd_idr,0.0,xgb
+t37_cpi_index,0.0,xgb
+t37_inflation_rate,0.0,xgb
+t58_exchange_rate_usd_idr,0.0,xgb
+t37_Bid Price,0.0,xgb
+t35_exchange_rate_usd_idr,0.0,xgb
+t39_exchange_rate_usd_idr,0.0,xgb
+t39_cpi_index,0.0,xgb
+t03_inflation_rate,0.0,xgb
+t04_Low Price,0.0,xgb
+t05_inflation_rate,0.0,xgb
+t32_Ask Price,0.0,xgb
+t01_exchange_rate_usd_idr,0.0,xgb
+t01_inflation_rate,0.0,xgb
+t38_exchange_rate_usd_idr,0.0,xgb
+t02_exchange_rate_usd_idr,0.0,xgb
+t02_inflation_rate,0.0,xgb
+t03_exchange_rate_usd_idr,0.0,xgb
+t03_cpi_index,0.0,xgb
+t34_cpi_index,0.0,xgb
+t34_inflation_rate,0.0,xgb
+t31_Moving Average 20 Day,0.0,xgb
+t07_inflation_rate,0.0,xgb
