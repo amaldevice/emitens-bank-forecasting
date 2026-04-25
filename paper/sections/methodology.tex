@@ -13,19 +13,26 @@ Figure~\ref{fig:pipeline_overview} summarizes the end-to-end workflow used in th
 
 \subsection{Forecasting Models}
 \subsubsection{LSTM and BiLSTM}
-We use a one-layer recurrent encoder followed by a fully connected prediction head. Two architecture variants are compared:
+Both models use a single-layer recurrent encoder followed by a fully connected prediction head mapping the final hidden state to a scalar forecast. The shared architectural design ensures that performance differences are attributable to the directionality of temporal encoding rather than depth or capacity changes. The two variants are:
 \begin{itemize}
-    \item LSTM: unidirectional temporal encoder.
-    \item BiLSTM: bidirectional temporal encoder with doubled hidden-state output dimension.
+    \item \textbf{LSTM}: unidirectional temporal encoder with hidden size $h$, producing a single forward hidden state of dimension $h$.
+    \item \textbf{BiLSTM}: bidirectional temporal encoder with hidden size $h$, concatenating forward and backward states to produce an output of dimension $2h$.
 \end{itemize}
+Both variants apply a dropout rate of 0.2 between the recurrent layer and the prediction head to mitigate overfitting. The prediction head consists of a single linear layer with ReLU activation, outputting the next-day closing price.
 
-\subsection{Budgeted Hyperparameter Optimization Block}
-Hyperparameter tuning is implemented as a fixed-budget search process using validation loss as the objective. In this paper, configurations tagged as ``\_ga'' represent the optimization-enabled setting under identical search budget across comparable cases. This design is used to test whether a constrained tuning budget improves accuracy and stability versus default settings.
+\subsection{Budgeted Hyperparameter Optimization via Genetic Algorithm}
+To isolate the effect of hyperparameter tuning from architectural choices, we introduce a constrained search procedure based on a Genetic Algorithm (GA). The GA operates on a fixed computational budget and optimizes three hyperparameters using validation loss as the fitness objective:
+\begin{itemize}
+    \item \textbf{Hidden dimension} ($h$): searched over $\{32, 64, 128, 256\}$,
+    \item \textbf{Learning rate} ($\alpha$): searched over $\{1 \times 10^{-4}, 5 \times 10^{-4}, 1 \times 10^{-3}, 5 \times 10^{-3}\}$,
+    \item \textbf{Sequence length} ($L$): searched over $\{10, 20, 30, 60\}$.
+\end{itemize}
+Each GA individual encodes one $(h, \alpha, L)$ triplet. The population size is set to 8 and the number of generations is fixed at 5, yielding a total evaluation budget of $8 \times 5 = 40$ configurations per case. Tournament selection (size 3) is used for parent selection, and single-point crossover with a per-gene mutation probability of 0.2 is applied. The hand-picked default configuration used in non-GA cases is $(h=64, \alpha=10^{-3}, L=20)$. Configurations tagged as ``\_ga'' in the results tables indicate the GA-optimized setting. This design tests whether budgeted tuning improves accuracy and stability versus fixed defaults, acting as an ablation factor for optimization effort rather than a contribution claim about the search algorithm itself.
 
 \subsection{Statistical Validation}
-Beyond average error reporting, we apply:
+Beyond average error reporting, we apply two complementary tests:
 \begin{itemize}
-    \item Wilcoxon signed-rank test on seed-level paired RMSE,
-    \item Diebold-Mariano test on aligned forecast residuals.
+    \item \textbf{Wilcoxon signed-rank test}: a nonparametric paired test applied on seed-level RMSE vectors ($n=5$) to assess whether median performance differences are significant without assuming normality.
+    \item \textbf{Diebold-Mariano (DM) test}: applied on aligned forecast-error residuals to evaluate whether one model produces significantly lower prediction errors than another.
 \end{itemize}
-These tests assess whether gains over baseline are statistically significant.
+The Wilcoxon test provides seed-level robustness evidence, while the DM test assesses time-series-level significance. Agreement between both tests strengthens confidence in reported gains.

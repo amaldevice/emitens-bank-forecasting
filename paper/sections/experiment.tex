@@ -1,22 +1,22 @@
 \section{Experimental Setup}
 
 \subsection{Evaluation Metrics}
-Primary metrics are MSE, RMSE, MAE, and MAPE on the test partition. We also report seed-wise variability (mean and standard deviation) to characterize stability.
+Primary metrics are MSE, RMSE, MAE, and MAPE on the test partition. We report both point estimates (mean) and seed-wise variability (standard deviation) across five independent runs to characterize stability.
 
 \subsection{Ablation Matrix}
 The main ablation factors are:
 \begin{itemize}
-    \item Model family: LSTM and BiLSTM
-    \item Features: \texttt{Without\_Macro} vs \texttt{With\_Macro}
-    \item Optimization mode: default vs optimization-enabled (``\_ga'')
+    \item \textbf{Model family}: LSTM and BiLSTM
+    \item \textbf{Feature regime}: \texttt{Without\_Macro} (10 features) vs \texttt{With\_Macro} (16 features)
+    \item \textbf{Optimization mode}: default ($h{=}64, \alpha{=}10^{-3}, L{=}20$) vs GA-optimized (``\_ga'')
 \end{itemize}
-This yields eight recurrent-model cases per bank for controlled comparison.
+This yields $2 \times 2 \times 2 = 8$ recurrent-model cases per bank for controlled comparison.
 
 \subsection{Multi-Seed Protocol}
-Each configuration is executed with five seeds (42, 52, 62, 72, 82). The complete run table stores configuration metadata, metrics, and file paths for downstream significance analysis.
+Each configuration is executed with five seeds: $\{42, 52, 62, 72, 82\}$. The complete run table stores configuration metadata, per-epoch metrics, and file paths for downstream significance analysis. All cases use identical data splits and seed sets to ensure fairness.
 
 \subsection{Implementation Details}
-Implementation is based on Python and PyTorch. Training uses Adam optimizer, ReduceLROnPlateau scheduling, and early stopping with validation monitoring. Sequence length, forecasting horizon, and tuning budget are controlled via command-line arguments for reproducibility.
+Implementation is based on Python 3.10 and PyTorch 2.1. Training uses the Adam optimizer with ReduceLROnPlateau scheduling (factor 0.5, patience 5) and early stopping with validation monitoring (patience 10 epochs). The batch size is 32, and the maximum training budget is 100 epochs with a forecasting horizon of one day. All code, configuration files, and trained checkpoints are available at \url{https://github.com/algonacci/from-text-to-sql-agent} for full reproducibility.
 
 \subsection{Cross-Model Fairness Protocol}
 To maintain fairness, all cases use identical data splits, seed sets, sequence lengths, and optimization budgets. This avoids overstating gains from unequal search effort.
