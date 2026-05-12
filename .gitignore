@@ -205,6 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Agent runtime state
+.omx/
 paper/main.out
 paper/main.blg
 paper/main.bbl

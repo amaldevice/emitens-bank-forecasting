@@ -1,0 +1,282 @@
+
+=== DIRECTORY TREE (max depth 3, source files only) ===
+.codex
+.codex\config.toml
+.gitignore
+.mcp.json
+.omx
+.omx\logs
+.omx\logs\tmux-hook-2026-05-06.jsonl
+.omx\logs\tmux-hook-2026-05-07.jsonl
+.omx\logs\turns-2026-05-06.jsonl
+.omx\logs\turns-2026-05-07.jsonl
+.omx\metrics.json
+.omx\state
+.omx\state\hud-state.json
+.omx\state\notify-hook-state.json
+.omx\state\team-leader-nudge.json
+.omx\state\tmux-hook-state.json
+1571258021.zip
+code
+code\.python-version
+code\analyze_study_results.py
+code\build_data_with_macro.py
+code\data
+code\data\BBCA.csv
+code\data\BBNI.csv
+code\data\BBRI.csv
+code\data\BBTN.csv
+code\data\BDMN.csv
+code\data\BMRI.csv
+code\data\BNGA.csv
+code\data_macro
+code\data_macro\API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_23195
+code\data_macro\API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_23195\API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_23195.csv
+code\data_macro\API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_23195\Metadata_Country_API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_23195.csv
+code\data_macro\API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_23195\Metadata_Indicator_API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_23195.csv
+code\data_macro\API_IDN_PA.NUS.FCRF_en_csv_v2_111434.csv
+code\data_macro\ihsg_annual_2003_2024.csv
+code\data_macro\ihsg_annual_2004_2024.csv
+code\data_macro\ihsg_daily_2003_2024.csv
+code\data_macro\ihsg_daily_2004_2024.csv
+code\data_macro\indonesia_bi_rate_fred.csv
+code\data_macro\Metadata_Country_API_IDN_PA.NUS.FCRF_en_csv_v2_111434.csv
+code\data_macro\Metadata_Indicator_API_IDN_PA.NUS.FCRF_en_csv_v2_111434.csv
+code\data_macro\README.md
+code\data_macro\worldbank_exchange_rate_idr_usd.zip
+code\data_with_macro
+code\data_with_macro\BBCA.csv
+code\data_with_macro\BBNI.csv
+code\data_with_macro\BBRI.csv
+code\data_with_macro\BBTN.csv
+code\data_with_macro\BDMN.csv
+code\data_with_macro\BMRI.csv
+code\data_with_macro\BNGA.csv
+code\flowchart.puml
+code\make_shap_beeswarm.py
+code\pyproject.toml
+code\README.md
+code\results_sota_data
+code\results_sota_data\BBCA
+code\results_sota_data\BBCA\lgbm
+code\results_sota_data\BBCA\xgb
+code\results_sota_data\BNGA
+code\results_sota_data\BNGA\lgbm
+code\results_sota_data\BNGA\xgb
+code\results_sota_data\study_runs_sota.csv
+code\results_sota_macro
+code\results_sota_macro\BBCA
+code\results_sota_macro\BBCA\lgbm
+code\results_sota_macro\BBCA\xgb
+code\results_study_full
+code\results_study_full\_shap_summary
+code\results_study_full\_shap_summary\extreme_values_above_q999.csv
+code\results_study_full\_shap_summary\mean_cap99_global.csv
+code\results_study_full\_shap_summary\shap_all_rows.csv
+code\results_study_full\_shap_summary\table_shap_top_features_for_paper.csv
+code\results_study_full\_shap_summary\top1_freq_by_bank.csv
+code\results_study_full\_shap_summary\top1_freq_by_case.csv
+code\results_study_full\_shap_summary\top1_freq_ga_cases.csv
+code\results_study_full\_shap_summary\top1_freq_global.csv
+code\results_study_full\_shap_summary\top1_freq_macro_cases.csv
+code\results_study_full\_shap_summary\top1_freq_nonga_cases.csv
+code\results_study_full\_shap_summary\top1_freq_nonmacro_cases.csv
+code\results_study_full\BBCA
+code\results_study_full\BBCA\bilstm_data
+code\results_study_full\BBCA\bilstm_data_ga
+code\results_study_full\BBCA\bilstm_macro
+code\results_study_full\BBCA\bilstm_macro_ga
+code\results_study_full\BBCA\lstm_data
+code\results_study_full\BBCA\lstm_data_ga
+code\results_study_full\BBCA\lstm_macro
+code\results_study_full\BBCA\lstm_macro_ga
+code\results_study_full\BBNI
+code\results_study_full\BBNI\bilstm_data
+code\results_study_full\BBNI\bilstm_data_ga
+code\results_study_full\BBNI\bilstm_macro
+code\results_study_full\BBNI\bilstm_macro_ga
+code\results_study_full\BBNI\lstm_data
+code\results_study_full\BBNI\lstm_data_ga
+code\results_study_full\BBNI\lstm_macro
+code\results_study_full\BBNI\lstm_macro_ga
+code\results_study_full\BBRI
+code\results_study_full\BBRI\bilstm_data
+code\results_study_full\BBRI\bilstm_data_ga
+code\results_study_full\BBRI\bilstm_macro
+code\results_study_full\BBRI\bilstm_macro_ga
+code\results_study_full\BBRI\lstm_data
+code\results_study_full\BBRI\lstm_data_ga
+code\results_study_full\BBRI\lstm_macro
+code\results_study_full\BBRI\lstm_macro_ga
+code\results_study_full\BBTN
+code\results_study_full\BBTN\bilstm_data
+code\results_study_full\BBTN\bilstm_data_ga
+code\results_study_full\BBTN\bilstm_macro
+code\results_study_full\BBTN\bilstm_macro_ga
+code\results_study_full\BBTN\lstm_data
+code\results_study_full\BBTN\lstm_data_ga
+code\results_study_full\BBTN\lstm_macro
+code\results_study_full\BBTN\lstm_macro_ga
+code\results_study_full\BDMN
+code\results_study_full\BDMN\bilstm_data
+code\results_study_full\BDMN\bilstm_data_ga
+code\results_study_full\BDMN\bilstm_macro
+code\results_study_full\BDMN\bilstm_macro_ga
+code\results_study_full\BDMN\lstm_data
+code\results_study_full\BDMN\lstm_data_ga
+code\results_study_full\BDMN\lstm_macro
+code\results_study_full\BDMN\lstm_macro_ga
+code\results_study_full\best_vs_baseline_stats.csv
+code\results_study_full\BMRI
+code\results_study_full\BMRI\bilstm_data
+code\results_study_full\BMRI\bilstm_data_ga
+code\results_study_full\BMRI\bilstm_macro
+code\results_study_full\BMRI\bilstm_macro_ga
+code\results_study_full\BMRI\lstm_data
+code\results_study_full\BMRI\lstm_data_ga
+code\results_study_full\BMRI\lstm_macro
+code\results_study_full\BMRI\lstm_macro_ga
+code\results_study_full\BNGA
+code\results_study_full\BNGA\bilstm_data
+code\results_study_full\BNGA\bilstm_data_ga
+code\results_study_full\BNGA\bilstm_macro
+code\results_study_full\BNGA\bilstm_macro_ga
+code\results_study_full\BNGA\lstm_data
+code\results_study_full\BNGA\lstm_data_ga
+code\results_study_full\BNGA\lstm_macro
+code\results_study_full\BNGA\lstm_macro_ga
+code\results_study_full\study_runs.csv
+code\results_study_full\summary_by_bank_case.csv
+code\run_ablation.py
+code\run_all_training.py
+code\run_shap_from_checkpoints.py
+code\run_study_multiseed.py
+code\saran_ieee.md
+code\train_price.py
+code\train_price_pytorch.py
+code\train_sota_common.py
+code\train_sota_data.py
+code\train_sota_macro.py
+code\uv.lock
+docs
+docs\codebase
+docs\codebase\.codebase-scan.txt
+docs\codebase\ARCHITECTURE.md
+docs\codebase\CONCERNS.md
+docs\codebase\CONVENTIONS.md
+docs\codebase\INTEGRATIONS.md
+docs\codebase\STACK.md
+docs\codebase\STRUCTURE.md
+docs\codebase\TESTING.md
+LICENSE
+paper
+paper\abstract_raw.txt
+paper\build.py
+paper\images
+paper\images\contoh.png
+paper\images\flowchart.png
+paper\images\shap_bank_feature_heatmap.png
+paper\images\shap_beeswarm_runs.png
+paper\images\shap_beeswarm_style_best.png
+paper\images\shap_global_ranking_bar.png
+paper\main.pdf
+paper\main.tex
+paper\references.bib
+paper\sections
+paper\sections\abstract.tex
+paper\sections\conclusion.tex
+paper\sections\dataset.tex
+paper\sections\experiment.tex
+paper\sections\introduction.tex
+paper\sections\methodology.tex
+paper\sections\related_works.tex
+paper\sections\results.tex
+README.md
+rebuttal_instructions.md
+rebuttal_response.md
+
+=== STACK DETECTION (manifest files) ===
+No recognized manifest files found in project root.
+
+=== ENTRY POINTS ===
+No common entry points found. Check 'main' or 'scripts.start' in manifest files above.
+
+=== LINTING AND FORMATTING CONFIG ===
+No linting or formatting config files found in project root.
+
+=== ENVIRONMENT VARIABLE TEMPLATES ===
+No .env.example or .env.template found. Identify required environment variables by searching the code and config for environment variable reads.
+
+=== TODO / FIXME / HACK (production code only, test dirs excluded) ===
+None found.
+
+=== GIT RECENT COMMITS (last 20) ===
+274e583 Create 1571258021.zip
+de536be Camera-ready revision: address all reviewer comments for SIML 2026 acceptance
+ec4cb1a update rebuttal
+7173a08 Add SHAP batch workflow, XAI analysis, and paper updates
+d020f6e Update IEEE paper draft and ablation planning notes
+bb1e6f9 feat: add multi-seed study pipeline and extend ablation configs
+a55b638 feat: add local macro data pipeline and ablation tooling
+4de0b39 refactor: add PyTorch training pipeline with optional SHAP KernelExplainer
+ecaa2d7 initial commit
+43e1aff Initial commit
+
+=== HIGH-CHURN FILES (last 90 days, top 20) ===
+   4 paper/main.pdf
+   4 paper/main.tex
+   4 paper/sections/abstract.tex
+   4 paper/sections/conclusion.tex
+   4 paper/sections/experiment.tex
+   4 paper/sections/methodology.tex
+   4 paper/sections/related_works.tex
+   4 paper/sections/results.tex
+   4 code/train_price_pytorch.py
+   3 code/pyproject.toml
+   3 code/run_study_multiseed.py
+   3 code/uv.lock
+   3 paper/sections/dataset.tex
+   3 paper/sections/introduction.tex
+   3 code/run_ablation.py
+   2 paper/references.bib
+   2 code/saran_ieee.md
+   2 code/results_revised/BBCA/forecast_pytorch.csv
+   2 code/results_revised/BBCA/shap_kernel_feature_importance.csv
+   2 code/results_revised/BBCA/summary_pytorch.json
+
+=== MONOREPO SIGNALS ===
+No monorepo signals detected.
+
+=== CODE METRICS ===
+Total files scanned: 1861
+Total lines of code: 21132
+
+Files by language:
+  Other: 1848
+  Python: 13
+
+Top 10 largest files:
+1571258021.zip: 1252.4KB
+code\data_with_macro\BBRI.csv: 602.4KB
+code\data_with_macro\BBTN.csv: 601.8KB
+code\data_with_macro\BMRI.csv: 573.8KB
+code\data_with_macro\BBNI.csv: 571.6KB
+code\data_with_macro\BDMN.csv: 543.2KB
+code\data_with_macro\BBCA.csv: 534.4KB
+code\data_with_macro\BNGA.csv: 524.6KB
+code\data_macro\ihsg_daily_2003_2024.csv: 469.9KB
+paper\main.pdf: 467.8KB
+
+=== CI/CD PIPELINES ===
+No CI/CD pipelines detected.
+
+=== CONTAINERS & ORCHESTRATION ===
+No containerization configs detected.
+
+=== SECURITY & COMPLIANCE ===
+No security configs detected.
+
+=== PERFORMANCE & TESTING ===
+No performance testing configs detected.
+
+=== SCAN COMPLETE ===

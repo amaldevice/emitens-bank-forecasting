@@ -1,0 +1,63 @@
+{
+  "config": {
+    "bank_name": "BNGA",
+    "forecast_days": 30,
+    "data_dir": "data",
+    "output_root": "/outputs/results_transformer_study/BNGA/autoformer_data/seed_52",
+    "time_steps": 60,
+    "epochs": 50,
+    "batch_size": 128,
+    "hidden_size": 64,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "model_type": "autoformer",
+    "n_heads": 4,
+    "n_layers": 2,
+    "ff_multiplier": 4,
+    "moving_avg": 5,
+    "distill": true,
+    "optimize": false,
+    "use_macro": false,
+    "tune_epochs": 8,
+    "tune_candidates": 6,
+    "hpo_method": "ga",
+    "hpo_generations": 5,
+    "run_shap": true,
+    "shap_only": false,
+    "save_model": false,
+    "model_path": null,
+    "shap_background_size": 64,
+    "shap_eval_size": 32,
+    "shap_nsamples": 100,
+    "seed": 52
+  },
+  "metrics": {
+    "mse": 30403.490234375,
+    "rmse": 174.36596638786767,
+    "mae": 150.76734924316406,
+    "mape": 9.474225044250488
+  },
+  "n_train_sequences": 1395,
+  "n_test_sequences": 662,
+  "feature_columns": [
+    "Ask Price",
+    "Bid Price",
+    "High Price",
+    "Low Price",
+    "Moving Average 20 Day",
+    "Price to Sales Ratio",
+    "Price to Book Ratio",
+    "Price Earnings Ratio",
+    "Dividend Indicated Yld - Gross",
+    "Price Change 1 Day Percent"
+  ],
+  "target_column": "Closing Price",
+  "architecture_note": "informer uses ProbSparse self-attention with encoder distilling; autoformer uses moving-average decomposition blocks with FFT-based Auto-Correlation; informer_lite and autoformer_lite keep the earlier lightweight style baselines.",
+  "shap": {
+    "method": "kernel_explainer",
+    "background_size": 64,
+    "eval_size": 32,
+    "nsamples": 100,
+    "top_feature": "Moving Average 20 Day"
+  }
+}

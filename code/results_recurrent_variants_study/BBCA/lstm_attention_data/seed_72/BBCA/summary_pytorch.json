@@ -1,0 +1,48 @@
+{
+  "config": {
+    "bank_name": "BBCA",
+    "forecast_days": 30,
+    "data_dir": "data",
+    "output_root": "/outputs/results_recurrent_variants_study/BBCA/lstm_attention_data/seed_72",
+    "time_steps": 60,
+    "epochs": 50,
+    "batch_size": 32,
+    "hidden_size": 32,
+    "dropout": 0.3,
+    "learning_rate": 0.001,
+    "model_type": "lstm_attention",
+    "optimize": false,
+    "use_macro": false,
+    "tune_epochs": 8,
+    "tune_candidates": 6,
+    "run_shap": false,
+    "shap_only": false,
+    "save_model": false,
+    "model_path": null,
+    "shap_background_size": 64,
+    "shap_eval_size": 32,
+    "shap_nsamples": 100,
+    "seed": 72
+  },
+  "metrics": {
+    "mse": 4763366.5,
+    "rmse": 2182.5138029345885,
+    "mae": 2001.2281494140625,
+    "mape": 21.34616470336914
+  },
+  "n_train_sequences": 1395,
+  "n_test_sequences": 662,
+  "feature_columns": [
+    "Ask Price",
+    "Bid Price",
+    "High Price",
+    "Low Price",
+    "Moving Average 20 Day",
+    "Price to Sales Ratio",
+    "Price to Book Ratio",
+    "Price Earnings Ratio",
+    "Dividend Indicated Yld - Gross",
+    "Price Change 1 Day Percent"
+  ],
+  "target_column": "Closing Price"
+}

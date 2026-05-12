@@ -1,5 +1,14 @@
 # 📄 Research Paper Starter Template (Code + LaTeX)
 
+## Current Experiment Results
+
+For the latest code-level comparison between the existing LSTM/BiLSTM study and
+the added Informer/Autoformer Transformer study, use
+[`TRANSFORMER_VS_RECURRENT_RESULTS.md`](TRANSFORMER_VS_RECURRENT_RESULTS.md).
+It records the best recurrent and Transformer cases per bank, plus RMSE, MAE,
+and MAPE improvements. The paper manuscript has not been updated from this
+artifact yet.
+
 Welcome to the **Research Paper Starter Template**! This repository is designed to streamline the workflow of writing academic papers (specifically targeted at IEEE conferences/journals, but adaptable) while managing the associated experimental code.
 
 It provides a clean separation of concerns:

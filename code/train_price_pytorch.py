@@ -2,6 +2,7 @@ import argparse
 import copy
 import json
 import random
+import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -217,12 +218,32 @@ def train_model(
     patience = 20
 
     for epoch in range(1, config.epochs + 1):
+        epoch_start = time.perf_counter()
+        train_start = time.perf_counter()
         train_loss = run_epoch(model, train_loader, criterion, device, optimizer)
+        train_seconds = time.perf_counter() - train_start
+        val_start = time.perf_counter()
         val_loss = run_epoch(model, val_loader, criterion, device, optimizer=None)
+        val_seconds = time.perf_counter() - val_start
         scheduler.step(val_loss)
         lr = optimizer.param_groups[0]["lr"]
-        history.append({"epoch": epoch, "train_loss": train_loss, "val_loss": val_loss, "lr": lr})
-        print(f"Epoch {epoch:03d} | train_loss={train_loss:.6f} | val_loss={val_loss:.6f} | lr={lr:.6g}")
+        epoch_seconds = time.perf_counter() - epoch_start
+        history.append(
+            {
+                "epoch": epoch,
+                "train_loss": train_loss,
+                "val_loss": val_loss,
+                "lr": lr,
+                "train_seconds": train_seconds,
+                "val_seconds": val_seconds,
+                "epoch_seconds": epoch_seconds,
+            }
+        )
+        print(
+            f"Epoch {epoch:03d} | train_loss={train_loss:.6f} | val_loss={val_loss:.6f} | "
+            f"lr={lr:.6g} | train_s={train_seconds:.2f} | val_s={val_seconds:.2f} | "
+            f"epoch_s={epoch_seconds:.2f}"
+        )
 
         if val_loss < best_val:
             best_val = val_loss

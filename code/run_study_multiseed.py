@@ -11,16 +11,46 @@ from tqdm.auto import tqdm
 
 
 DEFAULT_BANKS = ["BBCA", "BBNI", "BBRI", "BBTN", "BDMN", "BMRI", "BNGA"]
-CASE_ARGS = {
-    "lstm_data": ["--data-dir", "data", "--model-type", "lstm"],
-    "lstm_macro": ["--data-dir", "data_with_macro", "--use-macro", "--model-type", "lstm"],
-    "bilstm_data": ["--data-dir", "data", "--model-type", "bilstm"],
-    "bilstm_macro": ["--data-dir", "data_with_macro", "--use-macro", "--model-type", "bilstm"],
-    "lstm_data_ga": ["--data-dir", "data", "--model-type", "lstm", "--optimize"],
-    "lstm_macro_ga": ["--data-dir", "data_with_macro", "--use-macro", "--model-type", "lstm", "--optimize"],
-    "bilstm_data_ga": ["--data-dir", "data", "--model-type", "bilstm", "--optimize"],
-    "bilstm_macro_ga": ["--data-dir", "data_with_macro", "--use-macro", "--model-type", "bilstm", "--optimize"],
+BASE_SCRIPT = "train_price_pytorch.py"
+MODEL_SCRIPTS = {
+    "lstm": BASE_SCRIPT,
+    "bilstm": BASE_SCRIPT,
+    "lstm_pre_norm": "train_price_pytorch_norm.py",
+    "lstm_post_norm": "train_price_pytorch_norm.py",
+    "lstm_pre_post_norm": "train_price_pytorch_norm.py",
+    "bilstm_pre_norm": "train_price_pytorch_norm.py",
+    "bilstm_post_norm": "train_price_pytorch_norm.py",
+    "bilstm_pre_post_norm": "train_price_pytorch_norm.py",
+    "cnn_lstm": "train_price_pytorch_cnn.py",
+    "cnn_bilstm": "train_price_pytorch_cnn.py",
+    "lstm_attention": "train_price_pytorch_attention.py",
+    "bilstm_attention": "train_price_pytorch_attention.py",
 }
+
+
+def build_case_specs() -> dict[str, tuple[str, list[str]]]:
+    specs: dict[str, tuple[str, list[str]]] = {}
+    for model_type, script in MODEL_SCRIPTS.items():
+        specs[f"{model_type}_data"] = (script, ["--data-dir", "data", "--model-type", model_type])
+        specs[f"{model_type}_macro"] = (
+            script,
+            ["--data-dir", "data_with_macro", "--use-macro", "--model-type", model_type],
+        )
+        specs[f"{model_type}_data_ga"] = (
+            script,
+            ["--data-dir", "data", "--model-type", model_type, "--optimize"],
+        )
+        specs[f"{model_type}_macro_ga"] = (
+            script,
+            ["--data-dir", "data_with_macro", "--use-macro", "--model-type", model_type, "--optimize"],
+        )
+        specs[f"{model_type}_data_random"] = specs[f"{model_type}_data_ga"]
+        specs[f"{model_type}_macro_random"] = specs[f"{model_type}_macro_ga"]
+    return specs
+
+
+CASE_SPECS = build_case_specs()
+CASE_ARGS = {name: args for name, (_, args) in CASE_SPECS.items()}
 
 
 def parse_args() -> argparse.Namespace:
@@ -72,7 +102,7 @@ def main() -> None:
                 case_dir = root / bank / case / f"seed_{seed}"
                 cmd = [
                     py,
-                    "train_price_pytorch.py",
+                    CASE_SPECS[case][0],
                     "--bank",
                     bank,
                     "--seed",
@@ -89,7 +119,7 @@ def main() -> None:
                     str(args.tune_candidates),
                     "--output-root",
                     str(case_dir),
-                ] + CASE_ARGS[case]
+                ] + CASE_SPECS[case][1]
                 if args.shap_only:
                     cmd += ["--shap-only"]
                 if args.save_model:

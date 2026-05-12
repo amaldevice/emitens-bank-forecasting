@@ -1,0 +1,8 @@
+"bank","best_recurrent","rec_rmse","best_transformer","tr_rmse","transformer_improvement_pct"
+"BBCA","bilstm_data","1881.52983065928","autoformer_macro","545.928039689145","70.9848852357629"
+"BBNI","bilstm_data","335.85227363699","informer_data","219.663725852093","34.5951350951641"
+"BBRI","bilstm_data","525.703408704122","informer_macro","379.212973357794","27.8656050010086"
+"BBTN","bilstm_data_ga","51.4428897654735","informer_data_random","43.0054040162595","16.4016558705784"
+"BDMN","lstm_data","120.716721404299","informer_data","76.8167761881587","36.3660847523458"
+"BMRI","bilstm_macro_ga","1388.70547158187","informer_data_random","885.211409449651","36.256360505204"
+"BNGA","bilstm_data","244.144572900867","informer_data","132.561429353703","45.7037165403108"
