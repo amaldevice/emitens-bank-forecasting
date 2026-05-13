@@ -1,11 +1,11 @@
 \section{Results and Discussion}
 
 \subsection{Performance Comparison Across Configurations}
-Table~\ref{tab:main_results} reports the best case per bank based on mean RMSE across five seeds. BiLSTM-based settings are dominant in six out of seven banks. The best configurations are mostly \texttt{bilstm\_without\_macro}, with two bank-specific exceptions: \texttt{bilstm\_without\_macro\_ga} for BBTN and \texttt{bilstm\_with\_macro\_ga} for BMRI.
+Table~\ref{tab:main_results} reports the best recurrent case per bank based on mean RMSE across five seeds. BiLSTM-based settings are dominant in six out of seven banks. The best configurations are mostly \texttt{bilstm\_without\_macro}, with two bank-specific exceptions: \texttt{bilstm\_without\_macro\_ga} for BBTN and \texttt{bilstm\_with\_macro\_ga} for BMRI.
 
 \begin{table}[t]
 \centering
-\caption{Best-performing case per bank (mean$\pm$std over 5 seeds).}
+\caption{Best-performing recurrent case per bank (mean$\pm$std over 5 seeds).}
 \label{tab:main_results}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -26,13 +26,14 @@ BNGA & \textbf{bilstm\_without\_macro} & $\mathbf{244.14 \pm 28.12}$ & \textbf{1
 }
 \end{table}
 
-Across all eight ablation cases, the best overall average RMSE is obtained by \texttt{bilstm\_without\_macro\_ga} (680.83), followed closely by \texttt{bilstm\_without\_macro} (681.26), while \texttt{lstm\_without\_macro} is third (741.52). In this dataset, moving from \texttt{Without\_Macro} to \texttt{With\_Macro} is not uniformly beneficial, and improvements are bank-dependent.
+Across all eight recurrent ablation cases, the best overall average RMSE is obtained by \texttt{bilstm\_without\_macro\_ga} (680.83), followed closely by \texttt{bilstm\_without\_macro} (681.26), while \texttt{lstm\_without\_macro} is third (741.52). In this dataset, moving from \texttt{Without\_Macro} to \texttt{With\_Macro} is not uniformly beneficial, and improvements are bank-dependent.
+
 \subsection{Statistical Significance Analysis}
-Table~\ref{tab:stats_results} compares each bank's best case against \texttt{lstm\_without\_macro} as baseline. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%.
+Table~\ref{tab:stats_results} compares each bank's best recurrent case against \texttt{lstm\_without\_macro} as baseline. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%.
 
 \begin{table}[t]
 \centering
-\caption{Best case vs baseline (\texttt{lstm\_without\_macro}) significance summary.}
+\caption{Best recurrent case vs baseline (\texttt{lstm\_without\_macro}) significance summary.}
 \label{tab:stats_results}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -58,7 +59,7 @@ Table~\ref{tab:overall_case_rank} presents an overall ranking across all banks u
 
 \begin{table}[t]
 \centering
-\caption{Overall ranking across all banks (lower is better).}
+\caption{Overall recurrent ranking across all banks (lower is better).}
 \label{tab:overall_case_rank}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -107,18 +108,16 @@ Mean & +37.01 & +29.99 \\
 }
 \end{table}
 
-This evidence suggests that macro variables are useful only in specific regimes/banks rather than universally. The large RMSE spikes observed for BDMN (+202.86\% for LSTM, +126.82\% for BiLSTM) are consistent with temporal misalignment between macro indicators and this bank's price dynamics: BDMN is a mid-cap bank whose microstructure-driven price behavior may respond to macro signals with a different lag structure than the zero-lag ingestion used here. This pattern is compatible with the broader literature: methods designed for exogenous variables can improve forecasting when the external signals are informative and properly aligned \cite{wang2024timexer,qiu2025dag_exogenous}, and multiple IEEE studies also report gains from macro-integrated forecasting pipelines \cite{adyatma2022idx_macro,begum2024macro_sentiment_lstm,dechjijaruwate2025thai_banks_external}. In our setting, the net effect is mixed, indicating that feature relevance and temporal alignment dominate over simple feature expansion.
+This evidence suggests that macro variables are useful only in specific regimes/banks rather than universally. The large RMSE spikes observed for BDMN (+202.86\% for LSTM, +126.82\% for BiLSTM) are consistent with temporal misalignment between macro indicators and this bank's price dynamics. This pattern is compatible with the broader literature: methods designed for exogenous variables can improve forecasting when the external signals are informative and properly aligned \cite{wang2024timexer,qiu2025dag_exogenous}, and multiple IEEE studies also report gains from macro-integrated forecasting pipelines \cite{adyatma2022idx_macro,begum2024macro_sentiment_lstm,dechjijaruwate2025thai_banks_external}.
 
 \subsection{XAI Analysis with SHAP}
-We generated SHAP outputs for all 280 trained checkpoints (7 banks $\times$ 8 cases $\times$ 5 seeds). This produced 3,640 feature-attribution rows over 16 unique features. Using global top-1 frequency, the most frequently dominant drivers are \textit{Low Price} (39 runs), \textit{Bid Price} (31), \textit{Price Change 1 Day Percent} (28), and \textit{Price to Sales Ratio} (28). The pattern indicates that short-horizon market microstructure and valuation factors dominate the model explanations more often than macro indicators.
+We generated SHAP outputs for all 280 original recurrent checkpoints (7 banks $\times$ 8 cases $\times$ 5 seeds). This produced 3,640 feature-attribution rows over 16 unique features. Using global top-1 frequency, the most frequently dominant drivers are \textit{Low Price} (39 runs), \textit{Bid Price} (31), \textit{Price Change 1 Day Percent} (28), and \textit{Price to Sales Ratio} (28). The pattern indicates that short-horizon market microstructure and valuation factors dominate the model explanations more often than macro indicators.
 
 Because a small number of runs showed extreme SHAP magnitudes (maximum $\approx 1.51 \times 10^{13}$), we also report a robust global ranking using a 99th-percentile cap. Under this robust aggregation, the top features remain stable: \textit{Low Price} (0.00465), \textit{Bid Price} (0.00428), \textit{Price Change 1 Day Percent} (0.00407), \textit{High Price} (0.00394), and \textit{Moving Average 20 Day} (0.00383). Hence, the main interpretation does not depend on a few outlier explanations.
 
-At the bank level, the most frequent top-1 SHAP feature differs across issuers: BBCA and BBNI are led by \textit{Bid Price}, BBRI by \textit{Price Change 1 Day Percent}, BBTN and BMRI by \textit{High Price}, BDMN by \textit{Price to Sales Ratio}, and BNGA by \textit{Low Price}. This heterogeneity supports the earlier finding that forecasting behavior is regime- and bank-specific. In macro-enabled cases, \textit{Price Change 1 Day Percent} and \textit{Low Price} remain dominant, while macro variables (e.g., CPI index) appear as top-1 only in a subset of runs.
-
 \begin{table}[t]
 \centering
-\caption{Global SHAP summary (robust aggregate over all 280 runs).}
+\caption{Global SHAP summary (robust aggregate over all 280 recurrent runs).}
 \label{tab:shap_top_features}
 \scriptsize
 \setlength{\tabcolsep}{2pt}
@@ -150,11 +149,65 @@ Price to Sales Ratio & 0.00362 & \textbf{28} \\
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{images/shap_beeswarm_style_best.png}
-\caption{SHAP beeswarm plot for the best-performing checkpoint (BBTN, BiLSTM\_Data\_GA, seed 62).}
+\caption{SHAP beeswarm plot for the best-performing recurrent checkpoint (BBTN, BiLSTM\_Data\_GA, seed 62).}
 \label{fig:shap_beeswarm_runs}
 \end{figure}
+
+\subsection{Supplementary Transformer Extension}
+Table~\ref{tab:extension_global_best} summarizes the strongest global case from each completed experiment family. As an extension to the recurrent benchmark, the Transformer sweep shows the strongest aggregate performance. The best Transformer case, \texttt{informer\_data}, reduces mean RMSE from 680.83 in the best original recurrent case to 401.02.
+
+\begin{table}[t]
+\centering
+\caption{Global best case by experiment family.}
+\label{tab:extension_global_best}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+Family & Best case & RMSE & MAE & MAPE (\%) \\
+\midrule
+Original recurrent & \texttt{bilstm\_data\_ga} & 680.83 & 591.04 & 10.65 \\
+Recurrent variants & \texttt{cnn\_bilstm\_data\_ga} & 754.96 & 668.21 & 12.35 \\
+Transformer & \textbf{\texttt{informer\_data}} & \textbf{401.02} & \textbf{325.11} & \textbf{5.94} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The best Transformer case outperforms the best original recurrent case in every bank-level comparison. The average best-per-bank improvements are 38.31\% for RMSE, 42.17\% for MAE, and 41.95\% for MAPE. Table~\ref{tab:transformer_gain_bank} reports the RMSE comparison in detail. These results indicate strong potential for Informer/Autoformer-style modeling, but they are reported as extension evidence because paired statistical tests against the recurrent winners have not yet been regenerated.
+
+\begin{table}[t]
+\centering
+\caption{Best Transformer improvement over best original recurrent case.}
+\label{tab:transformer_gain_bank}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llclc}
+\toprule
+Bank & Best recurrent & RMSE & Best Transformer & Improve (\%) \\
+\midrule
+BBCA & \texttt{bilstm\_data} & 1881.53 & \texttt{autoformer\_macro} & 70.98 \\
+BBNI & \texttt{bilstm\_data} & 335.85 & \texttt{informer\_data} & 34.60 \\
+BBRI & \texttt{bilstm\_data} & 525.70 & \texttt{informer\_macro} & 27.87 \\
+BBTN & \texttt{bilstm\_data\_ga} & 51.44 & \texttt{informer\_data\_random} & 16.40 \\
+BDMN & \texttt{lstm\_data} & 120.72 & \texttt{informer\_data} & 36.37 \\
+BMRI & \texttt{bilstm\_macro\_ga} & 1388.71 & \texttt{informer\_data\_random} & 36.26 \\
+BNGA & \texttt{bilstm\_data} & 244.14 & \texttt{informer\_data} & 45.70 \\
+\midrule
+Mean & -- & -- & -- & \textbf{38.31} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Supplementary Recurrent-Variant Extension}
+The recurrent-variant sweep contains 1400 runs over normalization, convolutional recurrent, and attention-augmented LSTM/BiLSTM cases. The strongest global variant is \texttt{cnn\_bilstm\_data\_ga}, with RMSE 754.96, MAE 668.21, and MAPE 12.35\%. The top three recurrent variants are \texttt{cnn\_bilstm\_data\_ga}, \texttt{cnn\_bilstm\_data}, and \texttt{cnn\_lstm\_data}, indicating that convolutional preprocessing is the most competitive recurrent-variant subgroup.
+
+However, recurrent variants do not improve the original recurrent benchmark on average. Their average best-per-bank differences relative to the original recurrent winners are -10.18\% RMSE, -7.90\% MAE, and -7.41\% MAPE, where negative values indicate worse performance. The only bank-level exception is BDMN, where \texttt{cnn\_bilstm\_data\_ga} slightly improves RMSE over \texttt{lstm\_data} (116.73 vs.\ 120.72). Recurrent variants are therefore useful as robustness and architecture-ablation evidence, but they do not replace the original BiLSTM baseline in this study.
 
 \subsection{Discussion and Threats to Validity}
 Three validity points are important. First, the chronological split is fixed; different split boundaries may change relative ranking. Second, seed-level Wilcoxon tests are underpowered with $n=5$, which explains why several improvements with very small DM $p$-values are not mirrored by Wilcoxon significance. Third, optimization benefits are heterogeneous across banks, indicating risk of overfitting when tuning is not controlled.
 
-Future work will extend this benchmark through walk-forward validation, larger seed counts, and broader stress-testing across additional market regimes for stronger temporal robustness.
+The extension experiments add two additional caveats. Transformer and original recurrent runs have SHAP outputs, but recurrent variants were executed without SHAP to control compute cost. In addition, the Transformer and recurrent-variant results currently provide multi-seed aggregate evidence, while the strongest inferential validation remains the original recurrent Wilcoxon and DM analysis. Future work should regenerate paired statistical tests across the best recurrent, Transformer, and recurrent-variant cases before making stronger cross-family significance claims.
