@@ -1,16 +1,17 @@
 \section{Introduction}
 Forecasting bank stock prices remains challenging due to non-stationarity, regime shifts, and sensitivity to macroeconomic conditions. In emerging markets such as Indonesia, banking-sector prices are influenced not only by internal price dynamics but also by external drivers including interest rates, inflation, exchange rates, and broad market movements.
 
-Recent work in financial time series forecasting has adopted deep learning models, especially recurrent networks, to capture temporal dependencies. However, many studies still suffer from limited ablation depth and weak statistical validation. These gaps reduce confidence in whether reported improvements generalize across assets and random seeds.
+Recent work in financial time series forecasting has adopted deep learning models, especially recurrent networks and Transformer-based architectures, to capture temporal dependencies. However, many studies still suffer from limited ablation depth and weak statistical validation. These gaps reduce confidence in whether reported improvements generalize across assets and random seeds.
 
-This study develops a reproducible pipeline for Indonesian banking stocks that combines sequence modeling, macroeconomic regressors, repeated-seed evaluation, formal significance testing, and explainability analysis. A central question is whether feature engineering with macroeconomic variables (\texttt{With\_Macro}) provides consistent gains over the baseline regime (\texttt{Without\_Macro}), as often suggested in exogenous-variable forecasting literature \cite{wang2024timexer,adyatma2022idx_macro}. In addition, we evaluate whether model behavior remains economically plausible under Explainable AI (XAI) inspection using SHAP-based attributions \cite{lundberg2017shap}. The objective is to provide a strong foundational benchmark that can be extended to more advanced architectures.
+This study develops a reproducible pipeline for Indonesian banking stocks that combines sequence modeling, macroeconomic regressors, repeated-seed evaluation, formal significance testing, and explainability analysis. A central question is whether feature engineering with macroeconomic variables (\texttt{With\_Macro}) provides consistent gains over the baseline regime (\texttt{Without\_Macro}), as often suggested in exogenous-variable forecasting literature \cite{wang2024timexer,adyatma2022idx_macro}. In addition, we add supplementary experiments with stronger architectures, especially Informer, Autoformer, and recurrent variants, to examine whether the recurrent benchmark can be extended. Model behavior is inspected with SHAP-based attributions where outputs are available \cite{lundberg2017shap}.
 
 The main contributions are as follows:
 \begin{itemize}
-    \item A structured ablation design over model type (LSTM vs BiLSTM), feature regime (price-only vs price+macro), and optimization mode (off vs on).
+    \item A structured recurrent ablation design over model type (LSTM vs BiLSTM), feature regime (price-only vs price+macro), and optimization mode (off vs on).
     \item A multi-bank, multi-seed protocol for robust performance estimation and variance analysis.
-    \item Statistical validation using Wilcoxon signed-rank and Diebold-Mariano tests to assess significance of forecasting improvements.
-    \item An XAI layer based on SHAP to quantify global feature relevance and compare explanation patterns across banks, feature regimes, and optimization settings.
+    \item Statistical validation using Wilcoxon signed-rank and Diebold-Mariano tests to assess significance of recurrent forecasting improvements.
+    \item An XAI layer based on SHAP to quantify global feature relevance across banks, feature regimes, and optimization settings.
+    \item A supplementary comparison against Informer/Autoformer and normalization, convolutional, and attention-based recurrent variants.
 \end{itemize}
 
 The remainder of this paper is organized as follows. Section II reviews related literature. Section III describes the dataset and preprocessing. Section IV presents the proposed methodology. Section V details the experimental setup. Section VI discusses the results and significance tests. Section VII concludes and outlines future directions.

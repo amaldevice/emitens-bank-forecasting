@@ -17,7 +17,7 @@ The baseline feature set (\texttt{Without\_Macro}) includes market micro and tec
 The final feature schema is fixed per regime before model training.
 
 \subsection{XAI-Oriented Feature Schema}
-To support consistent SHAP analysis across all experiments, feature names are kept identical across banks and seeds, and the same temporal windowing process is used in every run. The \texttt{Without\_Macro} regime uses 10 market/valuation features, while \texttt{With\_Macro} adds 6 external variables (total 16 features). This fixed schema allows direct aggregation of feature attribution statistics across the full ablation matrix.
+To support consistent SHAP analysis across model families, feature names are kept identical across banks and seeds, and the same temporal windowing process is used in every run. The \texttt{Without\_Macro} regime uses 10 market/valuation features, while \texttt{With\_Macro} adds 6 external variables (total 16 features). This fixed schema allows direct aggregation of feature attribution statistics for original recurrent and Transformer outputs, and it keeps the recurrent-variant outputs compatible with future SHAP analysis.
 
 \subsection{Data Preprocessing}
 We apply chronological sorting, forward-fill for missing observations, and standard scaling for both features and target during model training. Sequence windows are then constructed with a fixed lookback length.
