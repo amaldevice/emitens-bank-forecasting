@@ -1,7 +1,7 @@
 \section{Results and Discussion}
 
 \subsection{Performance Comparison Across Configurations}
-Table~\ref{tab:main_results} reports the best recurrent case per bank based on mean RMSE across five seeds. BiLSTM-based settings are dominant in six out of seven banks. The best configurations are mostly \texttt{bilstm\_without\_macro}, with two bank-specific exceptions: \texttt{bilstm\_without\_macro\_ga} for BBTN and \texttt{bilstm\_with\_macro\_ga} for BMRI.
+Table~\ref{tab:main_results} reports the best original recurrent case per bank based on mean RMSE across five seeds. BiLSTM-based settings are dominant in six out of seven banks. The best configurations are mostly \texttt{bilstm\_data}, with two bank-specific exceptions: \texttt{bilstm\_data\_ga} for BBTN and \texttt{bilstm\_macro\_ga} for BMRI.
 
 \begin{table}[t]
 \centering
@@ -14,26 +14,26 @@ Table~\ref{tab:main_results} reports the best recurrent case per bank based on m
 \toprule
 Bank & Best case & RMSE & MAE & MAPE (\%) \\
 \midrule
-BBCA & \textbf{bilstm\_without\_macro} & $\mathbf{1881.53 \pm 199.49}$ & \textbf{1721.55} & \textbf{18.36} \\
-BBNI & \textbf{bilstm\_without\_macro} & $\mathbf{335.85 \pm 57.51}$ & \textbf{252.66} & \textbf{4.90} \\
-BBRI & \textbf{bilstm\_without\_macro} & $\mathbf{525.70 \pm 123.24}$ & \textbf{435.44} & \textbf{8.34} \\
-BBTN & \textbf{bilstm\_without\_macro\_ga} & $\mathbf{51.44 \pm 16.04}$ & \textbf{43.48} & \textbf{3.23} \\
-BDMN & \textbf{lstm\_without\_macro} & $\mathbf{120.72 \pm 21.92}$ & \textbf{98.32} & \textbf{3.74} \\
-BMRI & \textbf{bilstm\_with\_macro\_ga} & $\mathbf{1388.71 \pm 257.96}$ & \textbf{1165.79} & \textbf{19.09} \\
-BNGA & \textbf{bilstm\_without\_macro} & $\mathbf{244.14 \pm 28.12}$ & \textbf{192.77} & \textbf{11.23} \\
+BBCA & \textbf{bilstm\_data} & $\mathbf{1881.53 \pm 199.49}$ & \textbf{1721.55} & \textbf{18.36} \\
+BBNI & \textbf{bilstm\_data} & $\mathbf{335.85 \pm 57.51}$ & \textbf{252.66} & \textbf{4.90} \\
+BBRI & \textbf{bilstm\_data} & $\mathbf{525.70 \pm 123.24}$ & \textbf{435.44} & \textbf{8.34} \\
+BBTN & \textbf{bilstm\_data\_ga} & $\mathbf{51.44 \pm 16.04}$ & \textbf{43.48} & \textbf{3.23} \\
+BDMN & \textbf{lstm\_data} & $\mathbf{120.72 \pm 21.92}$ & \textbf{98.32} & \textbf{3.74} \\
+BMRI & \textbf{bilstm\_macro\_ga} & $\mathbf{1388.71 \pm 257.96}$ & \textbf{1165.79} & \textbf{19.09} \\
+BNGA & \textbf{bilstm\_data} & $\mathbf{244.14 \pm 28.12}$ & \textbf{192.77} & \textbf{11.23} \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-Across all eight recurrent ablation cases, the best overall average RMSE is obtained by \texttt{bilstm\_without\_macro\_ga} (680.83), followed closely by \texttt{bilstm\_without\_macro} (681.26), while \texttt{lstm\_without\_macro} is third (741.52). In this dataset, moving from \texttt{Without\_Macro} to \texttt{With\_Macro} is not uniformly beneficial, and improvements are bank-dependent.
+Across all eight recurrent ablation cases, the best overall average RMSE is obtained by \texttt{bilstm\_data\_ga} (680.83), followed closely by \texttt{bilstm\_data} (681.26), while \texttt{lstm\_data} is third (741.52). In this dataset, moving from price-only data to macro-augmented data is not uniformly beneficial, and improvements are bank-dependent.
 
 \subsection{Statistical Significance Analysis}
-Table~\ref{tab:stats_results} compares each bank's best recurrent case against \texttt{lstm\_without\_macro} as baseline. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%.
+Table~\ref{tab:stats_results} compares each bank's best recurrent case against \texttt{lstm\_data} as baseline. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%.
 
 \begin{table}[t]
 \centering
-\caption{Best recurrent case vs baseline (\texttt{lstm\_without\_macro}) significance summary.}
+\caption{Best recurrent case vs baseline (\texttt{lstm\_data}) significance summary.}
 \label{tab:stats_results}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -42,20 +42,20 @@ Table~\ref{tab:stats_results} compares each bank's best recurrent case against \
 \toprule
 Bank & Best case & Improve (\%) & Wilcoxon $p$ & DM $p$ \\
 \midrule
-BBCA & bilstm\_without\_macro & 8.76 & 0.4375 & $2.28 \times 10^{-13}$ \\
-BBNI & bilstm\_without\_macro & 10.47 & \textbf{0.0625} & $4.84 \times 10^{-11}$ \\
-BBRI & bilstm\_without\_macro & 28.23 & 0.3125 & $< 10^{-16}$ \\
-BBTN & bilstm\_without\_macro\_ga & \textbf{35.66} & 0.3125 & $\mathbf{2.22 \times 10^{-16}}$ \\
-BDMN & lstm\_without\_macro & 0.00 & 1.0000 & n/a \\
-BMRI & bilstm\_with\_macro\_ga & 11.18 & 0.4375 & $2.23 \times 10^{-11}$ \\
-BNGA & bilstm\_without\_macro & 4.91 & 0.3125 & $4.78 \times 10^{-5}$ \\
+BBCA & bilstm\_data & 8.76 & 0.4375 & $2.28 \times 10^{-13}$ \\
+BBNI & bilstm\_data & 10.47 & \textbf{0.0625} & $4.84 \times 10^{-11}$ \\
+BBRI & bilstm\_data & 28.23 & 0.3125 & $< 10^{-16}$ \\
+BBTN & bilstm\_data\_ga & \textbf{35.66} & 0.3125 & $\mathbf{2.22 \times 10^{-16}}$ \\
+BDMN & lstm\_data & 0.00 & 1.0000 & n/a \\
+BMRI & bilstm\_macro\_ga & 11.18 & 0.4375 & $2.23 \times 10^{-11}$ \\
+BNGA & bilstm\_data & 4.91 & 0.3125 & $4.78 \times 10^{-5}$ \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
 \subsection{Global Ranking and Regime Matrix}
-Table~\ref{tab:overall_case_rank} presents an overall ranking across all banks using mean RMSE, MAE, and MAPE. The top two configurations are both BiLSTM-\texttt{Without\_Macro} variants, while all \texttt{With\_Macro} variants rank below them in the aggregate view.
+Table~\ref{tab:overall_case_rank} presents an overall ranking across all banks using mean RMSE, MAE, and MAPE. The top two configurations are both data-only BiLSTM variants, while macro-augmented variants rank below them in the aggregate view.
 
 \begin{table}[t]
 \centering
@@ -68,24 +68,24 @@ Table~\ref{tab:overall_case_rank} presents an overall ranking across all banks u
 \toprule
 Case & RMSE & MAE & MAPE (\%) \\
 \midrule
-\textbf{bilstm\_without\_macro\_ga} & \textbf{680.83} & 591.04 & \textbf{10.65} \\
-bilstm\_without\_macro & 681.26 & \textbf{589.76} & 10.74 \\
-lstm\_without\_macro & 741.52 & 644.21 & 11.44 \\
-lstm\_without\_macro\_ga & 781.95 & 688.86 & 12.66 \\
-bilstm\_with\_macro\_ga & 806.40 & 722.52 & 13.76 \\
-bilstm\_with\_macro & 814.04 & 720.31 & 13.14 \\
-lstm\_with\_macro & 851.89 & 759.88 & 13.96 \\
-lstm\_with\_macro\_ga & 938.15 & 842.31 & 17.48 \\
+\textbf{bilstm\_data\_ga} & \textbf{680.83} & 591.04 & \textbf{10.65} \\
+bilstm\_data & 681.26 & \textbf{589.76} & 10.74 \\
+lstm\_data & 741.52 & 644.21 & 11.44 \\
+lstm\_data\_ga & 781.95 & 688.86 & 12.66 \\
+bilstm\_macro\_ga & 806.40 & 722.52 & 13.76 \\
+bilstm\_macro & 814.04 & 720.31 & 13.14 \\
+lstm\_macro & 851.89 & 759.88 & 13.96 \\
+lstm\_macro\_ga & 938.15 & 842.31 & 17.48 \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-To directly answer whether macroeconomic feature engineering improves accuracy, Table~\ref{tab:macro_delta_matrix} reports the RMSE change from \texttt{Without\_Macro} to \texttt{With\_Macro} per bank. Positive values indicate degradation, and negative values indicate improvement.
+To directly answer whether macroeconomic feature engineering improves accuracy, Table~\ref{tab:macro_delta_matrix} reports the RMSE change from \texttt{data} to \texttt{macro} per bank. Positive values indicate degradation, and negative values indicate improvement.
 
 \begin{table}[t]
 \centering
-\caption{RMSE change (\%) from \texttt{Without\_Macro} to \texttt{With\_Macro}.}
+\caption{RMSE change (\%) from \texttt{data} to \texttt{macro}.}
 \label{tab:macro_delta_matrix}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -175,7 +175,7 @@ Transformer & \textbf{\texttt{informer\_data}} & \textbf{401.02} & \textbf{325.1
 }
 \end{table}
 
-The best Transformer case outperforms the best original recurrent case in every bank-level comparison. The average best-per-bank improvements are 38.31\% for RMSE, 42.17\% for MAE, and 41.95\% for MAPE. Table~\ref{tab:transformer_gain_bank} reports the RMSE comparison in detail. These results indicate strong potential for Informer/Autoformer-style modeling, but they are reported as extension evidence because paired statistical tests against the recurrent winners have not yet been regenerated.
+The best Transformer case outperforms the best original recurrent case in every bank-level comparison. The average best-per-bank improvements are 38.31\% for RMSE, 42.17\% for MAE, and 41.95\% for MAPE. Table~\ref{tab:transformer_gain_bank} reports the RMSE comparison in detail. These results indicate strong potential for Informer and Autoformer modeling, but they are reported as extension evidence because paired statistical tests against the recurrent winners have not yet been regenerated.
 
 \begin{table}[t]
 \centering
@@ -184,26 +184,49 @@ The best Transformer case outperforms the best original recurrent case in every 
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{llclc}
+\begin{tabular}{llclcc}
 \toprule
-Bank & Best recurrent & RMSE & Best Transformer & Improve (\%) \\
+Bank & Best recurrent & Rec. RMSE & Best Transformer & Tr. RMSE & Improve (\%) \\
 \midrule
-BBCA & \texttt{bilstm\_data} & 1881.53 & \texttt{autoformer\_macro} & 70.98 \\
-BBNI & \texttt{bilstm\_data} & 335.85 & \texttt{informer\_data} & 34.60 \\
-BBRI & \texttt{bilstm\_data} & 525.70 & \texttt{informer\_macro} & 27.87 \\
-BBTN & \texttt{bilstm\_data\_ga} & 51.44 & \texttt{informer\_data\_random} & 16.40 \\
-BDMN & \texttt{lstm\_data} & 120.72 & \texttt{informer\_data} & 36.37 \\
-BMRI & \texttt{bilstm\_macro\_ga} & 1388.71 & \texttt{informer\_data\_random} & 36.26 \\
-BNGA & \texttt{bilstm\_data} & 244.14 & \texttt{informer\_data} & 45.70 \\
+BBCA & \texttt{bilstm\_data} & 1881.53 & \texttt{autoformer\_macro} & 545.93 & 70.98 \\
+BBNI & \texttt{bilstm\_data} & 335.85 & \texttt{informer\_data} & 219.66 & 34.60 \\
+BBRI & \texttt{bilstm\_data} & 525.70 & \texttt{informer\_macro} & 379.21 & 27.87 \\
+BBTN & \texttt{bilstm\_data\_ga} & 51.44 & \texttt{informer\_data\_random} & 43.01 & 16.40 \\
+BDMN & \texttt{lstm\_data} & 120.72 & \texttt{informer\_data} & 76.82 & 36.37 \\
+BMRI & \texttt{bilstm\_macro\_ga} & 1388.71 & \texttt{informer\_data\_random} & 885.21 & 36.26 \\
+BNGA & \texttt{bilstm\_data} & 244.14 & \texttt{informer\_data} & 132.56 & 45.70 \\
 \midrule
-Mean & -- & -- & -- & \textbf{38.31} \\
+Mean & -- & -- & -- & -- & \textbf{38.31} \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
 \subsection{Supplementary Recurrent-Variant Extension}
-The recurrent-variant sweep contains 1400 runs over normalization, convolutional recurrent, and attention-augmented LSTM/BiLSTM cases. The strongest global variant is \texttt{cnn\_bilstm\_data\_ga}, with RMSE 754.96, MAE 668.21, and MAPE 12.35\%. The top three recurrent variants are \texttt{cnn\_bilstm\_data\_ga}, \texttt{cnn\_bilstm\_data}, and \texttt{cnn\_lstm\_data}, indicating that convolutional preprocessing is the most competitive recurrent-variant subgroup.
+The recurrent-variant sweep contains 1400 runs over normalization, convolutional recurrent, and attention-augmented LSTM/BiLSTM cases. The strongest global variant is \texttt{cnn\_bilstm\_data\_ga}, with RMSE 754.96, MAE 668.21, and MAPE 12.35\%. The top three recurrent variants are \texttt{cnn\_bilstm\_data\_ga}, \texttt{cnn\_bilstm\_data}, and \texttt{cnn\_lstm\_data}, indicating that convolutional preprocessing is the most competitive recurrent-variant subgroup. Table~\ref{tab:variant_best_bank} lists the best recurrent variant for each bank.
+
+\begin{table}[t]
+\centering
+\caption{Best recurrent-variant case per bank.}
+\label{tab:variant_best_bank}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llcccc}
+\toprule
+Bank & Best variant & RMSE & MAE & MAPE (\%) & RMSE vs rec. (\%) \\
+\midrule
+BBCA & \texttt{bilstm\_attention\_data} & 2004.10 & 1830.50 & 19.51 & -6.51 \\
+BBNI & \texttt{cnn\_bilstm\_data} & 362.88 & 263.19 & 5.08 & -8.05 \\
+BBRI & \texttt{bilstm\_attention\_data} & 580.65 & 454.46 & 8.59 & -10.45 \\
+BBTN & \texttt{bilstm\_attention\_data} & 70.84 & 58.99 & 4.35 & -37.71 \\
+BDMN & \texttt{cnn\_bilstm\_data\_ga} & 116.73 & 89.56 & 3.40 & \textbf{3.30} \\
+BMRI & \texttt{cnn\_bilstm\_macro} & 1533.72 & 1299.75 & 21.29 & -10.44 \\
+BNGA & \texttt{cnn\_bilstm\_data\_ga} & 247.60 & 196.96 & 11.48 & -1.41 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
 
 However, recurrent variants do not improve the original recurrent benchmark on average. Their average best-per-bank differences relative to the original recurrent winners are -10.18\% RMSE, -7.90\% MAE, and -7.41\% MAPE, where negative values indicate worse performance. The only bank-level exception is BDMN, where \texttt{cnn\_bilstm\_data\_ga} slightly improves RMSE over \texttt{lstm\_data} (116.73 vs.\ 120.72). Recurrent variants are therefore useful as robustness and architecture-ablation evidence, but they do not replace the original BiLSTM baseline in this study.
 
