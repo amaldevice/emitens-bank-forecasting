@@ -1,39 +1,58 @@
 \section{Results and Discussion}
 
-\subsection{Performance Comparison Across Configurations}
-Table~\ref{tab:main_results} reports the best recurrent case per bank based on mean RMSE across five seeds. BiLSTM-based settings are dominant in six out of seven banks. The best configurations are mostly \texttt{bilstm\_without\_macro}, with two bank-specific exceptions: \texttt{bilstm\_without\_macro\_ga} for BBTN and \texttt{bilstm\_with\_macro\_ga} for BMRI.
+\subsection{Performance Comparison Across Model Families}
+Table~\ref{tab:main_results} summarizes the strongest global case from each completed experiment family. The Transformer family gives the lowest aggregate error, with \texttt{informer\_data} reducing mean RMSE from 680.83 in the best original recurrent case to 401.02. The recurrent-variant sweep expands the architecture search space, but its best global case remains below the original recurrent winner.
 
 \begin{table}[t]
 \centering
-\caption{Best-performing recurrent case per bank (mean$\pm$std over 5 seeds).}
+\caption{Global best case by model family (mean over 7 banks and 5 seeds).}
 \label{tab:main_results}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{llccc}
 \toprule
-Bank & Best case & RMSE & MAE & MAPE (\%) \\
+Family & Best case & RMSE & MAE & MAPE (\%) \\
 \midrule
-BBCA & \textbf{bilstm\_without\_macro} & $\mathbf{1881.53 \pm 199.49}$ & \textbf{1721.55} & \textbf{18.36} \\
-BBNI & \textbf{bilstm\_without\_macro} & $\mathbf{335.85 \pm 57.51}$ & \textbf{252.66} & \textbf{4.90} \\
-BBRI & \textbf{bilstm\_without\_macro} & $\mathbf{525.70 \pm 123.24}$ & \textbf{435.44} & \textbf{8.34} \\
-BBTN & \textbf{bilstm\_without\_macro\_ga} & $\mathbf{51.44 \pm 16.04}$ & \textbf{43.48} & \textbf{3.23} \\
-BDMN & \textbf{lstm\_without\_macro} & $\mathbf{120.72 \pm 21.92}$ & \textbf{98.32} & \textbf{3.74} \\
-BMRI & \textbf{bilstm\_with\_macro\_ga} & $\mathbf{1388.71 \pm 257.96}$ & \textbf{1165.79} & \textbf{19.09} \\
-BNGA & \textbf{bilstm\_without\_macro} & $\mathbf{244.14 \pm 28.12}$ & \textbf{192.77} & \textbf{11.23} \\
+Original recurrent & \texttt{bilstm\_data\_ga} & 680.83 & 591.04 & 10.65 \\
+Recurrent variants & \texttt{cnn\_bilstm\_data\_ga} & 754.96 & 668.21 & 12.35 \\
+Transformer & \textbf{\texttt{informer\_data}} & \textbf{401.02} & \textbf{325.11} & \textbf{5.94} \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-Across all eight recurrent ablation cases, the best overall average RMSE is obtained by \texttt{bilstm\_without\_macro\_ga} (680.83), followed closely by \texttt{bilstm\_without\_macro} (681.26), while \texttt{lstm\_without\_macro} is third (741.52). In this dataset, moving from \texttt{Without\_Macro} to \texttt{With\_Macro} is not uniformly beneficial, and improvements are bank-dependent.
-
-\subsection{Statistical Significance Analysis}
-Table~\ref{tab:stats_results} compares each bank's best recurrent case against \texttt{lstm\_without\_macro} as baseline. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%.
+The same pattern appears at bank level. Table~\ref{tab:bank_family_best} compares the best original recurrent, recurrent-variant, and Transformer case for each bank. Transformer models win all seven bank-level comparisons. The average best-per-bank improvements over the original recurrent winners are 38.31\% for RMSE, 42.17\% for MAE, and 41.95\% for MAPE.
 
 \begin{table}[t]
 \centering
-\caption{Best recurrent case vs baseline (\texttt{lstm\_without\_macro}) significance summary.}
+\caption{Best case per bank across original recurrent, recurrent variants, and Transformers.}
+\label{tab:bank_family_best}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccc}
+\toprule
+Bank & Original recurrent & Recurrent variant & Transformer \\
+\midrule
+BBCA & \texttt{bilstm\_data} (1881.53) & \texttt{bilstm\_attention\_data} (2004.10) & \textbf{\texttt{autoformer\_macro} (545.93)} \\
+BBNI & \texttt{bilstm\_data} (335.85) & \texttt{cnn\_bilstm\_data} (362.88) & \textbf{\texttt{informer\_data} (219.66)} \\
+BBRI & \texttt{bilstm\_data} (525.70) & \texttt{bilstm\_attention\_data} (580.65) & \textbf{\texttt{informer\_macro} (379.21)} \\
+BBTN & \texttt{bilstm\_data\_ga} (51.44) & \texttt{bilstm\_attention\_data} (70.84) & \textbf{\texttt{informer\_data\_random} (43.01)} \\
+BDMN & \texttt{lstm\_data} (120.72) & \texttt{cnn\_bilstm\_data\_ga} (116.73) & \textbf{\texttt{informer\_data} (76.82)} \\
+BMRI & \texttt{bilstm\_macro\_ga} (1388.71) & \texttt{cnn\_bilstm\_macro} (1533.72) & \textbf{\texttt{informer\_data\_random} (885.21)} \\
+BNGA & \texttt{bilstm\_data} (244.14) & \texttt{cnn\_bilstm\_data\_ga} (247.60) & \textbf{\texttt{informer\_data} (132.56)} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Statistical Significance Analysis}
+Table~\ref{tab:stats_results} reports the inferential validation currently available for the original recurrent benchmark, comparing each bank's best recurrent case against \texttt{lstm\_data}. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%. Cross-family Wilcoxon and Diebold-Mariano tests should be regenerated before treating the Transformer margin as a formal significance claim.
+
+\begin{table}[t]
+\centering
+\caption{Original recurrent significance summary against \texttt{lstm\_data}.}
 \label{tab:stats_results}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -42,73 +61,67 @@ Table~\ref{tab:stats_results} compares each bank's best recurrent case against \
 \toprule
 Bank & Best case & Improve (\%) & Wilcoxon $p$ & DM $p$ \\
 \midrule
-BBCA & bilstm\_without\_macro & 8.76 & 0.4375 & $2.28 \times 10^{-13}$ \\
-BBNI & bilstm\_without\_macro & 10.47 & \textbf{0.0625} & $4.84 \times 10^{-11}$ \\
-BBRI & bilstm\_without\_macro & 28.23 & 0.3125 & $< 10^{-16}$ \\
-BBTN & bilstm\_without\_macro\_ga & \textbf{35.66} & 0.3125 & $\mathbf{2.22 \times 10^{-16}}$ \\
-BDMN & lstm\_without\_macro & 0.00 & 1.0000 & n/a \\
-BMRI & bilstm\_with\_macro\_ga & 11.18 & 0.4375 & $2.23 \times 10^{-11}$ \\
-BNGA & bilstm\_without\_macro & 4.91 & 0.3125 & $4.78 \times 10^{-5}$ \\
+BBCA & bilstm\_data & 8.76 & 0.4375 & $2.28 \times 10^{-13}$ \\
+BBNI & bilstm\_data & 10.47 & \textbf{0.0625} & $4.84 \times 10^{-11}$ \\
+BBRI & bilstm\_data & 28.23 & 0.3125 & $< 10^{-16}$ \\
+BBTN & bilstm\_data\_ga & \textbf{35.66} & 0.3125 & $\mathbf{2.22 \times 10^{-16}}$ \\
+BDMN & lstm\_data & 0.00 & 1.0000 & n/a \\
+BMRI & bilstm\_macro\_ga & 11.18 & 0.4375 & $2.23 \times 10^{-11}$ \\
+BNGA & bilstm\_data & 4.91 & 0.3125 & $4.78 \times 10^{-5}$ \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-\subsection{Global Ranking and Regime Matrix}
-Table~\ref{tab:overall_case_rank} presents an overall ranking across all banks using mean RMSE, MAE, and MAPE. The top two configurations are both BiLSTM-\texttt{Without\_Macro} variants, while all \texttt{With\_Macro} variants rank below them in the aggregate view.
+Table~\ref{tab:overall_case_rank} presents a cross-family ranking of the strongest global cases. The top eight positions are all Transformer cases; the best original recurrent case appears next, and the strongest recurrent variant follows after the original recurrent winners. This supports the main extension result: the new Transformer models dominate the current search space in aggregate.
 
 \begin{table}[t]
 \centering
-\caption{Overall recurrent ranking across all banks (lower is better).}
+\caption{Cross-family global ranking across all banks (lower is better).}
 \label{tab:overall_case_rank}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+Family & Case & RMSE & MAE & MAPE (\%) \\
+\midrule
+Transformer & \textbf{\texttt{informer\_data}} & \textbf{401.02} & \textbf{325.11} & \textbf{5.94} \\
+Transformer & \texttt{informer\_data\_random} & 421.00 & 342.67 & 6.67 \\
+Transformer & \texttt{informer\_macro} & 450.05 & 385.37 & 7.59 \\
+Transformer & \texttt{autoformer\_data} & 453.87 & 388.04 & 9.49 \\
+Transformer & \texttt{autoformer\_macro} & 496.49 & 420.89 & 10.61 \\
+Transformer & \texttt{autoformer\_data\_random} & 501.79 & 435.21 & 10.31 \\
+Original recurrent & \texttt{bilstm\_data\_ga} & 680.83 & 591.04 & 10.65 \\
+Original recurrent & \texttt{bilstm\_data} & 681.26 & 589.76 & 10.74 \\
+Recurrent variants & \texttt{cnn\_bilstm\_data\_ga} & 754.96 & 668.21 & 12.35 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+To directly answer whether macroeconomic feature engineering improves accuracy, Table~\ref{tab:macro_delta_matrix} summarizes how often macro-augmented cases win within each family. Macro features are not uniformly beneficial. The global winner in every family is data-only, although macro cases remain useful in specific banks such as BMRI for original recurrent and recurrent variants, and BBCA/BBRI for Transformers.
+
+\begin{table}[t]
+\centering
+\caption{Macro-feature regime summary across model families.}
+\label{tab:macro_delta_matrix}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{lccc}
 \toprule
-Case & RMSE & MAE & MAPE (\%) \\
+Family & Global best regime & Macro bank wins & Best macro bank(s) \\
 \midrule
-\textbf{bilstm\_without\_macro\_ga} & \textbf{680.83} & 591.04 & \textbf{10.65} \\
-bilstm\_without\_macro & 681.26 & \textbf{589.76} & 10.74 \\
-lstm\_without\_macro & 741.52 & 644.21 & 11.44 \\
-lstm\_without\_macro\_ga & 781.95 & 688.86 & 12.66 \\
-bilstm\_with\_macro\_ga & 806.40 & 722.52 & 13.76 \\
-bilstm\_with\_macro & 814.04 & 720.31 & 13.14 \\
-lstm\_with\_macro & 851.89 & 759.88 & 13.96 \\
-lstm\_with\_macro\_ga & 938.15 & 842.31 & 17.48 \\
+Original recurrent & Data-only & 1/7 & BMRI \\
+Recurrent variants & Data-only & 1/7 & BMRI \\
+Transformer & Data-only & 2/7 & BBCA, BBRI \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-To directly answer whether macroeconomic feature engineering improves accuracy, Table~\ref{tab:macro_delta_matrix} reports the RMSE change from \texttt{Without\_Macro} to \texttt{With\_Macro} per bank. Positive values indicate degradation, and negative values indicate improvement.
-
-\begin{table}[t]
-\centering
-\caption{RMSE change (\%) from \texttt{Without\_Macro} to \texttt{With\_Macro}.}
-\label{tab:macro_delta_matrix}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcc}
-\toprule
-Bank & LSTM delta (\%) & BiLSTM delta (\%) \\
-\midrule
-BBCA & +20.34 & +27.87 \\
-BBNI & +30.70 & +39.21 \\
-BBRI & -1.27 & +23.19 \\
-BBTN & \textbf{-5.04} & \textbf{-17.72} \\
-BDMN & +202.86 & +126.82 \\
-BMRI & -1.76 & -4.85 \\
-BNGA & +13.25 & +15.45 \\
-\midrule
-Mean & +37.01 & +29.99 \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-This evidence suggests that macro variables are useful only in specific regimes/banks rather than universally. The large RMSE spikes observed for BDMN (+202.86\% for LSTM, +126.82\% for BiLSTM) are consistent with temporal misalignment between macro indicators and this bank's price dynamics. This pattern is compatible with the broader literature: methods designed for exogenous variables can improve forecasting when the external signals are informative and properly aligned \cite{wang2024timexer,qiu2025dag_exogenous}, and multiple IEEE studies also report gains from macro-integrated forecasting pipelines \cite{adyatma2022idx_macro,begum2024macro_sentiment_lstm,dechjijaruwate2025thai_banks_external}.
+This evidence suggests that macro variables are useful only in specific regimes/banks rather than universally. This pattern is compatible with the broader literature: methods designed for exogenous variables can improve forecasting when the external signals are informative and properly aligned \cite{wang2024timexer,qiu2025dag_exogenous}, and multiple IEEE studies also report gains from macro-integrated forecasting pipelines \cite{adyatma2022idx_macro,begum2024macro_sentiment_lstm,dechjijaruwate2025thai_banks_external}.
 
 \subsection{XAI Analysis with SHAP}
 We generated SHAP outputs for all 280 original recurrent checkpoints (7 banks $\times$ 8 cases $\times$ 5 seeds). This produced 3,640 feature-attribution rows over 16 unique features. Using global top-1 frequency, the most frequently dominant drivers are \textit{Low Price} (39 runs), \textit{Bid Price} (31), \textit{Price Change 1 Day Percent} (28), and \textit{Price to Sales Ratio} (28). The pattern indicates that short-horizon market microstructure and valuation factors dominate the model explanations more often than macro indicators.
@@ -154,53 +167,7 @@ Price to Sales Ratio & 0.00362 & \textbf{28} \\
 \end{figure}
 
 \subsection{Supplementary Transformer Extension}
-Table~\ref{tab:extension_global_best} summarizes the strongest global case from each completed experiment family. As an extension to the recurrent benchmark, the Transformer sweep shows the strongest aggregate performance. The best Transformer case, \texttt{informer\_data}, reduces mean RMSE from 680.83 in the best original recurrent case to 401.02.
-
-\begin{table}[t]
-\centering
-\caption{Global best case by experiment family.}
-\label{tab:extension_global_best}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{llccc}
-\toprule
-Family & Best case & RMSE & MAE & MAPE (\%) \\
-\midrule
-Original recurrent & \texttt{bilstm\_data\_ga} & 680.83 & 591.04 & 10.65 \\
-Recurrent variants & \texttt{cnn\_bilstm\_data\_ga} & 754.96 & 668.21 & 12.35 \\
-Transformer & \textbf{\texttt{informer\_data}} & \textbf{401.02} & \textbf{325.11} & \textbf{5.94} \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-The best Transformer case outperforms the best original recurrent case in every bank-level comparison. The average best-per-bank improvements are 38.31\% for RMSE, 42.17\% for MAE, and 41.95\% for MAPE. Table~\ref{tab:transformer_gain_bank} reports the RMSE comparison in detail. These results indicate strong potential for Informer/Autoformer-style modeling, but they are reported as extension evidence because paired statistical tests against the recurrent winners have not yet been regenerated.
-
-\begin{table}[t]
-\centering
-\caption{Best Transformer improvement over best original recurrent case.}
-\label{tab:transformer_gain_bank}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{llclc}
-\toprule
-Bank & Best recurrent & RMSE & Best Transformer & Improve (\%) \\
-\midrule
-BBCA & \texttt{bilstm\_data} & 1881.53 & \texttt{autoformer\_macro} & 70.98 \\
-BBNI & \texttt{bilstm\_data} & 335.85 & \texttt{informer\_data} & 34.60 \\
-BBRI & \texttt{bilstm\_data} & 525.70 & \texttt{informer\_macro} & 27.87 \\
-BBTN & \texttt{bilstm\_data\_ga} & 51.44 & \texttt{informer\_data\_random} & 16.40 \\
-BDMN & \texttt{lstm\_data} & 120.72 & \texttt{informer\_data} & 36.37 \\
-BMRI & \texttt{bilstm\_macro\_ga} & 1388.71 & \texttt{informer\_data\_random} & 36.26 \\
-BNGA & \texttt{bilstm\_data} & 244.14 & \texttt{informer\_data} & 45.70 \\
-\midrule
-Mean & -- & -- & -- & \textbf{38.31} \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
+As shown in Tables~\ref{tab:main_results} and~\ref{tab:bank_family_best}, the Transformer sweep provides the strongest extension path. \texttt{Informer\_data} is the best global case, while the bank-level winners are distributed across \texttt{informer\_data}, \texttt{informer\_data\_random}, \texttt{informer\_macro}, and \texttt{autoformer\_macro}. This distribution indicates that both architecture choice and data regime remain bank-dependent even though the Transformer family dominates in aggregate. These results indicate strong potential for Informer and Autoformer modeling, but they are reported as extension evidence because paired statistical tests against the recurrent winners have not yet been regenerated.
 
 \subsection{Supplementary Recurrent-Variant Extension}
 The recurrent-variant sweep contains 1400 runs over normalization, convolutional recurrent, and attention-augmented LSTM/BiLSTM cases. The strongest global variant is \texttt{cnn\_bilstm\_data\_ga}, with RMSE 754.96, MAE 668.21, and MAPE 12.35\%. The top three recurrent variants are \texttt{cnn\_bilstm\_data\_ga}, \texttt{cnn\_bilstm\_data}, and \texttt{cnn\_lstm\_data}, indicating that convolutional preprocessing is the most competitive recurrent-variant subgroup.
