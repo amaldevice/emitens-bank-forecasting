@@ -41,7 +41,7 @@ To isolate the effect of hyperparameter tuning from architectural choices, we in
 \end{itemize}
 Each GA individual encodes one $(h, \alpha, L)$ triplet. The population size is set to 8 and the number of generations is fixed at 5, yielding a total evaluation budget of $8 \times 5 = 40$ configurations per case. Tournament selection (size 3) is used for parent selection, and single-point crossover with a per-gene mutation probability of 0.2 is applied. The hand-picked default configuration used in non-GA cases is $(h=64, \alpha=10^{-3}, L=20)$. Configurations tagged as ``\_ga'' in the results tables indicate the GA-optimized setting. This design tests whether budgeted tuning improves accuracy and stability versus fixed defaults, acting as an ablation factor for optimization effort rather than a contribution claim about the search algorithm itself.
 
-For the supplementary Transformer experiments, the code also supports a budgeted random-search mode. This mode uses the same validation objective and a small candidate budget to obtain fast initial estimates before running more expensive GA-style tuning or SHAP analysis.
+For the supplementary Transformer experiments, the code also supports a budgeted random-search mode. This mode uses the same validation objective and a small candidate budget to generate the \texttt{\_random} Transformer cases and fast baseline estimates; it is separate from the GA workflow used for recurrent-family tuning and should not be read as a completed Transformer GA sweep.
 
 \subsection{Statistical Validation}
 Beyond average error reporting, we apply two complementary tests:
