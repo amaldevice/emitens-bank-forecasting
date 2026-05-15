@@ -1,7 +1,7 @@
 \section{Results and Discussion}
 
 \subsection{Performance Comparison Across Model Families}
-Table~\ref{tab:main_results} summarizes the strongest global case from each completed experiment family. The Transformer family gives the lowest aggregate error, with \texttt{informer\_data} reducing mean RMSE from 680.83 in the best original recurrent case to 401.02. The recurrent-variant sweep expands the architecture search space, but its best global case remains below the original recurrent winner.
+Table~\ref{tab:main_results} summarizes the strongest global case from each completed experiment family. The Transformer family shows the lowest observed aggregate error among the completed runs, with \texttt{informer\_data} reducing mean RMSE from 680.83 in the best original recurrent case to 401.02. The recurrent-variant sweep expands the architecture search space, but its best global case does not surpass the original recurrent winner.
 
 \begin{table}[t]
 \centering
@@ -22,7 +22,7 @@ Transformer & \textbf{\texttt{informer\_data}} & \textbf{401.02} & \textbf{325.1
 }
 \end{table}
 
-The same pattern appears at bank level. Table~\ref{tab:bank_family_best} compares the best original recurrent, recurrent-variant, and Transformer case for each bank. Transformer models win all seven bank-level comparisons. The average best-per-bank improvements over the original recurrent winners are 38.31\% for RMSE, 42.17\% for MAE, and 41.95\% for MAPE.
+The same pattern appears at bank level among the completed runs. Table~\ref{tab:bank_family_best} compares the best original recurrent, recurrent-variant, and Transformer case for each bank. Transformer models win all seven bank-level comparisons in this completed set. The average best-per-bank improvements over the original recurrent winners are 38.31\% for RMSE, 42.17\% for MAE, and 41.95\% for MAPE.
 
 \begin{table}[t]
 \centering
@@ -48,7 +48,7 @@ BNGA & \texttt{bilstm\_data} (244.14) & \texttt{cnn\_bilstm\_data\_ga} (247.60) 
 \end{table}
 
 \subsection{Statistical Significance Analysis}
-Table~\ref{tab:stats_results} reports the inferential validation currently available for the original recurrent benchmark, comparing each bank's best recurrent case against \texttt{lstm\_data}. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%. Cross-family Wilcoxon and Diebold-Mariano tests should be regenerated before treating the Transformer margin as a formal significance claim.
+Table~\ref{tab:stats_results} reports the inferential validation currently available for the original recurrent benchmark, comparing each bank's best recurrent case against \texttt{lstm\_data}. RMSE gains are positive in six banks, ranging from 4.91\% to 35.66\%. For the Transformer extension, these values should be read as the lowest observed errors among completed runs; cross-family Wilcoxon and Diebold-Mariano tests should be regenerated before making any formal significance claim.
 
 \begin{table}[t]
 \centering
@@ -73,7 +73,7 @@ BNGA & bilstm\_data & 4.91 & 0.3125 & $4.78 \times 10^{-5}$ \\
 }
 \end{table}
 
-Table~\ref{tab:overall_case_rank} presents a cross-family ranking of the strongest global cases. The top eight positions are all Transformer cases; the best original recurrent case appears next, and the strongest recurrent variant follows after the original recurrent winners. This supports the main extension result: the new Transformer models achieve the lowest aggregate errors among the completed runs.
+Table~\ref{tab:overall_case_rank} presents a cross-family ranking of the strongest global cases. The top eight positions are all Transformer cases; the best original recurrent case appears next, and the strongest recurrent variant follows after the original recurrent winners. This is evidence that the new Transformer models achieve the lowest observed aggregate errors among the completed runs, but it is not a formal cross-family significance result.
 
 \begin{table}[t]
 \centering
@@ -124,9 +124,9 @@ Transformer & Data-only & 2/7 & BBCA, BBRI \\
 This evidence suggests that macro variables are useful only in specific regimes/banks rather than universally. This pattern is compatible with the broader literature: methods designed for exogenous variables can improve forecasting when the external signals are informative and properly aligned \cite{wang2024timexer,qiu2025dag_exogenous}, and multiple IEEE studies also report gains from macro-integrated forecasting pipelines \cite{adyatma2022idx_macro,begum2024macro_sentiment_lstm,dechjijaruwate2025thai_banks_external}.
 
 \subsection{XAI Analysis with SHAP}
-We generated SHAP outputs for all 280 original recurrent checkpoints (7 banks $\times$ 8 cases $\times$ 5 seeds). This produced 3,640 feature-attribution rows over 16 unique features. Using global top-1 frequency, the most frequent top-ranked features are \textit{Low Price} (39 runs), \textit{Bid Price} (31), \textit{Price Change 1 Day Percent} (28), and \textit{Price to Sales Ratio} (28). The pattern indicates that short-horizon market microstructure and valuation factors appear more often than macro indicators in the model explanations.
+We generated SHAP feature-attribution outputs for all 280 original recurrent checkpoints (7 banks $\times$ 8 cases $\times$ 5 seeds). This produced 3,640 feature-attribution rows over 16 unique features. Using global top-1 frequency, the most frequent top-ranked features are \textit{Low Price} (39 runs), \textit{Bid Price} (31), \textit{Price Change 1 Day Percent} (28), and \textit{Price to Sales Ratio} (28). The pattern indicates that short-horizon market microstructure and valuation factors appear more often than macro indicators in the feature attributions.
 
-Because a small number of runs showed extreme SHAP magnitudes (maximum $\approx 1.51 \times 10^{13}$), we also report a robust global ranking using a 99th-percentile cap. Under this robust aggregation, the top features remain stable: \textit{Low Price} (0.00465), \textit{Bid Price} (0.00428), \textit{Price Change 1 Day Percent} (0.00407), \textit{High Price} (0.00394), and \textit{Moving Average 20 Day} (0.00383). Hence, the main interpretation does not depend on a few outlier explanations.
+Because a small number of runs showed extreme SHAP magnitudes (maximum $\approx 1.51 \times 10^{13}$), we also report a robust global ranking using a 99th-percentile cap. Under this robust aggregation, the top features remain stable: \textit{Low Price} (0.00465), \textit{Bid Price} (0.00428), \textit{Price Change 1 Day Percent} (0.00407), \textit{High Price} (0.00394), and \textit{Moving Average 20 Day} (0.00383). Hence, the main interpretation does not depend on a few outlier attributions.
 
 \begin{table}[t]
 \centering
@@ -167,7 +167,7 @@ Price to Sales Ratio & 0.00362 & \textbf{28} \\
 \end{figure}
 
 \subsection{Supplementary Transformer Extension}
-As shown in Tables~\ref{tab:main_results} and~\ref{tab:bank_family_best}, the Transformer sweep is the lowest-error extension group. \texttt{Informer\_data} is the best global case, while the bank-level winners are distributed across \texttt{informer\_data}, \texttt{informer\_data\_random}, \texttt{informer\_macro}, and \texttt{autoformer\_macro}. This distribution indicates that both architecture choice and data regime remain bank-dependent even though the Transformer family has the lowest aggregate error. These results support further validation of Informer and Autoformer modeling, but they are reported as extension evidence because paired statistical tests against the recurrent winners have not yet been regenerated.
+As shown in Tables~\ref{tab:main_results} and~\ref{tab:bank_family_best}, the Transformer sweep records the lowest observed errors among the completed extension runs. \texttt{Informer\_data} is the best global case, while the bank-level winners are distributed across \texttt{informer\_data}, \texttt{informer\_data\_random}, \texttt{informer\_macro}, and \texttt{autoformer\_macro}. The \texttt{\_random} entries come from the budgeted Transformer random-search mode described in the methodology, not from GA-optimized Transformer runs. This distribution indicates that both architecture choice and data regime remain bank-dependent even though the Transformer family has the lowest observed aggregate error. These results support further validation of Informer and Autoformer modeling, but they are reported as extension evidence because paired statistical tests against the recurrent winners have not yet been regenerated.
 
 \subsection{Supplementary Recurrent-Variant Extension}
 The recurrent-variant sweep contains 1400 runs over normalization, convolutional recurrent, and attention-augmented LSTM/BiLSTM cases. The strongest global variant is \texttt{cnn\_bilstm\_data\_ga}, with RMSE 754.96, MAE 668.21, and MAPE 12.35\%. The top three recurrent variants are \texttt{cnn\_bilstm\_data\_ga}, \texttt{cnn\_bilstm\_data}, and \texttt{cnn\_lstm\_data}, indicating that convolutional preprocessing is the most competitive recurrent-variant subgroup.
